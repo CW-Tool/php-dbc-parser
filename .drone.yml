@@ -1,0 +1,12 @@
+pipeline:
+  build:
+    image: kogitoapp/php:7.2-cli
+    commands:
+      - composer install
+
+  test:
+    image: kogitoapp/php:7.2-cli
+    commands:
+      - vendor/bin/phpunit
+    when:
+      status: [ success ]

@@ -1,0 +1,13 @@
+Sample.dbc:
+    locales: 8
+    locale: 'enGB'
+
+    fields:
+        id:
+            type: uint
+            size: 4
+            count: 1
+        name:
+            type: string
+            size: 4
+            count: 1
