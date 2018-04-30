@@ -62,8 +62,8 @@ class LocalizedStringFieldTest extends TestCase
     public function constructProvider(): array
     {
         return [
-            'without options' => ['name', ['type' => 'localized_string', 'count' => 1], 36],
-            'using options' => ['name2', ['type' => 'localized_string', 'count' => 1, 'locale' => 'enGB', 'locale_count' => 16], 68],
+            'single column' => ['name', ['type' => 'localized_string', 'count' => 1], 36],
+            'single column with extended locales' => ['name2', ['type' => 'localized_string', 'count' => 1, 'locale' => 'enGB', 'locale_count' => 16], 68],
         ];
     }
 
@@ -75,8 +75,8 @@ class LocalizedStringFieldTest extends TestCase
     public function incompleteProvider(): array
     {
         return [
-            'without options' => ['name', ['type' => 'localized_string']],
-            'using options' => ['name2', ['type' => 'localized_string', 'locale' => 'enGB', 'locale_count' => 16]],
+            'missing count' => ['name', ['type' => 'localized_string']],
+            'missing count with extended locales' => ['name2', ['type' => 'localized_string', 'locale' => 'enGB', 'locale_count' => 16]],
         ];
     }
 

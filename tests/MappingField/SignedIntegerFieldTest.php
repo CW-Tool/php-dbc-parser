@@ -40,7 +40,7 @@ class SignedIntegerFieldTest extends TestCase
     public function constructProvider(): array
     {
         return [
-            'without options' => ['name', ['type' => 'int', 'count' => 1], 4],
+            'single column' => ['name', ['type' => 'int', 'count' => 1], 4],
         ];
     }
 
@@ -52,7 +52,7 @@ class SignedIntegerFieldTest extends TestCase
     public function incompleteProvider(): array
     {
         return [
-            'without options' => ['name', ['type' => 'int']],
+            'missing count' => ['name', ['type' => 'int']],
         ];
     }
 }

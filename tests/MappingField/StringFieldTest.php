@@ -40,7 +40,7 @@ class StringFieldTest extends TestCase
     public function constructProvider(): array
     {
         return [
-            'without options' => ['name', ['type' => 'string', 'count' => 1], 4],
+            'single column' => ['name', ['type' => 'string', 'count' => 1], 4],
         ];
     }
 
@@ -52,7 +52,7 @@ class StringFieldTest extends TestCase
     public function incompleteProvider(): array
     {
         return [
-            'without options' => ['name', ['type' => 'string']],
+            'missing count' => ['name', ['type' => 'string']],
         ];
     }
 }

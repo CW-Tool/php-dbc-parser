@@ -60,7 +60,7 @@ class DBCTest extends TestCase
     public function constructProvider()
     {
         return [
-            'AreaPOI - 1.12.1' => [339, 116, 29, 3856],
+            'AreaPOI mapping - patch 1.12.1' => [339, 116, 29, 3856],
         ];
     }
 }

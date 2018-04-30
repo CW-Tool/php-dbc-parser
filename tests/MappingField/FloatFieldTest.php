@@ -50,7 +50,7 @@ class FloatFieldTest extends TestCase
     public function constructProvider(): array
     {
         return [
-            'without options' => ['name', ['type' =>'float', 'count' => 1], 4],
+            'single column' => ['name', ['type' =>'float', 'count' => 1], 4],
         ];
     }
 
@@ -62,7 +62,7 @@ class FloatFieldTest extends TestCase
     public function incompleteProvider(): array
     {
         return [
-            'without options' => ['name', ['type' =>'float'], 4],
+            'missing count' => ['name', ['type' =>'float'], 4],
         ];
     }
 
@@ -74,8 +74,8 @@ class FloatFieldTest extends TestCase
     public function sizeCalculateProvider(): array
     {
         return [
-            'without options' => ['name', ['type' =>'float', 'count' => 1], 4],
-            'without options' => ['name', ['type' =>'float', 'count' => 4], 16],
+            'single column' => ['name', ['type' =>'float', 'count' => 1], 4],
+            'multiple columns' => ['name', ['type' =>'float', 'count' => 4], 16],
         ];
     }
 }

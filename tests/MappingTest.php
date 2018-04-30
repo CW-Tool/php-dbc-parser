@@ -64,8 +64,8 @@ class MappingTest extends TestCase
     public function sampleProvider()
     {
         return [
-            'working sample' => [dirname(__FILE__).'/data/sample.yaml', 7, 54],
-            'AreaPOI - 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.yaml', 13, 116],
+            'valid example mapping' => [dirname(__FILE__).'/data/sample.yaml', 7, 54],
+            'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.yaml', 13, 116],
         ];
     }
 
@@ -77,7 +77,7 @@ class MappingTest extends TestCase
     public function invalidSampleProvider()
     {
         return [
-            'working sample' => [dirname(__FILE__).'/data/invalid-sample.yaml'],
+            'example with unknown types' => [dirname(__FILE__).'/data/invalid-sample.yaml'],
         ];
     }
 
@@ -89,7 +89,7 @@ class MappingTest extends TestCase
     public function missingTypeProvider()
     {
         return [
-            'working sample' => [dirname(__FILE__).'/data/missing-type.yaml'],
+            'example without types' => [dirname(__FILE__).'/data/missing-type.yaml'],
         ];
     }
 
@@ -101,7 +101,7 @@ class MappingTest extends TestCase
     public function typeTestProvider()
     {
         return [
-            'working sample' => [dirname(__FILE__).'/data/type-sample.yaml', 'name', 'string']
+            'example with string column' => [dirname(__FILE__).'/data/type-sample.yaml', 'name', 'string']
         ];
     }
 }

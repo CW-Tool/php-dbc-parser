@@ -40,7 +40,7 @@ class UnsignedCharFieldTest extends TestCase
     public function constructProvider(): array
     {
         return [
-            'without options' => ['name', ['type' => 'uchar', 'count' => 1], 1],
+            'single column' => ['name', ['type' => 'uchar', 'count' => 1], 1],
         ];
     }
 
@@ -52,7 +52,7 @@ class UnsignedCharFieldTest extends TestCase
     public function incompleteProvider(): array
     {
         return [
-            'without options' => ['name', ['type' => 'uchar']],
+            'missing count' => ['name', ['type' => 'uchar']],
         ];
     }
 }
