@@ -118,6 +118,14 @@ class DBC
 
         list(, $this->record_count, $this->field_count, $this->record_size, $this->string_block_size) = unpack(self::HEADER_PACK_FORMAT, @fread($this->filehandle, self::HEADER_SIZE - strlen(self::SIGNATURE)));
 
+        $this->dataOffset = self::HEADER_SIZE;
+        $this->stringBlockOffset = self::HEADER_SIZE + ($this->record_count * $this->record_size);
+
+        if ($this->filesize < ($this->stringBlockOffset + $this->string_block_size))
+        {
+            throw new DBCException('DBC file is too small.');
+        }
+
         $this->attachMapping($map);
     }
 
