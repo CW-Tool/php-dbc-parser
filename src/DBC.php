@@ -145,6 +145,14 @@ class DBC
     {
         $this->mapping = $map;
 
+        if (null !== $this->mapping)
+        {
+            $delta = $map->getFieldCount() - $this->getFieldCount();
+            if (0 !== $delta) {
+                throw new DBCException('Mapping holds '.$map->getFieldCount().' fields but DBC holds '.$this->getFieldCount().' fields.');
+            }
+        }
+
         return $this;
     }
 
