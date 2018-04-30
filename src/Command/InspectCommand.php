@@ -15,7 +15,7 @@ use Wowstack\Dbc\DBC;
 class InspectCommand extends Command
 {
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected function configure()
     {
@@ -40,33 +40,33 @@ class InspectCommand extends Command
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         /**
-         * @var FormatterHelper $formatter
+         * @var FormatterHelper
          */
         $formatter = $this->getHelper('formatter');
 
         $output->writeln([
             'DBC Inspect',
             '===========',
-            ''
+            '',
         ]);
 
         $DBC = new DBC($input->getArgument('file'));
 
         $output->writeln([
-            '# of rows:            ' . $DBC->getRecordCount(),
-            '# of Bytes per row:   ' . $DBC->getRecordSize(),
-            '# of columns per row: ' . $DBC->getFieldCount(),
+            '# of rows:            '.$DBC->getRecordCount(),
+            '# of Bytes per row:   '.$DBC->getRecordSize(),
+            '# of columns per row: '.$DBC->getFieldCount(),
         ]);
 
         if ($DBC->hasStrings()) {
             $string_block = $DBC->getStringBlock();
             $output->writeln([
-                '# of strings:         ' . count($string_block),
+                '# of strings:         '.count($string_block),
                 '',
             ]);
 
@@ -75,19 +75,16 @@ class InspectCommand extends Command
             $output->writeln([
                 'String samples',
                 '--------------',
-                ''
+                '',
             ]);
 
-            foreach ($string_block as $index => $string)
-            {
-                $output->writeln([$index . ': '. $string]);
-                $string_samples--;
-                if (0 === $string_samples)
-                {
+            foreach ($string_block as $index => $string) {
+                $output->writeln([$index.': '.$string]);
+                --$string_samples;
+                if (0 === $string_samples) {
                     break;
                 }
             }
         }
-
     }
 }

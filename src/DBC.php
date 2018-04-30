@@ -145,8 +145,7 @@ class DBC
     {
         $this->mapping = $map;
 
-        if (null !== $this->mapping)
-        {
+        if (null !== $this->mapping) {
             $delta = $map->getFieldCount() - $this->getFieldCount();
             if (0 !== $delta) {
                 throw new DBCException('Mapping holds '.$map->getFieldCount().' fields but DBC holds '.$this->getFieldCount().' fields.');
@@ -189,14 +188,18 @@ class DBC
     }
 
     /**
+     * Returns the canonical path to the file.
+     *
      * @return string
      */
     public function getPath(): string
     {
-        return $this->path;
+        return realpath($this->path);
     }
 
     /**
+     * Returns the number of rows in the file.
+     *
      * @return int
      */
     public function getRecordCount(): int
@@ -205,6 +208,8 @@ class DBC
     }
 
     /**
+     * Returns the number of bytes per row.
+     *
      * @return int
      */
     public function getRecordSize(): int
@@ -213,6 +218,8 @@ class DBC
     }
 
     /**
+     * Returns the actual amount of colums in the file.
+     *
      * @return int
      */
     public function getFieldCount(): int
@@ -239,7 +246,7 @@ class DBC
     }
 
     /**
-     * Returns all strings found within the file
+     * Returns all strings found within the file.
      *
      * @return array
      */

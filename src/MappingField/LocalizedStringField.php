@@ -97,9 +97,7 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
     }
 
     /**
-     * Provides how many of this field follow.
-     *
-     * @return int
+     * {@inheritdoc}
      */
     public function getCount(): int
     {
