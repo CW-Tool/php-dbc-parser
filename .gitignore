@@ -15,6 +15,7 @@ Thumbs.db
 
 # Generated files
 /_build/
+/.php_cs.cache
 
 # Vendor libraries
 /vendor/

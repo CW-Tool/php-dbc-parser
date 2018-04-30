@@ -83,6 +83,13 @@ class DBC
     protected $stringBlockOffset = 0;
 
     /**
+     * An array of strings with the offset from string block start as index
+     *
+     * @var string[] $stringBlock
+     */
+    protected $stringBlock = null;
+
+    /**
      * Creates a DBC reader
      *
      * @param string  $path
@@ -126,6 +133,7 @@ class DBC
             throw new DBCException('DBC file is too small.');
         }
 
+        $this->readStringBlock();
         $this->attachMapping($map);
     }
 
@@ -141,6 +149,38 @@ class DBC
         $this->mapping = $map;
 
         return $this;
+    }
+
+    /**
+     * Reads in all strings contained within the string block table
+     */
+    public function readStringBlock()
+    {
+        fseek($this->filehandle, $this->stringBlockOffset);
+        $bytes_to_read = $this->string_block_size;
+        $current_offset = $this->stringBlockOffset;
+
+        $current_string =  null;
+        $bytes_read = 0;
+        while ($bytes_to_read > 0)
+        {
+            $current_byte = fread($this->filehandle, 1);
+            $bytes_read++;
+            if (chr(0) !== $current_byte)
+            {
+                $current_string = $current_string . $current_byte;
+            } else {
+                echo $current_string . PHP_EOL;
+                if (!empty($current_string))
+                {
+                    $this->stringBlock[$bytes_read-strlen($current_string)] = $current_string;
+                }
+                $current_string = null;
+            }
+
+            $bytes_to_read--;
+            $current_offset++;
+        }
     }
 
     /**
