@@ -96,7 +96,7 @@ class DBC
      * @param string  $path
      * @param Mapping $map
      */
-    public function __construct(string $path, Mapping $map)
+    public function __construct(string $path, Mapping $map = null)
     {
         $this->path = $path;
 
@@ -141,7 +141,7 @@ class DBC
      *
      * @return DBC
      */
-    public function attachMapping(Mapping $map)
+    public function attachMapping(Mapping $map = null)
     {
         $this->mapping = $map;
 
