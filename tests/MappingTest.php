@@ -64,7 +64,7 @@ class MappingTest extends TestCase
     public function sampleProvider()
     {
         return [
-            'valid example mapping' => [dirname(__FILE__).'/data/sample.yaml', 15, 54],
+            'valid example mapping' => [dirname(__FILE__).'/data/sample.yaml', 24, 90],
             'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.yaml', 29, 116],
             'Spell mapping - patch 1.12.1' => [dirname(__FILE__).'/data/Spell.yaml', 173, 692],
         ];

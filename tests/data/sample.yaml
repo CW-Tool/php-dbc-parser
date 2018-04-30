@@ -7,7 +7,7 @@ fields:
         count: 1
     description:
         type: localized_string
-        count: 1
+        count: 2
         localeCount: 8
         locale: 'enGB'
     scale:
