@@ -1,0 +1,6 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        count: 1

@@ -28,7 +28,7 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
     /**
      * Name of type
      */
-    const TYPE =  'localized_string';
+    const TYPE = 'localized_string';
 
     /**
      * @inheritDoc

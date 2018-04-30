@@ -8,7 +8,7 @@ class SignedIntegerField extends AbstractField implements MappingFieldInterface
     /**
      * Name of type
      */
-    const TYPE =  'int';
+    const TYPE = 'int';
 
     /**
      * @inheritDoc

@@ -3,15 +3,15 @@ fields:
         type: uint
         count: 1
     name:
-        type: string
+        type: unknown
         count: 1
     description:
-        type: localized_string
+        type: bogus
         count: 1
         localeCount: 8
         locale: 'enGB'
     scale:
-        type: float
+        type: locust
         count: 1
     take_a_byte:
         type: char

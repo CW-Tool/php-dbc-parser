@@ -8,7 +8,7 @@ class SignedCharField extends AbstractField implements MappingFieldInterface
     /**
      * Name of type
      */
-    const TYPE =  'char';
+    const TYPE = 'char';
 
     /**
      * @inheritDoc

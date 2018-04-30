@@ -8,7 +8,7 @@ class UnsignedIntegerField extends AbstractField implements MappingFieldInterfac
     /**
      * Name of type
      */
-    const TYPE =  'uint';
+    const TYPE = 'uint';
 
     /**
      * @inheritDoc

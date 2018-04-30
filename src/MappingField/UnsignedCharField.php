@@ -8,7 +8,7 @@ class UnsignedCharField extends AbstractField implements MappingFieldInterface
     /**
      * Name of type
      */
-    const TYPE =  'uchar';
+    const TYPE = 'uchar';
 
     /**
      * @inheritDoc

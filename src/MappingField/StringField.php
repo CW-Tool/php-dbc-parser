@@ -8,7 +8,7 @@ class StringField extends AbstractField implements MappingFieldInterface
     /**
      * Name of type
      */
-    const TYPE =  'string';
+    const TYPE = 'string';
 
     /**
      * @inheritDoc

@@ -8,7 +8,7 @@ class FloatField extends AbstractField implements MappingFieldInterface
     /**
      * Name of type
      */
-    const TYPE =  'float';
+    const TYPE = 'float';
 
     /**
      * @inheritDoc
