@@ -7,19 +7,31 @@ use Symfony\Component\Yaml\Yaml;
 
 class Mapping
 {
+
     /**
      * @var array
      */
-    private $_mapping = [];
+    protected $_settings = [];
+
+    /**
+     * @var array
+     */
+    protected $_fields = [];
+
+    /**
+     * @var int
+     */
+    protected $_fieldCount = 0;
 
     /**
      * Create an instance
      *
      * @param [] $mapping
      */
-    public function __construct($mapping = [])
+    public function __construct(array $mapping = [])
     {
-        $this->_mapping = $mapping;
+        $this->_settings = isset($mapping['settings']) ? $mapping['settings'] : [];
+        $this->_fields = isset($mapping['fields']) ? $mapping['fields'] : [];
     }
 
     /**

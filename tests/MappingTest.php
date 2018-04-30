@@ -8,18 +8,10 @@ use Wowstack\Dbc\Mapping;
 
 class MappingTest extends TestCase
 {
-    /**
-     * @var string
-     */
-    protected $yaml_mapping;
-
-    public function setUp()
+    public function testItConstructs()
     {
-        $this->yaml_mapping = realpath(dirname(__FILE__).'/data/sample.yaml');
-    }
-
-    public function testItConstructsFromMap()
-    {
-        $this->assertInstanceOf(Mapping::class, Mapping::fromYAML($this->yaml_mapping));
+        $this->markTestIncomplete(
+            'This test has not been implemented yet.'
+        );
     }
 }

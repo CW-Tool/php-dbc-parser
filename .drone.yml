@@ -7,6 +7,6 @@ pipeline:
   test:
     image: kogitoapp/php:7.2-cli
     commands:
-      - vendor/bin/phpunit
+      - vendor/bin/phpunit --testdox
     when:
       status: [ success ]

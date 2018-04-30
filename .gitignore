@@ -14,9 +14,7 @@
 Thumbs.db
 
 # Generated files
+/_build/
 
 # Vendor libraries
-/node_modules/*
-/yarn-error.log
-
 /vendor/

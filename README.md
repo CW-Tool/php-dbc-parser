@@ -1,7 +1,14 @@
 # WowStack: DBC reader/writer                [![Build status][bs-image]][bs-url]
 
-This is a [DBC][dbc] reader and writer library for PHP 7, allowing you to map,
-create, modify and update DBC files from World of Warcraft.
+This is a [DBC][dbc] reader and writer library for PHP >= 7, allowing you to map,
+create, modify and update DBC files from World of Warcraft up to version 3.3.5.
+
+## Features
+
+- supports all existing field types
+- fully automated test suite
+- configurable
+- customizable, e.g.
 
 [bs-image]: https://build01.kogitoapp.com/api/badges/wowstack/dbc-parser/status.svg
 [bs-url]: https://build01.kogitoapp.com/wowstack/dbc-parser
