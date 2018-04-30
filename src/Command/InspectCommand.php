@@ -7,6 +7,7 @@ namespace Wowstack\Dbc\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\FormatterHelper;
 use Wowstack\Dbc\DBC;
@@ -27,6 +28,15 @@ class InspectCommand extends Command
         $this
             ->addArgument('file', InputArgument::REQUIRED, 'Path to the DBC file')
             ;
+
+        $this
+            ->addOption(
+                'string-samples',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'Print selected number of string samples',
+                10
+            );
     }
 
     /**
@@ -54,9 +64,30 @@ class InspectCommand extends Command
         ]);
 
         if ($DBC->hasStrings()) {
+            $string_block = $DBC->getStringBlock();
             $output->writeln([
-                '# of strings:         ' . count($DBC->getStringBlock()),
+                '# of strings:         ' . count($string_block),
+                '',
             ]);
+
+            $string_samples = $input->getOption('string-samples');
+
+            $output->writeln([
+                'String samples',
+                '--------------',
+                ''
+            ]);
+
+            foreach ($string_block as $index => $string)
+            {
+                $output->writeln([$index . ': '. $string]);
+                $string_samples--;
+                if (0 === $string_samples)
+                {
+                    break;
+                }
+            }
         }
+
     }
 }

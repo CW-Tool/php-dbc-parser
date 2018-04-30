@@ -1,12 +1,20 @@
 pipeline:
-  build:
-    image: kogitoapp/php:7.2-cli
-    commands:
-      - composer install
+    build:
+        image: kogitoapp/php:7.2-cli
+        commands:
+            - composer install
 
-  test:
-    image: kogitoapp/php:7.2-cli
+    test:
+        image: kogitoapp/php:7.2-cli
+        commands:
+            - vendor/bin/phpunit --testdox
+        when:
+            status: [ success ]
+
     commands:
-      - vendor/bin/phpunit --testdox
-    when:
-      status: [ success ]
+        image: kogitoapp/php:7.2-cli
+        commands:
+            - ./bin/dbc-tool dbc:inspect tests/data/AreaPOI.dbc
+            - ./bin/dbc-tool dbc:inspect tests/data/Spell.dbc
+        when:
+            status: [ success ]
