@@ -21,7 +21,6 @@ class MappingTest extends TestCase
         $this->assertInstanceOf(Mapping::class, $mapping);
         $this->assertEquals($field_count, $mapping->getFieldCount());
         $this->assertEquals($field_size, $mapping->getFieldSize());
-        $this->assertCount($field_count, $mapping->getFields());
     }
 
     /**
@@ -67,6 +66,7 @@ class MappingTest extends TestCase
         return [
             'valid example mapping' => [dirname(__FILE__).'/data/sample.yaml', 7, 54],
             'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.yaml', 13, 116],
+            'Spell mapping - patch 1.12.1' => [dirname(__FILE__).'/data/Spell.yaml', 141, 692],
         ];
     }
 

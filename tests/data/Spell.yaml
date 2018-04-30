@@ -1,0 +1,259 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    school:
+        type: int
+        count: 1
+    category:
+        type: int
+        count: 1
+    castUI:
+        type: int
+        count: 1
+    dispelType:
+        type: int
+        count: 1
+    mechanic:
+        type: int
+        count: 1
+    attributes:
+        type: int
+        count: 1
+    attributesEx:
+        type: int
+        count: 1
+    attributesEx2:
+        type: int
+        count: 1
+    attributesEx3:
+        type: int
+        count: 1
+    attributesEx4:
+        type: int
+        count: 1
+    shapeshiftMask:
+        type: int
+        count: 1
+    shapeshiftExclude:
+        type: int
+        count: 1
+    targets:
+        type: int
+        count: 1
+    targetCreatureType:
+        type: int
+        count: 1
+    requiresSpellFocus:
+        type: int
+        count: 1
+    casterAuraState:
+        type: int
+        count: 1
+    targetAuraState:
+        type: int
+        count: 1
+    castingTimeIndex:
+        type: int
+        count: 1
+    recoveryTime:
+        type: int
+        count: 1
+    categoryRecoveryTime:
+        type: int
+        count: 1
+    interruptFlags:
+        type: int
+        count: 1
+    auraInterruptFlags:
+        type: int
+        count: 1
+    channelInterruptFlags:
+        type: int
+        count: 1
+    procTypeMask:
+        type: int
+        count: 1
+    procChance:
+        type: int
+        count: 1
+    procCharges:
+        type: int
+        count: 1
+    maxLevel:
+        type: int
+        count: 1
+    baseLevel:
+        type: int
+        count: 1
+    spellLevel:
+        type: int
+        count: 1
+    durationIndex:
+        type: int
+        count: 1
+    powerType:
+        type: int
+        count: 1
+    manaCost:
+        type: int
+        count: 1
+    manaCostPerLevel:
+        type: int
+        count: 1
+    manaCostPerSecond:
+        type: int
+        count: 1
+    manaCostPerSecondPerLevel:
+        type: int
+        count: 1
+    rangeIndex:
+        type: int
+        count: 1
+    speed:
+        type: float
+        count: 1
+    modalNextSpell:
+        type: int
+        count: 1
+    stackAmount:
+        type: int
+        count: 1
+    totem:
+        type: int
+        count: 2
+    reagent:
+        type: int
+        count: 8
+    reagentCount:
+        type: int
+        count: 8
+    equippedItemClass:
+        type: int
+        count: 1
+    equippedItemSubclass:
+        type: int
+        count: 1
+    equippedItemInvType:
+        type: int
+        count: 1
+    effect:
+        type: int
+        count: 3
+    effectDieSides:
+        type: int
+        count: 3
+    effectBaseDice:
+        type: int
+        count: 3
+    effectDicePerLevel:
+        type: float
+        count: 3
+    effectRealPointsPerLevel:
+        type: float
+        count: 3
+    effectBasePoints:
+        type: int
+        count: 3
+    effectMechanic:
+        type: int
+        count: 3
+    implicitTargetA:
+        type: int
+        count: 3
+    implicitTargetB:
+        type: int
+        count: 3
+    effectRadiusIndex:
+        type: int
+        count: 3
+    effectAura:
+        type: int
+        count: 3
+    effectAmplitude:
+        type: float
+        count: 3
+    effectMultipleValue:
+        type: float
+        count: 3
+    effectChainTarget:
+        type: int
+        count: 3
+    effectItemType:
+        type: int
+        count: 3
+    effectMiscValue:
+        type: int
+        count: 3
+    effectTriggerSpell:
+        type: int
+        count: 3
+    effectPointsPerCombo:
+        type: float
+        count: 3
+    spellVisual:
+        type: int
+        count: 2
+    spellIcon:
+        type: int
+        count: 1
+    activeIcon:
+        type: int
+        count: 1
+    spellPriority:
+        type: int
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    nameSubtext:
+        type: localized_string
+        count: 1
+    description:
+        type: localized_string
+        count: 1
+    auraDescription:
+        type: localized_string
+        count: 1
+    manaCostPct:
+        type: int
+        count: 1
+    startRecoveryCategory:
+        type: int
+        count: 1
+    startRecoveryTime:
+        type: int
+        count: 1
+    maxTargetLevel:
+        type: int
+        count: 1
+    spellClassSet:
+        type: int
+        count: 1
+    spellClassMask:
+        type: int
+        count: 2
+    maxTargets:
+        type: int
+        count: 1
+    defenseType:
+        type: int
+        count: 1
+    preventionType:
+        type: int
+        count: 1
+    stanceBarOrder:
+        type: int
+        count: 1
+    DamageMultiplier:
+        type: float
+        count: 3
+    minFaction:
+        type: int
+        count: 1
+    minReputation:
+        type: int
+        count: 1
+    requiredAuraVision:
+        type: int
+        count: 1
