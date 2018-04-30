@@ -40,5 +40,5 @@ interface MappingFieldInterface {
      *
      * @return int
      */
-    public function getTotalsize(): int;
+    public function getTotalSize(): int;
 }
