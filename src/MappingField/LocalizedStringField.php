@@ -103,7 +103,7 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
      */
     public function getCount(): int
     {
-        return $this->locale_count + 1;
+        return $this->count * ($this->locale_count + 1);
     }
 
     /**
