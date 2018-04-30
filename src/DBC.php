@@ -153,27 +153,30 @@ class DBC
      */
     public function readStringBlock()
     {
-        fseek($this->filehandle, $this->stringBlockOffset);
-        $bytes_to_read = $this->string_block_size;
-        $current_offset = $this->stringBlockOffset;
+        if ($this->string_block_size > 0) {
+            fseek($this->filehandle, $this->stringBlockOffset);
+            $bytes_to_read = $this->string_block_size;
+            $current_offset = $this->stringBlockOffset;
 
-        $current_string = null;
-        $bytes_read = 0;
-        while ($bytes_to_read > 0) {
-            $current_byte = fread($this->filehandle, 1);
-            ++$bytes_read;
-            if (chr(0) !== $current_byte) {
-                $current_string = $current_string.$current_byte;
-            } else {
-                echo $current_string.PHP_EOL;
-                if (!empty($current_string)) {
-                    $this->stringBlock[$bytes_read - strlen($current_string)] = $current_string;
+            $current_string = null;
+            $bytes_read = 0;
+            while ($bytes_to_read > 0) {
+                $current_byte = fread($this->filehandle, 1);
+                ++$bytes_read;
+                if (chr(0) !== $current_byte) {
+                    $current_string = $current_string.$current_byte;
+                } else {
+                    if (!empty($current_string)) {
+                        $this->stringBlock[$bytes_read - strlen($current_string)] = $current_string;
+                    }
+                    $current_string = null;
                 }
-                $current_string = null;
-            }
 
-            --$bytes_to_read;
-            ++$current_offset;
+                --$bytes_to_read;
+                ++$current_offset;
+            }
+        } else {
+            $this->stringBlock = [];
         }
     }
 
@@ -225,5 +228,15 @@ class DBC
     public function hasStrings(): bool
     {
         return $this->string_block_size > 0;
+    }
+
+    /**
+     * Returns all strings found within the file
+     *
+     * @return array
+     */
+    public function getStringBlock(): array
+    {
+        return $this->stringBlock;
     }
 }

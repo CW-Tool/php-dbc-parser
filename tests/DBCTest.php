@@ -41,7 +41,7 @@ class DBCTest extends TestCase
      *
      * @dataProvider constructProvider
      */
-    public function testItConstructs($record_count, $record_size, $field_count, $string_block_size)
+    public function testItConstructs($record_count, $record_size, $field_count, $string_block_size, $has_strings, $string_count)
     {
         $DBC = new DBC($this->sample_dbc, $this->sample_mapping);
         $this->assertInstanceOf(DBC::class, $DBC);
@@ -52,7 +52,8 @@ class DBCTest extends TestCase
         $this->assertEquals($record_size, $DBC->getRecordSize());
         $this->assertEquals($field_count, $DBC->getFieldCount());
         $this->assertEquals($string_block_size, $DBC->getStringBlockSize());
-        $this->assertTrue($DBC->hasStrings());
+        $this->assertEquals($has_strings, $DBC->hasStrings());
+        $this->assertCount($string_count, $DBC->getStringBlock());
     }
 
     /**
@@ -61,7 +62,7 @@ class DBCTest extends TestCase
     public function constructProvider()
     {
         return [
-            'AreaPOI mapping - patch 1.12.1' => [339, 116, 29, 3856],
+            'AreaPOI mapping - patch 1.12.1' => [339, 116, 29, 3856, true, 254],
         ];
     }
 }
