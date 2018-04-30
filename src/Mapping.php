@@ -21,6 +21,11 @@ class Mapping
     protected $_fieldCount = 0;
 
     /**
+     * @var int
+     */
+    protected $_fieldSize = 0;
+
+    /**
      * Create an instance
      *
      * @param [] $mapping
@@ -33,6 +38,7 @@ class Mapping
         {
             $this->add($field_name, $field_parameters);
             $this->_fieldCount += $this->_fields[$field_name]->getCount();
+            $this->_fieldSize += $this->_fields[$field_name]->getTotalSize();
         }
     }
 
@@ -96,6 +102,16 @@ class Mapping
     public function getFieldCount(): int
     {
         return $this->_fieldCount;
+    }
+
+    /**
+     * Returns the actual amount of columns in the mapping
+     *
+     * @return int
+     */
+    public function getFieldSize(): int
+    {
+        return $this->_fieldSize;
     }
 
     /**

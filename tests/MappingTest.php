@@ -14,11 +14,12 @@ class MappingTest extends TestCase
      *
      * @dataProvider sampleProvider
      */
-    public function testItConstructs($sample_yaml, $field_count)
+    public function testItConstructs($sample_yaml, $field_count, $field_size)
     {
         $mapping = Mapping::fromYAML($sample_yaml);
         $this->assertInstanceOf(Mapping::class, $mapping);
         $this->assertEquals($field_count, $mapping->getFieldCount());
+        $this->assertEquals($field_size, $mapping->getFieldSize());
         $this->assertCount($field_count, $mapping->getFields());
     }
 
@@ -63,8 +64,8 @@ class MappingTest extends TestCase
     public function sampleProvider()
     {
         return [
-            'working sample' => [dirname(__FILE__).'/data/sample.yaml', 7],
-            'AreaPOI - 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.yaml', 13],
+            'working sample' => [dirname(__FILE__).'/data/sample.yaml', 7, 54],
+            'AreaPOI - 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.yaml', 13, 116],
         ];
     }
 
