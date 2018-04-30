@@ -13,14 +13,14 @@ class LocalizedStringFieldTest extends TestCase
     /**
      * @dataProvider constructProvider
      */
-    public function testItConstructs($name, $parameters, $size)
+    public function testItConstructs($name, $parameters, $count, $size)
     {
         $field = new LocalizedStringField($name, $parameters);
 
         $this->assertInstanceOf(LocalizedStringField::class, $field);
         $this->assertEquals('localized_string', $field->getType());
         $this->assertEquals($name, $field->getName());
-        $this->assertEquals($parameters['count'], $field->getCount());
+        $this->assertEquals($count, $field->getCount());
         $this->assertEquals($size, $field->getSize());
     }
 
@@ -42,7 +42,7 @@ class LocalizedStringFieldTest extends TestCase
 
         $this->assertInstanceOf(LocalizedStringField::class, $field);
         $this->assertEquals($parameters['locale'], $field->getLocale());
-        $this->assertEquals($parameters['locale_count'], $field->getLocalecount());
+        $this->assertEquals($parameters['locale_count'], $field->getLocaleCount());
     }
 
     /**
@@ -63,8 +63,8 @@ class LocalizedStringFieldTest extends TestCase
     public function constructProvider(): array
     {
         return [
-            'single column' => ['name', ['type' => 'localized_string', 'count' => 1], 36],
-            'single column with extended locales' => ['name2', ['type' => 'localized_string', 'count' => 1, 'locale' => 'enGB', 'locale_count' => 16], 68],
+            'single column' => ['name', ['type' => 'localized_string', 'count' => 1], 9, 36],
+            'single column with extended locales' => ['name2', ['type' => 'localized_string', 'count' => 1, 'locale' => 'enGB', 'locale_count' => 16], 17, 68],
         ];
     }
 

@@ -91,9 +91,19 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
      *
      * @return int
      */
-    public function getLocalecount(): int
+    public function getLocaleCount(): int
     {
         return $this->locale_count;
+    }
+
+    /**
+     * Provides how many of this field follow.
+     *
+     * @return int
+     */
+    public function getCount(): int
+    {
+        return $this->locale_count + 1;
     }
 
     /**
