@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Wowstack\Dbc\MappingField;
@@ -6,7 +7,7 @@ namespace Wowstack\Dbc\MappingField;
 class LocalizedStringField extends AbstractField implements MappingFieldInterface
 {
     /**
-     * Supported locales and their offset in the field
+     * Supported locales and their offset in the field.
      */
     const LOCALE_INDEX = [
         'enUS' => 0,
@@ -21,49 +22,49 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
     ];
 
     /**
-     * Amount of bytes used by localization checksum
+     * Amount of bytes used by localization checksum.
      */
     const CHECKSUM_SIZE = 4;
 
     /**
-     * Name of type
+     * Name of type.
      */
     const TYPE = 'localized_string';
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected $size = 4;
 
     /**
-     * Amount of fields to follow
+     * Amount of fields to follow.
      *
      * @var int
      */
     protected $count = 0;
 
     /**
-     * Default locale to use
+     * Default locale to use.
      */
     protected $locale = 'enUS';
 
     /**
-     * Default amount of locale fields to read
+     * Default amount of locale fields to read.
      */
     protected $locale_count = 8;
 
     /**
-     * Defines required parameters
+     * Defines required parameters.
      */
     const PARAMETERS = ['count'];
 
     /**
-     * Defines optional parameters and their defaults
+     * Defines optional parameters and their defaults.
      */
     const OPTIONAL_PARAMETERS = ['locale' => 'enUS', 'locale_count' => 8];
 
     /**
-     * Constructs the field
+     * Constructs the field.
      *
      * @param string $name
      * @param array  $parameters
@@ -76,7 +77,7 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
     }
 
     /**
-     * Returns the selected locale
+     * Returns the selected locale.
      *
      * @return string
      */
@@ -86,7 +87,7 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
     }
 
     /**
-     * Returns the selected locale count
+     * Returns the selected locale count.
      *
      * @return int
      */
@@ -96,7 +97,7 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getSize(): int
     {
@@ -104,7 +105,7 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getTotalSize(): int
     {

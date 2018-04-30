@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Wowstack\Dbc\MappingField;
@@ -6,34 +7,34 @@ namespace Wowstack\Dbc\MappingField;
 class StringField extends AbstractField implements MappingFieldInterface
 {
     /**
-     * Name of type
+     * Name of type.
      */
     const TYPE = 'string';
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected $size = 4;
 
     /**
-     * Amount of fields to follow
+     * Amount of fields to follow.
      *
      * @var int
      */
     protected $count = 0;
 
     /**
-     * Defines required parameters
+     * Defines required parameters.
      */
     const PARAMETERS = ['count'];
 
     /**
-     * Defines optional parameters and their defaults
+     * Defines optional parameters and their defaults.
      */
     const OPTIONAL_PARAMETERS = [];
 
     /**
-     * Constructs the field
+     * Constructs the field.
      *
      * @param string $name
      * @param array  $parameters

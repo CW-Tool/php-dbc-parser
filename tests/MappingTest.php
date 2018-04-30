@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Wowstack\Dbc\Tests;
@@ -10,7 +11,7 @@ use Wowstack\Dbc\MappingField\MappingException;
 class MappingTest extends TestCase
 {
     /**
-     * Tests that mapping loads with various definitions
+     * Tests that mapping loads with various definitions.
      *
      * @dataProvider sampleProvider
      */
@@ -24,7 +25,7 @@ class MappingTest extends TestCase
     }
 
     /**
-     * Tests that mapping fails to load with invalid types
+     * Tests that mapping fails to load with invalid types.
      *
      * @dataProvider invalidSampleProvider
      */
@@ -35,7 +36,7 @@ class MappingTest extends TestCase
     }
 
     /**
-     * Tests that mapping fails to load with invalid types
+     * Tests that mapping fails to load with invalid types.
      *
      * @dataProvider missingTypeProvider
      */
@@ -46,7 +47,7 @@ class MappingTest extends TestCase
     }
 
     /**
-     * Tests that mapping loads with various definitions
+     * Tests that mapping loads with various definitions.
      *
      * @dataProvider typeTestProvider
      */
@@ -57,7 +58,7 @@ class MappingTest extends TestCase
     }
 
     /**
-     * Provides a list of YAML sample files
+     * Provides a list of YAML sample files.
      *
      * @return array
      */
@@ -70,7 +71,7 @@ class MappingTest extends TestCase
     }
 
     /**
-     * Provides a list of YAML sample files
+     * Provides a list of YAML sample files.
      *
      * @return array
      */
@@ -82,7 +83,7 @@ class MappingTest extends TestCase
     }
 
     /**
-     * Provides a list of YAML sample files
+     * Provides a list of YAML sample files.
      *
      * @return array
      */
@@ -94,14 +95,14 @@ class MappingTest extends TestCase
     }
 
     /**
-     * Provides a list of YAML sample files
+     * Provides a list of YAML sample files.
      *
      * @return array
      */
     public function typeTestProvider()
     {
         return [
-            'example with string column' => [dirname(__FILE__).'/data/type-sample.yaml', 'name', 'string']
+            'example with string column' => [dirname(__FILE__).'/data/type-sample.yaml', 'name', 'string'],
         ];
     }
 }

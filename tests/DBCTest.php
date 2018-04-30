@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Wowstack\Dbc\Tests;
@@ -10,22 +11,22 @@ use Wowstack\Dbc\Mapping;
 class DBCTest extends TestCase
 {
     /**
-     * @var string $sample_yaml
+     * @var string
      */
     protected $sample_yaml = '';
 
     /**
-     * @var Mapping $sample_mapping
+     * @var Mapping
      */
     protected $sample_mapping = null;
 
     /**
-     * @var string $sample_dbc
+     * @var string
      */
     protected $sample_dbc = '';
 
     /**
-     * Prepares sample DBC and mapping
+     * Prepares sample DBC and mapping.
      */
     public function setUp()
     {
@@ -36,7 +37,7 @@ class DBCTest extends TestCase
     }
 
     /**
-     * Checks that DBC files can be loaded with a mapping
+     * Checks that DBC files can be loaded with a mapping.
      *
      * @dataProvider constructProvider
      */

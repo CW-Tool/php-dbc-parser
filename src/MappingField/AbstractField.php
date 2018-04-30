@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Wowstack\Dbc\MappingField;
@@ -6,38 +7,36 @@ namespace Wowstack\Dbc\MappingField;
 abstract class AbstractField
 {
     /**
-     * Size of field in bytes
+     * Size of field in bytes.
      */
     protected $size = 0;
 
     /**
-     * Amount of fields to follow
+     * Amount of fields to follow.
      *
      * @var int
      */
     protected $count = 0;
 
     /**
-     * Defines required parameters
+     * Defines required parameters.
      */
     const PARAMETERS = ['count'];
 
     /**
-     * Defines optional parameters and their defaults
+     * Defines optional parameters and their defaults.
      */
     const OPTIONAL_PARAMETERS = [];
 
     /**
-     * Sets required parameters
+     * Sets required parameters.
      *
      * @param array $parameters
      */
     public function setParameters($parameters = [])
     {
-        foreach ($this::PARAMETERS as $key)
-        {
-            if (!array_key_exists($key, $parameters))
-            {
+        foreach ($this::PARAMETERS as $key) {
+            if (!array_key_exists($key, $parameters)) {
                 throw new MappingException("Parameter ${key} missing.");
             }
 
@@ -46,16 +45,14 @@ abstract class AbstractField
     }
 
     /**
-     * Sets optional parameters
+     * Sets optional parameters.
      *
      * @param array $parameters
      */
     public function setOptionalParameters($parameters = [])
     {
-        foreach ($this::OPTIONAL_PARAMETERS as $key => $default)
-        {
-            if (array_key_exists($key, $parameters))
-            {
+        foreach ($this::OPTIONAL_PARAMETERS as $key => $default) {
+            if (array_key_exists($key, $parameters)) {
                 $this->{$key} = $parameters[$key];
             } else {
                 $this->{$key} = $default;
@@ -84,7 +81,7 @@ abstract class AbstractField
     }
 
     /**
-     * Provides how many bytes this field requires
+     * Provides how many bytes this field requires.
      *
      * @return int
      */

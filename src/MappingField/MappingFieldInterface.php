@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Wowstack\Dbc\MappingField;
@@ -6,7 +7,8 @@ namespace Wowstack\Dbc\MappingField;
 /**
  * Defines an interface for all mapping field types to implement.
  */
-interface MappingFieldInterface {
+interface MappingFieldInterface
+{
     /**
      * Provides the name of the field.
      *
@@ -22,7 +24,7 @@ interface MappingFieldInterface {
     public function getType(): string;
 
     /**
-     * Provides how many bytes this field requires
+     * Provides how many bytes this field requires.
      *
      * @return int
      */

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Wowstack\Dbc;
@@ -9,7 +10,6 @@ use Wowstack\Dbc\MappingField\MappingFieldInterface;
 
 class Mapping
 {
-
     /**
      * @var MappingFieldInterface[]
      */
@@ -26,7 +26,7 @@ class Mapping
     protected $_fieldSize = 0;
 
     /**
-     * Create an instance
+     * Create an instance.
      *
      * @param [] $mapping
      */
@@ -34,8 +34,7 @@ class Mapping
     {
         $fields = isset($mapping['fields']) ? $mapping['fields'] : [];
 
-        foreach ($fields as $field_name => $field_parameters)
-        {
+        foreach ($fields as $field_name => $field_parameters) {
             $this->add($field_name, $field_parameters);
             $this->_fieldCount += $this->_fields[$field_name]->getCount();
             $this->_fieldSize += $this->_fields[$field_name]->getTotalSize();
@@ -43,7 +42,7 @@ class Mapping
     }
 
     /**
-     * Adds a field type to the mapping list
+     * Adds a field type to the mapping list.
      *
      * @param string $name
      * @param array  $parameters
@@ -54,8 +53,7 @@ class Mapping
             throw new Mappings\MappingException('Field definition is missing a type.');
         }
 
-        switch ($parameters['type'])
-        {
+        switch ($parameters['type']) {
             case 'float':
                 $field = new Mappings\FloatField($name, $parameters);
                 break;
@@ -85,7 +83,7 @@ class Mapping
     }
 
     /**
-     * Returns all fields contained in the mapping
+     * Returns all fields contained in the mapping.
      *
      * @return MappingFieldInterface[]
      */
@@ -95,7 +93,7 @@ class Mapping
     }
 
     /**
-     * Returns the amount of fields in the mapping
+     * Returns the amount of fields in the mapping.
      *
      * @return int
      */
@@ -105,7 +103,7 @@ class Mapping
     }
 
     /**
-     * Returns the actual amount of columns in the mapping
+     * Returns the actual amount of columns in the mapping.
      *
      * @return int
      */
@@ -115,9 +113,10 @@ class Mapping
     }
 
     /**
-     * Returns the mapping type for a field
+     * Returns the mapping type for a field.
      *
      * @param string $name
+     *
      * @return string
      */
     public function getFieldType($name): string
@@ -126,9 +125,10 @@ class Mapping
     }
 
     /**
-     * Create an instance with a mapping from file
+     * Create an instance with a mapping from file.
      *
      * @param string $yaml path to YAML file
+     *
      * @return Mapping
      */
     public static function fromYAML($yaml): Mapping

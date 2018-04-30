@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Wowstack\Dbc\Tests\MappingField;
@@ -88,20 +89,20 @@ class LocalizedStringFieldTest extends TestCase
     public function optionalParamProvider(): array
     {
         return [
-            'using 8 locales'  => ['name', ['type' => 'localized_string', 'count' => 1, 'locale' => 'enGB', 'locale_count' => 8]],
+            'using 8 locales' => ['name', ['type' => 'localized_string', 'count' => 1, 'locale' => 'enGB', 'locale_count' => 8]],
             'using 16 locales' => ['name', ['type' => 'localized_string', 'count' => 1, 'locale' => 'deDE', 'locale_count' => 16]],
         ];
     }
 
     /**
-     * Provides a sample set and the expected total size
+     * Provides a sample set and the expected total size.
      *
      * @return array
      */
     public function sizeCalculateProvider(): array
     {
         return [
-            'using 8 locales'  => ['name', ['type' => 'localized_string', 'count' => 1, 'locale' => 'enGB', 'locale_count' => 8], 36],
+            'using 8 locales' => ['name', ['type' => 'localized_string', 'count' => 1, 'locale' => 'enGB', 'locale_count' => 8], 36],
             'using 16 locales' => ['name', ['type' => 'localized_string', 'count' => 1, 'locale' => 'deDE', 'locale_count' => 16], 68],
         ];
     }

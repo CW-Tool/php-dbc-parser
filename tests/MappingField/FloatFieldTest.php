@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Wowstack\Dbc\Tests\MappingField;
@@ -50,7 +51,7 @@ class FloatFieldTest extends TestCase
     public function constructProvider(): array
     {
         return [
-            'single column' => ['name', ['type' =>'float', 'count' => 1], 4],
+            'single column' => ['name', ['type' => 'float', 'count' => 1], 4],
         ];
     }
 
@@ -62,20 +63,20 @@ class FloatFieldTest extends TestCase
     public function incompleteProvider(): array
     {
         return [
-            'missing count' => ['name', ['type' =>'float'], 4],
+            'missing count' => ['name', ['type' => 'float'], 4],
         ];
     }
 
     /**
-     * Provides a sample set and the expected total size
+     * Provides a sample set and the expected total size.
      *
      * @return array
      */
     public function sizeCalculateProvider(): array
     {
         return [
-            'single column' => ['name', ['type' =>'float', 'count' => 1], 4],
-            'multiple columns' => ['name', ['type' =>'float', 'count' => 4], 16],
+            'single column' => ['name', ['type' => 'float', 'count' => 1], 4],
+            'multiple columns' => ['name', ['type' => 'float', 'count' => 4], 16],
         ];
     }
 }
