@@ -15,7 +15,9 @@ class DBCTest extends TestCase
      *
      * @dataProvider constructProvider
      */
-    public function testItConstructs(string $yaml, string $dbc, int $record_count, int $record_size, int $field_count, int $string_block_size, bool $has_strings, int $string_count)
+    public function testItConstructs(string $yaml, string $dbc,
+        int $record_count, int $record_size, int $field_count, int $string_block_size,
+        bool $has_strings, int $string_count)
     {
         $DBC = new DBC($dbc, Mapping::fromYAML($yaml));
         $this->assertInstanceOf(DBC::class, $DBC);
@@ -27,6 +29,7 @@ class DBCTest extends TestCase
         $this->assertEquals($string_block_size, $DBC->getStringBlockSize());
         $this->assertEquals($has_strings, $DBC->hasStrings());
         $this->assertCount($string_count, $DBC->getStringBlock());
+        $this->assertInstanceOf(Mapping::class, $DBC->getMap());
     }
 
     /**

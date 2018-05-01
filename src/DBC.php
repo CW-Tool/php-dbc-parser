@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Wowstack\Dbc;
 
-class DBC
+class DBC implements \IteratorAggregate
 {
     /**
      * DBC magic number.
@@ -52,12 +52,12 @@ class DBC
     /**
      * @var int
      */
-    protected $filesize = 0;
+    protected $file_size = 0;
 
     /**
      * @var resource
      */
-    protected $filehandle = null;
+    protected $file_handle = null;
 
     /**
      * @var string
@@ -106,29 +106,29 @@ class DBC
             throw new DBCException('DBC file not found.');
         }
 
-        $this->filehandle = @fopen($this->path, 'r');
-        if (false === $this->filehandle) {
+        $this->file_handle = @fopen($this->path, 'r');
+        if (false === $this->file_handle) {
             throw new DBCException('DBC file is not readable.');
         }
 
-        $this->filesize = filesize($this->path);
+        $this->file_size = filesize($this->path);
 
-        if ($this->filesize < self::HEADER_SIZE) {
+        if ($this->file_size < self::HEADER_SIZE) {
             throw new DBCException('DBC file is too small.');
         }
 
-        $signature = @fread($this->filehandle, strlen(self::SIGNATURE));
+        $signature = @fread($this->file_handle, strlen(self::SIGNATURE));
 
         if (self::SIGNATURE !== $signature) {
             throw new DBCException('DBC file has invalid signature.');
         }
 
-        list(, $this->record_count, $this->field_count, $this->record_size, $this->string_block_size) = unpack(self::HEADER_PACK_FORMAT, @fread($this->filehandle, self::HEADER_SIZE - strlen(self::SIGNATURE)));
+        list(, $this->record_count, $this->field_count, $this->record_size, $this->string_block_size) = unpack(self::HEADER_PACK_FORMAT, @fread($this->file_handle, self::HEADER_SIZE - strlen(self::SIGNATURE)));
 
         $this->dataOffset = self::HEADER_SIZE;
         $this->stringBlockOffset = self::HEADER_SIZE + ($this->record_count * $this->record_size);
 
-        if ($this->filesize < ($this->stringBlockOffset + $this->string_block_size)) {
+        if ($this->file_size < ($this->stringBlockOffset + $this->string_block_size)) {
             throw new DBCException('DBC file is too small.');
         }
 
@@ -169,14 +169,14 @@ class DBC
     public function readStringBlock()
     {
         if ($this->string_block_size > 0) {
-            fseek($this->filehandle, $this->stringBlockOffset);
+            fseek($this->file_handle, $this->stringBlockOffset);
             $bytes_to_read = $this->string_block_size;
             $current_offset = $this->stringBlockOffset;
 
             $current_string = null;
             $bytes_read = 0;
             while ($bytes_to_read > 0) {
-                $current_byte = fread($this->filehandle, 1);
+                $current_byte = fread($this->file_handle, 1);
                 ++$bytes_read;
                 if (chr(0) !== $current_byte) {
                     $current_string = $current_string.$current_byte;
@@ -271,5 +271,53 @@ class DBC
     public function getMap(): Mapping
     {
         return $this->mapping;
+    }
+
+    /**
+     * Returns the handle to the associated file.
+     *
+     * @return resource
+     */
+    public function getFileHandle()
+    {
+        return $this->file_handle;
+    }
+
+    /**
+     * Provides an iterator to iterate over the DBC records.
+     *
+     * @return DBCIterator
+     */
+    public function getIterator(): DBCIterator
+    {
+        return new DBCIterator($this);
+    }
+
+    /**
+     * Returns information if a given record index exists.
+     *
+     * @param int $position
+     */
+    public function hasRecord(int $position): bool
+    {
+        return $position >= 0 && $position <= $this->record_count;
+    }
+
+    /**
+     * Returns the record using the given index.
+     *
+     * @param int $position
+     *
+     * @return DBCRecord
+     *
+     * @throws DBCException
+     */
+    public function getRecord(int $position): DBCRecord
+    {
+        if ($this->hasRecord($position)) {
+            return new DBCRecord($this, $position);
+        }
+
+        throw new DBCException('DBC Record not found.');
     }
 }
