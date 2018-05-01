@@ -26,6 +26,11 @@ class Mapping
     protected $_fieldSize = 0;
 
     /**
+     * @var bool
+     */
+    protected $_hasStrings = false;
+
+    /**
      * Create an instance.
      *
      * @param [] $mapping
@@ -38,6 +43,11 @@ class Mapping
             $this->add($field_name, $field_parameters);
             $this->_fieldCount += $this->_fields[$field_name]->getCount();
             $this->_fieldSize += $this->_fields[$field_name]->getTotalSize();
+
+            if ('string' === $this->_fields[$field_name]->getType() ||
+            'localized_string' === $this->_fields[$field_name]->getType()) {
+                $this->_hasStrings = true;
+            }
         }
     }
 
@@ -134,5 +144,15 @@ class Mapping
     public static function fromYAML($yaml): Mapping
     {
         return new self(Yaml::parseFile($yaml));
+    }
+
+    /**
+     * Returns if a string field is part of the mapping.
+     *
+     * @return bool
+     */
+    public function hasStrings(): bool
+    {
+        return $this->_hasStrings;
     }
 }

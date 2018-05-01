@@ -146,9 +146,13 @@ class DBC
         $this->mapping = $map;
 
         if (null !== $this->mapping) {
-            $delta = $map->getFieldCount() - $this->getFieldCount();
+            $delta = $this->mapping->getFieldCount() - $this->getFieldCount();
             if (0 !== $delta) {
-                throw new DBCException('Mapping holds '.$map->getFieldCount().' fields but DBC holds '.$this->getFieldCount().' fields.');
+                throw new DBCException('Mapping holds '.$this->mapping->getFieldCount().' fields but DBC holds '.$this->getFieldCount().' fields.');
+            }
+
+            if ($this->mapping->hasStrings() != $this->hasStrings()) {
+                throw new DBCException('No strings attached! Mapping says '.$this->mapping->hasStrings().', DBC says '.$this->hasStrings());
             }
         }
 
@@ -242,7 +246,7 @@ class DBC
      */
     public function hasStrings(): bool
     {
-        return $this->string_block_size > 0;
+        return count($this->stringBlock) > 0;
     }
 
     /**
