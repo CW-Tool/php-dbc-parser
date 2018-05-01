@@ -13,7 +13,7 @@ class UnsignedCharFieldTest extends TestCase
     /**
      * @dataProvider constructProvider
      */
-    public function testItConstructs($name, $parameters, $size)
+    public function testItConstructs(string $name, array $parameters, int $size)
     {
         $field = new UnsignedCharField($name, $parameters);
 
@@ -27,7 +27,7 @@ class UnsignedCharFieldTest extends TestCase
     /**
      * @dataProvider incompleteProvider
      */
-    public function testItFailsWithoutParams($name, $parameters)
+    public function testItFailsWithoutParams(string $name, array $parameters)
     {
         $this->expectException(MappingException::class);
         $field = new UnsignedCharField($name, $parameters);

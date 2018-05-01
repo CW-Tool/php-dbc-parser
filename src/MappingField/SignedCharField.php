@@ -39,7 +39,7 @@ class SignedCharField extends AbstractField implements MappingFieldInterface
      * @param string $name
      * @param array  $parameters
      */
-    public function __construct($name, $parameters = [])
+    public function __construct(string $name, array $parameters = [])
     {
         $this->name = $name;
         $this->setParameters($parameters);

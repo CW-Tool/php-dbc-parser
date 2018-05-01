@@ -33,7 +33,7 @@ abstract class AbstractField
      *
      * @param array $parameters
      */
-    public function setParameters($parameters = [])
+    public function setParameters(array $parameters = [])
     {
         foreach ($this::PARAMETERS as $key) {
             if (!array_key_exists($key, $parameters)) {
@@ -49,7 +49,7 @@ abstract class AbstractField
      *
      * @param array $parameters
      */
-    public function setOptionalParameters($parameters = [])
+    public function setOptionalParameters(array $parameters = [])
     {
         foreach ($this::OPTIONAL_PARAMETERS as $key => $default) {
             if (array_key_exists($key, $parameters)) {

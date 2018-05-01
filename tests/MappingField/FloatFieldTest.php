@@ -13,7 +13,7 @@ class FloatFieldTest extends TestCase
     /**
      * @dataProvider constructProvider
      */
-    public function testItConstructs($name, $parameters, $size)
+    public function testItConstructs(string $name, array $parameters, int $size)
     {
         $field = new FloatField($name, $parameters);
 
@@ -27,7 +27,7 @@ class FloatFieldTest extends TestCase
     /**
      * @dataProvider incompleteProvider
      */
-    public function testItFailsWithoutParams($name, $parameters)
+    public function testItFailsWithoutParams(string $name, array $parameters)
     {
         $this->expectException(MappingException::class);
         $field = new FloatField($name, $parameters);
@@ -36,7 +36,7 @@ class FloatFieldTest extends TestCase
     /**
      * @dataProvider sizeCalculateProvider
      */
-    public function testItCalculatesTheCorectSize($name, $parameters, $size)
+    public function testItCalculatesTheCorectSize(string $name, array $parameters, int $size)
     {
         $field = new FloatField($name, $parameters);
 

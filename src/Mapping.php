@@ -57,7 +57,7 @@ class Mapping
      * @param string $name
      * @param array  $parameters
      */
-    public function add($name, $parameters)
+    public function add(string $name, array $parameters)
     {
         if (!isset($parameters['type'])) {
             throw new Mappings\MappingException('Field definition is missing a type.');
@@ -129,7 +129,7 @@ class Mapping
      *
      * @return string
      */
-    public function getFieldType($name): string
+    public function getFieldType(string $name): string
     {
         return $this->_fields[$name]->getType();
     }
@@ -141,7 +141,7 @@ class Mapping
      *
      * @return Mapping
      */
-    public static function fromYAML($yaml): Mapping
+    public static function fromYAML(string $yaml): Mapping
     {
         return new self(Yaml::parseFile($yaml));
     }

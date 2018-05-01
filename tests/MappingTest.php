@@ -15,7 +15,7 @@ class MappingTest extends TestCase
      *
      * @dataProvider sampleProvider
      */
-    public function testItConstructs($sample_yaml, $field_count, $field_size)
+    public function testItConstructs(string $sample_yaml, int $field_count, int $field_size)
     {
         $mapping = Mapping::fromYAML($sample_yaml);
         $this->assertInstanceOf(Mapping::class, $mapping);
@@ -28,7 +28,7 @@ class MappingTest extends TestCase
      *
      * @dataProvider invalidSampleProvider
      */
-    public function testItFailsWithUnknownTypes($sample_yaml)
+    public function testItFailsWithUnknownTypes(string $sample_yaml)
     {
         $this->expectException(MappingException::class);
         $mapping = Mapping::fromYAML($sample_yaml);
@@ -39,7 +39,7 @@ class MappingTest extends TestCase
      *
      * @dataProvider missingTypeProvider
      */
-    public function testItFailsWithMissingTypes($sample_yaml)
+    public function testItFailsWithMissingTypes(string $sample_yaml)
     {
         $this->expectException(MappingException::class);
         $mapping = Mapping::fromYAML($sample_yaml);
@@ -50,7 +50,7 @@ class MappingTest extends TestCase
      *
      * @dataProvider typeTestProvider
      */
-    public function testItProvidesTypeInformation($sample_yaml, $field_name, $field_type)
+    public function testItProvidesTypeInformation(string $sample_yaml, string $field_name, string $field_type)
     {
         $mapping = Mapping::fromYAML($sample_yaml);
         $this->assertEquals($field_type, $mapping->getFieldType($field_name));

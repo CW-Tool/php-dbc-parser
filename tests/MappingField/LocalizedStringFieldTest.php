@@ -13,7 +13,7 @@ class LocalizedStringFieldTest extends TestCase
     /**
      * @dataProvider constructProvider
      */
-    public function testItConstructs($name, $parameters, $count, $size)
+    public function testItConstructs(string $name, array $parameters, int $count, int $size)
     {
         $field = new LocalizedStringField($name, $parameters);
 
@@ -27,7 +27,7 @@ class LocalizedStringFieldTest extends TestCase
     /**
      * @dataProvider incompleteProvider
      */
-    public function testItFailsWithoutParams($name, $parameters)
+    public function testItFailsWithoutParams(string $name, array $parameters)
     {
         $this->expectException(MappingException::class);
         $field = new LocalizedStringField($name, $parameters);
@@ -36,7 +36,7 @@ class LocalizedStringFieldTest extends TestCase
     /**
      * @dataProvider optionalParamProvider
      */
-    public function testItAcceptsOptionalParams($name, $parameters)
+    public function testItAcceptsOptionalParams(string $name, array $parameters)
     {
         $field = new LocalizedStringField($name, $parameters);
 
@@ -48,7 +48,7 @@ class LocalizedStringFieldTest extends TestCase
     /**
      * @dataProvider sizeCalculateProvider
      */
-    public function testItCalculatesTheCorectSize($name, $parameters, $size)
+    public function testItCalculatesTheCorectSize(string $name, array $parameters, int $size)
     {
         $field = new LocalizedStringField($name, $parameters);
 
