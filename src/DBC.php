@@ -258,4 +258,14 @@ class DBC
     {
         return $this->stringBlock;
     }
+
+    /**
+     * Returns the mapping attach to the DBC.
+     *
+     * @return Mapping
+     */
+    public function getMap(): Mapping
+    {
+        return $this->mapping;
+    }
 }
