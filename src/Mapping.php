@@ -7,6 +7,7 @@ namespace Wowstack\Dbc;
 use Symfony\Component\Yaml\Yaml;
 use Wowstack\Dbc\MappingField as Mappings;
 use Wowstack\Dbc\MappingField\MappingFieldInterface;
+use Wowstack\Dbc\MappingField\MappingException;
 
 class Mapping
 {
@@ -56,11 +57,13 @@ class Mapping
      *
      * @param string $name
      * @param array  $parameters
+     *
+     * @throws MappingException
      */
     public function add(string $name, array $parameters)
     {
         if (!isset($parameters['type'])) {
-            throw new Mappings\MappingException('Field definition is missing a type.');
+            throw new MappingException('Field definition is missing a type.');
         }
 
         switch ($parameters['type']) {
@@ -86,7 +89,7 @@ class Mapping
                 $field = new Mappings\UnsignedIntegerField($name, $parameters);
                 break;
             default:
-                throw new Mappings\MappingException('Unknown field type specified');
+                throw new MappingException('Unknown field type specified');
         }
 
         $this->_fields[$name] = $field;

@@ -32,6 +32,8 @@ abstract class AbstractField
      * Sets required parameters.
      *
      * @param array $parameters
+     *
+     * @throws MappingException
      */
     public function setParameters(array $parameters = [])
     {

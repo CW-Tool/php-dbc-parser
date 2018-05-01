@@ -95,6 +95,8 @@ class DBC
      *
      * @param string  $path
      * @param Mapping $map
+     *
+     * @throws DBCException
      */
     public function __construct(string $path, Mapping $map = null)
     {
@@ -140,6 +142,8 @@ class DBC
      * @param Mapping $map
      *
      * @return DBC
+     *
+     * @throws DBCException
      */
     public function attachMapping(Mapping $map = null)
     {
