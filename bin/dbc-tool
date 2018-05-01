@@ -23,8 +23,10 @@ if (is_file($autoload = __DIR__ . '/../vendor/autoload.php')) {
 
 use Symfony\Component\Console\Application;
 use Wowstack\Dbc\Command\InspectCommand;
+use Wowstack\Dbc\Command\ViewCommand;
 
 $application = new Application();
 $application->add(new InspectCommand());
+$application->add(new ViewCommand());
 
 $application->run();
