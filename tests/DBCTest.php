@@ -6,6 +6,7 @@ namespace Wowstack\Dbc\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Wowstack\Dbc\DBC;
+use Wowstack\Dbc\DBCException;
 use Wowstack\Dbc\Mapping;
 
 class DBCTest extends TestCase
@@ -33,6 +34,19 @@ class DBCTest extends TestCase
     }
 
     /**
+     * Checks that DBC throws exceptions for invalid records.
+     *
+     * @dataProvider exceptionProvider
+     */
+    public function testItThrowsExceptionsForUnknownRecords(string $yaml, string $dbc)
+    {
+        $this->expectException(DBCException::class);
+
+        $DBC = new DBC($dbc, Mapping::fromYAML($yaml));
+        $DBC->getRecord($DBC->getRecordCount() + 1);
+    }
+
+    /**
      * @return array
      */
     public function constructProvider()
@@ -40,6 +54,16 @@ class DBCTest extends TestCase
         return [
             'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.yaml', dirname(__FILE__).'/data/AreaPOI.dbc', 339, 116, 29, 3856, true, 254],
             'Spell mapping - patch 1.12.1' => [dirname(__FILE__).'/data/Spell.yaml', dirname(__FILE__).'/data/Spell.dbc', 22357, 692, 173, 833949, true, 19140],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function exceptionProvider()
+    {
+        return [
+            'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.yaml', dirname(__FILE__).'/data/AreaPOI.dbc'],
         ];
     }
 }
