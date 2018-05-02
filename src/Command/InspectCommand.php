@@ -81,7 +81,6 @@ class InspectCommand extends Command
                     break;
                 }
             }
-
         }
         $output->writeln('');
     }

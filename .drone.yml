@@ -23,8 +23,8 @@ pipeline:
     commands-view:
         image: kogitoapp/php:7.2-cli
         commands:
-            - ./bin/dbc-tool dbc:view tests/data/AreaPOI.dbc tests/data/AreaPOI.yaml
-            - ./bin/dbc-tool dbc:view tests/data/BankBagSlotPrices.dbc tests/data/BankBagSlotPrices.yaml
-            - ./bin/dbc-tool dbc:view tests/data/Spell.dbc tests/data/Spell.yaml
+            - ./bin/dbc-tool dbc:view tests/data/AreaPOI.dbc tests/data/maps/AreaPOI.yaml
+            - ./bin/dbc-tool dbc:view tests/data/BankBagSlotPrices.dbc tests/data/maps/BankBagSlotPrices.yaml
+            - ./bin/dbc-tool dbc:view tests/data/Spell.dbc tests/data/maps/Spell.yaml
         when:
             status: [ success ]

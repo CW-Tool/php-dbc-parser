@@ -86,9 +86,10 @@ class MappingTest extends TestCase
     public function sampleProvider()
     {
         return [
-            'valid example mapping' => [dirname(__FILE__).'/data/sample.yaml', 24, 90],
-            'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.yaml', 29, 116],
-            'Spell mapping - patch 1.12.1' => [dirname(__FILE__).'/data/Spell.yaml', 173, 692],
+            'valid example mapping' => [dirname(__FILE__).'/data/maps/sample.yaml', 24, 90],
+            'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/maps/AreaPOI.yaml', 29, 116],
+            'BankBagSlotPrices mapping - patch 1.12.1' => [dirname(__FILE__).'/data/maps/BankBagSlotPrices.yaml', 2, 8],
+            'Spell mapping - patch 1.12.1' => [dirname(__FILE__).'/data/maps/Spell.yaml', 173, 692],
         ];
     }
 
@@ -100,7 +101,7 @@ class MappingTest extends TestCase
     public function invalidSampleProvider()
     {
         return [
-            'example with unknown types' => [dirname(__FILE__).'/data/invalid-sample.yaml'],
+            'example with unknown types' => [dirname(__FILE__).'/data/maps/invalid-sample.yaml'],
         ];
     }
 
@@ -112,7 +113,7 @@ class MappingTest extends TestCase
     public function missingTypeProvider()
     {
         return [
-            'example without types' => [dirname(__FILE__).'/data/missing-type.yaml'],
+            'example without types' => [dirname(__FILE__).'/data/maps/missing-type.yaml'],
         ];
     }
 
@@ -124,7 +125,7 @@ class MappingTest extends TestCase
     public function typeTestProvider()
     {
         return [
-            'example with string column' => [dirname(__FILE__).'/data/type-sample.yaml', 'name', 'string'],
+            'example with string column' => [dirname(__FILE__).'/data/maps/type-sample.yaml', 'name', 'string'],
         ];
     }
 
@@ -137,7 +138,7 @@ class MappingTest extends TestCase
     {
         return [
             'AreaPOI mapping - patch 1.12.1' => [
-                dirname(__FILE__).'/data/AreaPOI.yaml',
+                dirname(__FILE__).'/data/maps/AreaPOI.yaml',
                 [
                     'id' => [
                         'type' => 'uint',
@@ -231,7 +232,7 @@ class MappingTest extends TestCase
     {
         return [
             'AreaPOI mapping - patch 1.12.1' => [
-                dirname(__FILE__).'/data/AreaPOI.yaml',
+                dirname(__FILE__).'/data/maps/AreaPOI.yaml',
                 [
                     'id',
                     'importance',
