@@ -300,7 +300,7 @@ class DBC implements \IteratorAggregate
      */
     public function hasRecord(int $position): bool
     {
-        return $position >= 0 && $position <= $this->record_count;
+        return $position >= 0 && $position < $this->record_count;
     }
 
     /**
