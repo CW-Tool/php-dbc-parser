@@ -264,6 +264,22 @@ class DBC implements \IteratorAggregate
     }
 
     /**
+     * Returns the string from the given offset.
+     *
+     * @return string
+     *
+     * @throws DBCException
+     */
+    public function getString(int $offset): string
+    {
+        if (array_key_exists($offset + 1, $this->stringBlock)) {
+            return $this->stringBlock[$offset + 1];
+        }
+
+        throw new DBCException('DBC String Entry not found at index '.($offset + 1));
+    }
+
+    /**
      * Returns the mapping attach to the DBC.
      *
      * @return Mapping
