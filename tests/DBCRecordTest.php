@@ -21,6 +21,7 @@ class DBCRecordTest extends TestCase
         $DBC = new DBC($dbc, Mapping::fromYAML($yaml));
         $DBCRecord = $DBC->getRecord($record);
         $this->assertInstanceOf(DBCRecord::class, $DBCRecord);
+        $data = $DBCRecord->read();
     }
 
     /**
@@ -30,6 +31,7 @@ class DBCRecordTest extends TestCase
     {
         return [
             'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.yaml', dirname(__FILE__).'/data/AreaPOI.dbc', 0],
+            'Spell mapping - patch 1.12.1' => [dirname(__FILE__).'/data/Spell.yaml', dirname(__FILE__).'/data/Spell.dbc', 0],
         ];
     }
 }

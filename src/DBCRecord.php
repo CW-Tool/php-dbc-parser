@@ -61,4 +61,40 @@ class DBCRecord
             $this->data = fread($this->file_handle, $this->record_size);
         }
     }
+
+    /**
+     * Reads the current row into key/value array.
+     *
+     * @return array
+     */
+    public function read(): array
+    {
+        $map = $this->dbc_file->getMap();
+        if (empty($map)) {
+            throw new DBCException('DBCRecord can not be read without a mapping');
+        }
+
+        $data = [];
+        $format = [];
+        $strings = [];
+        $fields = $map->getParsedFields();
+
+        foreach ($fields as $field_name => $field_data) {
+            $format[] = $field_data['format'];
+            if ('string' === $field_data['type'] || 'localized_string' === $field_data['type']) {
+                $strings[] = $field_name;
+            }
+        }
+
+        $format = implode('/', $format);
+        $data = unpack($format, $this->data);
+
+        foreach ($strings as $string) {
+            if ($data[$string] > 0) {
+                $data[$string] = $this->dbc_file->getString($data[$string]);
+            }
+        }
+
+        return $data;
+    }
 }
