@@ -92,8 +92,14 @@ class DBCRecord
         foreach ($strings as $string) {
             if ($data[$string] > 0) {
                 $data[$string] = $this->dbc_file->getString($data[$string]);
+            } else {
+                $data[$string] = '';
             }
         }
+
+        $data = array_filter($data, function ($key) {
+            return false === strpos($key, '_checksum') && false === strpos($key, '_unused');
+        }, ARRAY_FILTER_USE_KEY);
 
         return $data;
     }

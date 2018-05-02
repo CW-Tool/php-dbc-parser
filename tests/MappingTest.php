@@ -68,6 +68,17 @@ class MappingTest extends TestCase
     }
 
     /**
+     * Tests that the mapping producs a valid parsed field list for reading data.
+     *
+     * @dataProvider fieldNamesProvider
+     */
+    public function testItProvidesFieldNames(string $sample_yaml, array $field_names)
+    {
+        $mapping = Mapping::fromYAML($sample_yaml);
+        $this->assertEquals($field_names, $mapping->getFieldNames());
+    }
+
+    /**
      * Provides a list of YAML sample files.
      *
      * @return array
@@ -206,6 +217,35 @@ class MappingTest extends TestCase
                         'format' => 'V1worldStateID',
                         'offset' => 0,
                     ],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * Returns the list of expected field names from a mapping.
+     *
+     * @return array
+     */
+    public function fieldNamesProvider(): array
+    {
+        return [
+            'AreaPOI mapping - patch 1.12.1' => [
+                dirname(__FILE__).'/data/AreaPOI.yaml',
+                [
+                    'id',
+                    'importance',
+                    'icon',
+                    'factionID',
+                    'locationX',
+                    'locationY',
+                    'locationZ',
+                    'mapID',
+                    'flags',
+                    'areaTableID',
+                    'name',
+                    'description',
+                    'worldStateID',
                 ],
             ],
         ];

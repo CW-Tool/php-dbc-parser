@@ -150,6 +150,25 @@ class Mapping
     }
 
     /**
+     * Returns a list of field names.
+     *
+     * @return array
+     */
+    public function getFieldNames(): array
+    {
+        $field_names = [];
+
+        foreach ($this->_fields as $field) {
+            $field_list = $field->getParsedFields();
+            foreach ($field_list as $field_name => $field_data) {
+                $field_names[] = $field_name;
+            }
+        }
+
+        return $field_names;
+    }
+
+    /**
      * Returns the resulting parsed field data.
      *
      * @var array

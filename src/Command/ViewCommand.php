@@ -7,8 +7,9 @@ namespace Wowstack\Dbc\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\FormatterHelper;
+use Symfony\Component\Console\Helper\Table;
 use Wowstack\Dbc\DBC;
 use Wowstack\Dbc\Mapping;
 
@@ -29,6 +30,15 @@ class ViewCommand extends Command
             ->addArgument('file', InputArgument::REQUIRED, 'Path to the DBC file')
             ->addArgument('map', InputArgument::REQUIRED, 'Path to the YAML map')
             ;
+
+        $this
+            ->addOption(
+                'rows',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'Print selected number of rows',
+                10
+            );
     }
 
     /**
@@ -37,9 +47,9 @@ class ViewCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         /**
-         * @var FormatterHelper
+         * @var Table
          */
-        $formatter = $this->getHelper('formatter');
+        $table = new Table($output);
 
         $output->writeln([
             'DBC Viewer',
@@ -62,5 +72,19 @@ class ViewCommand extends Command
                 '',
             ]);
         }
+
+        $rows = $input->getOption('rows');
+
+        $table->setHeaders($DBC->getMap()->getFieldNames());
+
+        foreach ($DBC as $index => $record) {
+            $table->addRow($record->read());
+            --$rows;
+            if (0 === $rows) {
+                break;
+            }
+        }
+
+        $table->render();
     }
 }
