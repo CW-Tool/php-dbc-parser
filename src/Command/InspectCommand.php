@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\FormatterHelper;
 use Wowstack\Dbc\DBC;
 
 class InspectCommand extends Command
@@ -44,11 +43,6 @@ class InspectCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /**
-         * @var FormatterHelper
-         */
-        $formatter = $this->getHelper('formatter');
-
         $output->writeln([
             'DBC Inspect',
             '===========',
