@@ -50,14 +50,14 @@ class ViewCommand extends Command
          * @var Table
          */
         $table = new Table($output);
+        $DBC = new DBC($input->getArgument('file'), Mapping::fromYAML($input->getArgument('map')));
 
         $output->writeln([
             'DBC Viewer',
             '===========',
             '',
+            $DBC->getPath(),
         ]);
-
-        $DBC = new DBC($input->getArgument('file'), Mapping::fromYAML($input->getArgument('map')));
 
         $output->writeln([
             '# of rows:            '.$DBC->getRecordCount(),
@@ -69,12 +69,12 @@ class ViewCommand extends Command
             $string_block = $DBC->getStringBlock();
             $output->writeln([
                 '# of strings:         '.count($string_block),
-                '',
             ]);
         }
 
         $rows = $input->getOption('rows');
 
+        $output->writeln('');
         $table->setHeaders($DBC->getMap()->getFieldNames());
 
         foreach ($DBC as $index => $record) {
@@ -86,5 +86,6 @@ class ViewCommand extends Command
         }
 
         $table->render();
+        $output->writeln('');
     }
 }

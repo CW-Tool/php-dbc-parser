@@ -43,13 +43,15 @@ class InspectCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $DBC = new DBC($input->getArgument('file'));
+
         $output->writeln([
             'DBC Inspect',
             '===========',
             '',
+            $DBC->getPath(),
+            '',
         ]);
-
-        $DBC = new DBC($input->getArgument('file'));
 
         $output->writeln([
             '# of rows:            '.$DBC->getRecordCount(),
@@ -79,6 +81,8 @@ class InspectCommand extends Command
                     break;
                 }
             }
+
         }
+        $output->writeln('');
     }
 }
