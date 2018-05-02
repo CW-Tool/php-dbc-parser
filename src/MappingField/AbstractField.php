@@ -111,4 +111,14 @@ abstract class AbstractField
     {
         return $this->count * $this->size;
     }
+
+    /**
+     * Returns the offset at which to find the data.
+     *
+     * @return int
+     */
+    public function getOffset(): int
+    {
+        return 0;
+    }
 }

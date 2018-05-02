@@ -43,4 +43,11 @@ interface MappingFieldInterface
      * @return int
      */
     public function getTotalSize(): int;
+
+    /**
+     * Returns the offset at which to find the data.
+     *
+     * @return int
+     */
+    public function getOffset(): int;
 }

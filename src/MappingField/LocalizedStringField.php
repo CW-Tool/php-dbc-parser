@@ -77,23 +77,11 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
     }
 
     /**
-     * Returns the selected locale.
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function getLocale(): string
+    public function getOffset(): int
     {
-        return $this->locale;
-    }
-
-    /**
-     * Returns the selected locale count.
-     *
-     * @return int
-     */
-    public function getLocaleCount(): int
-    {
-        return $this->locale_count;
+        return self::LOCALE_INDEX[$this->locale];
     }
 
     /**
@@ -117,6 +105,26 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
      */
     public function getTotalSize(): int
     {
-        return (($this->size * $this->locale_count) + self::CHECKSUM_SIZE) * $this->count;
+        return $this->getSize() * $this->count;
+    }
+
+    /**
+     * Returns the selected locale.
+     *
+     * @return string
+     */
+    public function getLocale(): string
+    {
+        return $this->locale;
+    }
+
+    /**
+     * Returns the selected locale count.
+     *
+     * @return int
+     */
+    public function getLocaleCount(): int
+    {
+        return $this->locale_count;
     }
 }
