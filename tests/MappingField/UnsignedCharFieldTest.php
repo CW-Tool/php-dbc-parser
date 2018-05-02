@@ -34,6 +34,15 @@ class UnsignedCharFieldTest extends TestCase
     }
 
     /**
+     * @dataProvider parsedFieldProvider
+     */
+    public function testItCreatesParsedFields(string $name, array $parameters, array $parsed_fields)
+    {
+        $field = new UnsignedCharField($name, $parameters);
+        $this->assertEquals($parsed_fields, $field->getParsedFields());
+    }
+
+    /**
      * Provides a set of sample data to construct a field.
      *
      * @return array
@@ -54,6 +63,45 @@ class UnsignedCharFieldTest extends TestCase
     {
         return [
             'missing count' => ['name', ['type' => 'uchar']],
+        ];
+    }
+
+    /**
+     * Returns a list of fields and the expected parsing result.
+     *
+     * @return array
+     */
+    public function parsedFieldProvider(): array
+    {
+        return [
+            'single column' => [
+                'name', ['type' => 'uchar', 'count' => 1],
+                [
+                    'name' => [
+                        'type' => 'uchar',
+                        'size' => 1,
+                        'format' => 'C1name',
+                        'offset' => 0,
+                    ],
+                ],
+            ],
+            'multiple columns' => [
+                'name', ['type' => 'uchar', 'count' => 2],
+                [
+                    'name1' => [
+                        'type' => 'uchar',
+                        'size' => 1,
+                        'format' => 'C1name1',
+                        'offset' => 0,
+                    ],
+                    'name2' => [
+                        'type' => 'uchar',
+                        'size' => 1,
+                        'format' => 'C1name2',
+                        'offset' => 0,
+                    ],
+                ],
+            ],
         ];
     }
 }

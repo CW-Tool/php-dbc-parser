@@ -92,7 +92,7 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
     /**
      * {@inheritdoc}
      */
-    public function getCount(): int
+    public function getTotalCount(): int
     {
         return $this->count * ($this->locale_count + 1);
     }
@@ -111,6 +111,44 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
     public function getTotalSize(): int
     {
         return $this->getSize() * $this->count;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getParsedFields(): array
+    {
+        $count = $this->getCount();
+        $locale_count = $this->getLocaleCount();
+        $string_offset = 0;
+        $parsed_fields = [];
+
+        while ($count >= 1) {
+            $field_name = ($this->getCount() > 1 ? $this->getName().$count : $this->getName());
+            $pack_fields = [];
+            while ($string_offset < $locale_count) {
+                if ($string_offset === $this->getOffset()) {
+                    $pack_fields[] = $this::PACK_FORMAT.'1'.$field_name;
+                } else {
+                    $pack_fields[] = $this::PACK_FORMAT.'1'.$field_name.'_unused'.$string_offset;
+                }
+                ++$string_offset;
+            }
+
+            $pack_fields[] = $this::PACK_FORMAT.'1'.$field_name.'_checksum';
+
+            $parsed_field = [
+                'type' => $this->getType(),
+                'size' => $this->getSize(),
+                'format' => implode('/', $pack_fields),
+                'offset' => $this->getOffset(),
+            ];
+
+            $parsed_fields[$field_name] = $parsed_field;
+            --$count;
+        }
+
+        return $parsed_fields;
     }
 
     /**

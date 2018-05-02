@@ -38,6 +38,13 @@ interface MappingFieldInterface
     public function getCount(): int;
 
     /**
+     * Provides how many of this field follow.
+     *
+     * @return int
+     */
+    public function getTotalCount(): int;
+
+    /**
      * Provides how many bytes for all fields follow.
      *
      * @return int
@@ -50,4 +57,11 @@ interface MappingFieldInterface
      * @return int
      */
     public function getOffset(): int;
+
+    /**
+     * Returns the resulting field(s).
+     *
+     * @return array
+     */
+    public function getParsedFields(): array;
 }

@@ -34,6 +34,15 @@ class SignedIntegerFieldTest extends TestCase
     }
 
     /**
+     * @dataProvider parsedFieldProvider
+     */
+    public function testItCreatesParsedFields(string $name, array $parameters, array $parsed_fields)
+    {
+        $field = new SignedIntegerField($name, $parameters);
+        $this->assertEquals($parsed_fields, $field->getParsedFields());
+    }
+
+    /**
      * Provides a set of sample data to construct a field.
      *
      * @return array
@@ -54,6 +63,45 @@ class SignedIntegerFieldTest extends TestCase
     {
         return [
             'missing count' => ['name', ['type' => 'int']],
+        ];
+    }
+
+    /**
+     * Returns a list of fields and the expected parsing result.
+     *
+     * @return array
+     */
+    public function parsedFieldProvider(): array
+    {
+        return [
+            'single column' => [
+                'name', ['type' => 'int', 'count' => 1],
+                [
+                    'name' => [
+                        'type' => 'int',
+                        'size' => 4,
+                        'format' => 'l1name',
+                        'offset' => 0,
+                    ],
+                ],
+            ],
+            'multiple columns' => [
+                'name', ['type' => 'int', 'count' => 2],
+                [
+                    'name1' => [
+                        'type' => 'int',
+                        'size' => 4,
+                        'format' => 'l1name1',
+                        'offset' => 0,
+                    ],
+                    'name2' => [
+                        'type' => 'int',
+                        'size' => 4,
+                        'format' => 'l1name2',
+                        'offset' => 0,
+                    ],
+                ],
+            ],
         ];
     }
 }

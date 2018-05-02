@@ -56,6 +56,15 @@ class LocalizedStringFieldTest extends TestCase
     }
 
     /**
+     * @dataProvider parsedFieldProvider
+     */
+    public function testItCreatesParsedFields(string $name, array $parameters, array $parsed_fields)
+    {
+        $field = new LocalizedStringField($name, $parameters);
+        $this->assertEquals($parsed_fields, $field->getParsedFields());
+    }
+
+    /**
      * Provides a set of sample data to construct a field.
      *
      * @return array
@@ -63,8 +72,8 @@ class LocalizedStringFieldTest extends TestCase
     public function constructProvider(): array
     {
         return [
-            'single column' => ['name', ['type' => 'localized_string', 'count' => 1], 9, 36],
-            'single column with extended locales' => ['name2', ['type' => 'localized_string', 'count' => 1, 'locale' => 'enGB', 'locale_count' => 16], 17, 68],
+            'single column' => ['name', ['type' => 'localized_string', 'count' => 1], 1, 36],
+            'single column with extended locales' => ['name2', ['type' => 'localized_string', 'count' => 1, 'locale' => 'enGB', 'locale_count' => 16], 1, 68],
         ];
     }
 
@@ -104,6 +113,39 @@ class LocalizedStringFieldTest extends TestCase
         return [
             'using 8 locales' => ['name', ['type' => 'localized_string', 'count' => 1, 'locale' => 'enGB', 'locale_count' => 8], 36],
             'using 16 locales' => ['name', ['type' => 'localized_string', 'count' => 1, 'locale' => 'deDE', 'locale_count' => 16], 68],
+        ];
+    }
+
+    /**
+     * Returns a list of fields and the expected parsing result.
+     *
+     * @return array
+     */
+    public function parsedFieldProvider(): array
+    {
+        return [
+            'single column, enUS locale' => [
+                'name', ['type' => 'localized_string', 'count' => 1],
+                [
+                    'name' => [
+                        'type' => 'localized_string',
+                        'size' => 36,
+                        'format' => 'V1name/V1name_unused1/V1name_unused2/V1name_unused3/V1name_unused4/V1name_unused5/V1name_unused6/V1name_unused7/V1name_checksum',
+                        'offset' => 0,
+                    ],
+                ],
+            ],
+            'single column, deDE locale' => [
+                'name', ['type' => 'localized_string', 'count' => 1, 'locale' => 'deDE'],
+                [
+                    'name' => [
+                        'type' => 'localized_string',
+                        'size' => 36,
+                        'format' => 'V1name_unused0/V1name_unused1/V1name_unused2/V1name/V1name_unused4/V1name_unused5/V1name_unused6/V1name_unused7/V1name_checksum',
+                        'offset' => 3,
+                    ],
+                ],
+            ],
         ];
     }
 }

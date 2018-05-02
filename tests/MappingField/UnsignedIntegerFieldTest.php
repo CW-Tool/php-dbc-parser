@@ -34,6 +34,15 @@ class UnsignedIntegerFieldTest extends TestCase
     }
 
     /**
+     * @dataProvider parsedFieldProvider
+     */
+    public function testItCreatesParsedFields(string $name, array $parameters, array $parsed_fields)
+    {
+        $field = new UnsignedIntegerField($name, $parameters);
+        $this->assertEquals($parsed_fields, $field->getParsedFields());
+    }
+
+    /**
      * Provides a set of sample data to construct a field.
      *
      * @return array
@@ -54,6 +63,45 @@ class UnsignedIntegerFieldTest extends TestCase
     {
         return [
             'missing count' => ['name', ['type' => 'uint']],
+        ];
+    }
+
+    /**
+     * Returns a list of fields and the expected parsing result.
+     *
+     * @return array
+     */
+    public function parsedFieldProvider(): array
+    {
+        return [
+            'single column' => [
+                'name', ['type' => 'uint', 'count' => 1],
+                [
+                    'name' => [
+                        'type' => 'uint',
+                        'size' => 4,
+                        'format' => 'V1name',
+                        'offset' => 0,
+                    ],
+                ],
+            ],
+            'multiple columns' => [
+                'name', ['type' => 'uint', 'count' => 2],
+                [
+                    'name1' => [
+                        'type' => 'uint',
+                        'size' => 4,
+                        'format' => 'V1name1',
+                        'offset' => 0,
+                    ],
+                    'name2' => [
+                        'type' => 'uint',
+                        'size' => 4,
+                        'format' => 'V1name2',
+                        'offset' => 0,
+                    ],
+                ],
+            ],
         ];
     }
 }

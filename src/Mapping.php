@@ -42,7 +42,7 @@ class Mapping
 
         foreach ($fields as $field_name => $field_parameters) {
             $this->add($field_name, $field_parameters);
-            $this->_fieldCount += $this->_fields[$field_name]->getCount();
+            $this->_fieldCount += $this->_fields[$field_name]->getTotalCount();
             $this->_fieldSize += $this->_fields[$field_name]->getTotalSize();
 
             if ('string' === $this->_fields[$field_name]->getType() ||
@@ -93,16 +93,6 @@ class Mapping
         }
 
         $this->_fields[$name] = $field;
-    }
-
-    /**
-     * Returns all fields contained in the mapping.
-     *
-     * @return MappingFieldInterface[]
-     */
-    public function getFields(): array
-    {
-        return $this->_fields;
     }
 
     /**
@@ -157,5 +147,21 @@ class Mapping
     public function hasStrings(): bool
     {
         return $this->_hasStrings;
+    }
+
+    /**
+     * Returns the resulting parsed field data.
+     *
+     * @var array
+     */
+    public function getParsedFields(): array
+    {
+        $parsed_fields = [];
+
+        foreach ($this->_fields as $field) {
+            $parsed_fields[] = $field->getParsedFields();
+        }
+
+        return $parsed_fields;
     }
 }

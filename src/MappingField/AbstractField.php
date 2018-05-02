@@ -29,6 +29,11 @@ abstract class AbstractField
     const OPTIONAL_PARAMETERS = [];
 
     /**
+     * Format used to pack/unpack this field type.
+     */
+    const PACK_FORMAT = '';
+
+    /**
      * Sets required parameters.
      *
      * @param array $parameters
@@ -103,6 +108,16 @@ abstract class AbstractField
     }
 
     /**
+     * Provides how many of this field follow.
+     *
+     * @return int
+     */
+    public function getTotalCount(): int
+    {
+        return $this->count;
+    }
+
+    /**
      * Provides how many bytes for all fields follow.
      *
      * @return int
@@ -120,5 +135,31 @@ abstract class AbstractField
     public function getOffset(): int
     {
         return 0;
+    }
+
+    /**
+     * Returns the resulting field(s).
+     *
+     * @return array
+     */
+    public function getParsedFields(): array
+    {
+        $count = $this->getCount();
+        $parsed_fields = [];
+
+        while ($count >= 1) {
+            $field_name = ($this->getCount() > 1 ? $this->getName().$count : $this->getName());
+            $parsed_field = [
+                'type' => $this->getType(),
+                'size' => $this->getSize(),
+                'format' => $this::PACK_FORMAT.'1'.$field_name,
+                'offset' => $this->getOffset(),
+            ];
+
+            $parsed_fields[$field_name] = $parsed_field;
+            --$count;
+        }
+
+        return $parsed_fields;
     }
 }
