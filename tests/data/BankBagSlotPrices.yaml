@@ -1,0 +1,7 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    cost:
+        type: uint
+        count: 1

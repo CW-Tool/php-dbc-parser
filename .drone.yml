@@ -15,6 +15,7 @@ pipeline:
         image: kogitoapp/php:7.2-cli
         commands:
             - ./bin/dbc-tool dbc:inspect tests/data/AreaPOI.dbc
+            - ./bin/dbc-tool dbc:inspect tests/data/BankBagSlotPrices.dbc
             - ./bin/dbc-tool dbc:inspect tests/data/Spell.dbc
         when:
             status: [ success ]
@@ -23,6 +24,7 @@ pipeline:
         image: kogitoapp/php:7.2-cli
         commands:
             - ./bin/dbc-tool dbc:view tests/data/AreaPOI.dbc tests/data/AreaPOI.yaml
+            - ./bin/dbc-tool dbc:view tests/data/BankBagSlotPrices.dbc tests/data/BankBagSlotPrices.yaml
             - ./bin/dbc-tool dbc:view tests/data/Spell.dbc tests/data/Spell.yaml
         when:
             status: [ success ]
