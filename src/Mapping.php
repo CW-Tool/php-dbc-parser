@@ -159,7 +159,10 @@ class Mapping
         $parsed_fields = [];
 
         foreach ($this->_fields as $field) {
-            $parsed_fields[] = $field->getParsedFields();
+            $field_list = $field->getParsedFields();
+            foreach ($field_list as $field_name => $field_data) {
+                $parsed_fields[$field_name] = $field_data;
+            }
         }
 
         return $parsed_fields;
