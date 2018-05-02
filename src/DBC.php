@@ -168,7 +168,7 @@ class DBC implements \IteratorAggregate
      */
     public function readStringBlock()
     {
-        if ($this->string_block_size > 0) {
+        if ($this->string_block_size > 1) {
             fseek($this->file_handle, $this->stringBlockOffset);
             $bytes_to_read = $this->string_block_size;
             $current_offset = $this->stringBlockOffset;
