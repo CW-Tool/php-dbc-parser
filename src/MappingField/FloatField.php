@@ -34,6 +34,11 @@ class FloatField extends AbstractField implements MappingFieldInterface
     const OPTIONAL_PARAMETERS = [];
 
     /**
+     * Format used to pack/unpack this field type.
+     */
+    const PACK_FORMAT = 'g';
+
+    /**
      * Constructs the field.
      *
      * @param string $name

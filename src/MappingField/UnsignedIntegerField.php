@@ -34,6 +34,11 @@ class UnsignedIntegerField extends AbstractField implements MappingFieldInterfac
     const OPTIONAL_PARAMETERS = [];
 
     /**
+     * Format used to pack/unpack this field type.
+     */
+    const PACK_FORMAT = 'V';
+
+    /**
      * Constructs the field.
      *
      * @param string $name

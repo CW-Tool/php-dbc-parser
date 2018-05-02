@@ -64,6 +64,11 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
     const OPTIONAL_PARAMETERS = ['locale' => 'enUS', 'locale_count' => 8];
 
     /**
+     * Format used to pack/unpack this field type.
+     */
+    const PACK_FORMAT = 'V';
+
+    /**
      * Constructs the field.
      *
      * @param string $name

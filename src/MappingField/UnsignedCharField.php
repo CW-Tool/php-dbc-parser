@@ -34,6 +34,11 @@ class UnsignedCharField extends AbstractField implements MappingFieldInterface
     const OPTIONAL_PARAMETERS = [];
 
     /**
+     * Format used to pack/unpack this field type.
+     */
+    const PACK_FORMAT = 'C';
+
+    /**
      * Constructs the field.
      *
      * @param string $name
