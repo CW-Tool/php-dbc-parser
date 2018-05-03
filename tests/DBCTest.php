@@ -49,7 +49,7 @@ class DBCTest extends TestCase
     /**
      * @return array
      */
-    public function constructProvider()
+    public function constructProvider(): array
     {
         return [
             'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/maps/AreaPOI.yaml', dirname(__FILE__).'/data/AreaPOI.dbc', 339, 116, 29, 3856, true, 254],
@@ -61,7 +61,7 @@ class DBCTest extends TestCase
     /**
      * @return array
      */
-    public function exceptionProvider()
+    public function exceptionProvider(): array
     {
         return [
             'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/maps/AreaPOI.yaml', dirname(__FILE__).'/data/AreaPOI.dbc'],

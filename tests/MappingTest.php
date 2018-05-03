@@ -83,7 +83,7 @@ class MappingTest extends TestCase
      *
      * @return array
      */
-    public function sampleProvider()
+    public function sampleProvider(): array
     {
         return [
             'valid example mapping' => [dirname(__FILE__).'/data/maps/sample.yaml', 24, 90],
@@ -98,7 +98,7 @@ class MappingTest extends TestCase
      *
      * @return array
      */
-    public function invalidSampleProvider()
+    public function invalidSampleProvider(): array
     {
         return [
             'example with unknown types' => [dirname(__FILE__).'/data/maps/invalid-sample.yaml'],
@@ -110,7 +110,7 @@ class MappingTest extends TestCase
      *
      * @return array
      */
-    public function missingTypeProvider()
+    public function missingTypeProvider(): array
     {
         return [
             'example without types' => [dirname(__FILE__).'/data/maps/missing-type.yaml'],
@@ -122,7 +122,7 @@ class MappingTest extends TestCase
      *
      * @return array
      */
-    public function typeTestProvider()
+    public function typeTestProvider(): array
     {
         return [
             'example with string column' => [dirname(__FILE__).'/data/maps/type-sample.yaml', 'name', 'string'],

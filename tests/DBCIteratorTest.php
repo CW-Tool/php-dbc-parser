@@ -26,7 +26,7 @@ class DBCIteratorTest extends TestCase
     /**
      * @return array
      */
-    public function constructProvider()
+    public function iterateProvider(): array
     {
         return [
             'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/maps/AreaPOI.yaml', dirname(__FILE__).'/data/AreaPOI.dbc'],
