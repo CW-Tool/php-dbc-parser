@@ -25,10 +25,12 @@ use Symfony\Component\Console\Application;
 use Wowstack\Dbc\Command\InspectCommand;
 use Wowstack\Dbc\Command\ViewCommand;
 use Wowstack\Dbc\Command\MapCheckCommand;
+use Wowstack\Dbc\Command\ExportCommand;
 
 $application = new Application();
 $application->add(new InspectCommand());
 $application->add(new ViewCommand());
 $application->add(new MapCheckCommand());
+$application->add(new ExportCommand());
 
 $application->run();
