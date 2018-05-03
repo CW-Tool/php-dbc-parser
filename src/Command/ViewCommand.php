@@ -37,7 +37,7 @@ class ViewCommand extends Command
                 null,
                 InputOption::VALUE_REQUIRED,
                 'Print selected number of rows',
-                10
+                false
             );
     }
 
@@ -79,9 +79,12 @@ class ViewCommand extends Command
 
         foreach ($DBC as $index => $record) {
             $table->addRow($record->read());
-            --$rows;
-            if (0 === $rows) {
-                break;
+
+            if (false !== $rows) {
+                --$rows;
+                if (0 === $rows) {
+                    break;
+                }
             }
         }
 

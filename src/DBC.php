@@ -196,6 +196,16 @@ class DBC implements \IteratorAggregate
     }
 
     /**
+     * Returns the filename of the Mapping.
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return pathinfo($this->getPath())['filename'];
+    }
+
+    /**
      * Returns the canonical path to the file.
      *
      * @return string
