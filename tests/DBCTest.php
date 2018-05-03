@@ -47,6 +47,42 @@ class DBCTest extends TestCase
     }
 
     /**
+     * @dataProvider nameProvider
+     */
+    public function testItHasAValidName(string $dbc, string $name)
+    {
+        $DBC = new DBC($dbc);
+        $this->assertEquals($name, $DBC->getName());
+    }
+
+    /**
+     * @dataProvider fileNotFoundProvider
+     */
+    public function testItFailsWithMissingFile(string $dbc)
+    {
+        $this->expectException(DBCException::class);
+        $DBC = new DBC($dbc);
+    }
+
+    /**
+     * @dataProvider tooSmallProvider
+     */
+    public function testItFailsWithIncompleteHeader(string $dbc)
+    {
+        $this->expectException(DBCException::class);
+        $DBC = new DBC($dbc);
+    }
+
+    /**
+     * @dataProvider invalidHeaderProvider
+     */
+    public function testItFailsWithInvalidHeader(string $dbc)
+    {
+        $this->expectException(DBCException::class);
+        $DBC = new DBC($dbc);
+    }
+
+    /**
      * @return array
      */
     public function constructProvider(): array
@@ -67,6 +103,50 @@ class DBCTest extends TestCase
             'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/maps/AreaPOI.yaml', dirname(__FILE__).'/data/AreaPOI.dbc'],
             'BankBagSlotPrices mapping - patch 1.12.1' => [dirname(__FILE__).'/data/maps/BankBagSlotPrices.yaml', dirname(__FILE__).'/data/BankBagSlotPrices.dbc'],
             'Spell mapping - patch 1.12.1' => [dirname(__FILE__).'/data/maps/Spell.yaml', dirname(__FILE__).'/data/Spell.dbc'],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function nameProvider(): array
+    {
+        return [
+            'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.dbc', 'AreaPOI'],
+            'BankBagSlotPrices mapping - patch 1.12.1' => [dirname(__FILE__).'/data/BankBagSlotPrices.dbc', 'BankBagSlotPrices'],
+            'Spell mapping - patch 1.12.1' => [dirname(__FILE__).'/data/Spell.dbc', 'Spell'],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function fileNotFoundProvider(): array
+    {
+        return [
+            'secret bank account storage access codes' => [dirname(__FILE__).'/data/access-codes.dbc'],
+            'lottery winners list 2032' => [dirname(__FILE__).'/data/lottery-winners.dbc'],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function tooSmallProvider(): array
+    {
+        return [
+            'catch me if you can' => [dirname(__FILE__).'/data/header-only.dbc'],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function invalidHeaderProvider(): array
+    {
+        return [
+            'binary star system' => [dirname(__FILE__).'/data/size-matters.dbc'],
+            'binary star system' => [dirname(__FILE__).'/data/wrong-signature.dbc'],
         ];
     }
 }
