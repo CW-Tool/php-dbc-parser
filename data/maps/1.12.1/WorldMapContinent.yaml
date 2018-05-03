@@ -1,0 +1,40 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    mapID:
+        type: uint
+        count: 1
+    leftBoundary:
+        type: uint
+        count: 1
+    rightBoundary:
+        type: uint
+        count: 1
+    topBoundary:
+        type: uint
+        count: 1
+    bottomBoundary:
+        type: uint
+        count: 1
+    continentOffsetX:
+        type: float
+        count: 1
+    continentOffsetY:
+        type: float
+        count: 1
+    scale:
+        type: float
+        count: 1
+    taxiMinX:
+        type: float
+        count: 1
+    taxiMinY:
+        type: float
+        count: 1
+    taxiMaxX:
+        type: float
+        count: 1
+    taxiMaxY:
+        type: float
+        count: 1

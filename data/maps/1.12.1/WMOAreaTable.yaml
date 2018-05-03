@@ -1,0 +1,37 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    wmoID:
+        type: uint
+        count: 1
+    nameSetID:
+        type: uint
+        count: 1
+    wmoGroupID:
+        type: int
+        count: 1
+    soundProviderPreferencesID:
+        type: int
+        count: 1
+    soundProviderPreferencesIDUnderwater:
+        type: int
+        count: 1
+    soundAmbienceID:
+        type: int
+        count: 1
+    zoneMusicID:
+        type: int
+        count: 1
+    zoneIntroMusicTableID:
+        type: int
+        count: 1
+    flags:
+        type: uint
+        count: 1
+    areaTableID:
+        type: uint
+        count: 1
+    areaName:
+        type: localized_string
+        count: 1

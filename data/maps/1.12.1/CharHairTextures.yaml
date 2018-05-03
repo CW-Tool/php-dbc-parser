@@ -1,0 +1,25 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    raceID:
+        type: uint
+        count: 1
+    sexID:
+        type: uint
+        count: 1
+    unknown1:
+        type: int
+        count: 1
+    raceMask:
+        type: uint
+        count: 1
+    unknown2:
+        type: int
+        count: 1
+    unknown3:
+        type: int
+        count: 1
+    unknown4:
+        type: int
+        count: 1

@@ -1,0 +1,88 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    soundType:
+        type: int
+        count: 1
+    name:
+        type: string
+        count: 1
+    file1:
+        type: string
+        count: 1
+    file2:
+        type: string
+        count: 1
+    file3:
+        type: string
+        count: 1
+    file4:
+        type: string
+        count: 1
+    file5:
+        type: string
+        count: 1
+    file6:
+        type: string
+        count: 1
+    file7:
+        type: string
+        count: 1
+    file8:
+        type: string
+        count: 1
+    file9:
+        type: string
+        count: 1
+    file10:
+        type: string
+        count: 1
+    freq1:
+        type: int
+        count: 1
+    freq2:
+        type: int
+        count: 1
+    freq3:
+        type: int
+        count: 1
+    freq4:
+        type: int
+        count: 1
+    freq5:
+        type: int
+        count: 1
+    freq6:
+        type: int
+        count: 1
+    freq7:
+        type: int
+        count: 1
+    freq8:
+        type: int
+        count: 1
+    freq9:
+        type: int
+        count: 1
+    freq10:
+        type: int
+        count: 1
+    directoryBase:
+        type: string
+        count: 1
+    volumeFloat:
+        type: float
+        count: 1
+    flags:
+        type: int
+        count: 1
+    minDistance:
+        type: float
+        count: 1
+    distanceCutoff:
+        type: float
+        count: 1
+    soundEntriesAdvancedID:
+        type: uint
+        count: 1

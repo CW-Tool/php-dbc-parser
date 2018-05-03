@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    soundType:
+        type: int
+        count: 1
+    soundSubType:
+        type: int
+        count: 1
+    soundEntryID:
+        type: uint
+        count: 1

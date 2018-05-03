@@ -1,0 +1,28 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    specTalentTabID:
+        type: int
+        count: 1
+    tierID:
+        type: int
+        count: 1
+    columnIndex:
+        type: int
+        count: 1
+    spellRankID:
+        type: uint
+        count: 9
+    prereqTalentID:
+        type: uint
+        count: 3
+    prereqRank:
+        type: int
+        count: 3
+    flags:
+        type: int
+        count: 1
+    requiredSpellID:
+        type: uint
+        count: 1

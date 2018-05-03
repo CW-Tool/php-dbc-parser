@@ -1,0 +1,7 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    cameraShakesID:
+        type: uint
+        count: 3

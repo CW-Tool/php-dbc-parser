@@ -1,0 +1,16 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    resourceName:
+        type: localized_string
+        count: 1
+    verb:
+        type: localized_string
+        count: 1
+    cursorName:
+        type: string
+        count: 1

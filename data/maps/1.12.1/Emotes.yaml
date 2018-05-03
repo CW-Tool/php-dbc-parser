@@ -1,0 +1,22 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    emoteSlashCommand:
+        type: string
+        count: 1
+    animationDataID:
+        type: uint
+        count: 1
+    emoteFlags:
+        type: uint
+        count: 1
+    emoteSpecProc:
+        type: uint
+        count: 1
+    emoteSpecProcParam:
+        type: uint
+        count: 1
+    eventSoundEntryID:
+        type: uint
+        count: 1

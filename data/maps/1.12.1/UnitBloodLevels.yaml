@@ -1,0 +1,7 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    violenceLevel:
+        type: int
+        count: 3

@@ -1,0 +1,28 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    highlightSky:
+        type: int
+        count: 1
+    lightSkyboxID:
+        type: uint
+        count: 1
+    glow:
+        type: float
+        count: 1
+    waterShallowAlpha:
+        type: float
+        count: 1
+    waterDeepAlpha:
+        type: float
+        count: 1
+    oceanShallowAlpha:
+        type: float
+        count: 1
+    oceanDeepAlpha:
+        type: float
+        count: 1
+    unknown:
+        type: float
+        count: 1

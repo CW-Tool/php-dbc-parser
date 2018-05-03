@@ -1,0 +1,64 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    startAnimationDataID:
+        type: int
+        count: 1
+    animationDataID:
+        type: int
+        count: 1
+    animKit:
+        type: int
+        count: 1
+    headSpellEffectID:
+        type: int
+        count: 1
+    chestSpellEffectID:
+        type: int
+        count: 1
+    baseSpellEffectID:
+        type: int
+        count: 1
+    leftHandSpellEffectID:
+        type: int
+        count: 1
+    rightHandSpellEffectID:
+        type: int
+        count: 1
+    breathSpellEffectID:
+        type: int
+        count: 1
+    leftWeaponSpellEffectID:
+        type: int
+        count: 1
+    rightWeaponSpellEffectID:
+        type: int
+        count: 1
+    specialSpellEffectID:
+        type: int
+        count: 3
+    worldSpellEffectID:
+        type: int
+        count: 1
+    soundEntryID:
+        type: int
+        count: 1
+    cameraShakesID:
+        type: int
+        count: 1
+    charProc:
+        type: int
+        count: 4
+    charParamZero:
+        type: float
+        count: 4
+    charParamOne:
+        type: float
+        count: 4
+    charParamTwo:
+        type: float
+        count: 4
+    flags:
+        type: int
+        count: 1

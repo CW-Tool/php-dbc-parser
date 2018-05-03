@@ -1,0 +1,37 @@
+fields:
+    classID:
+        type: int
+        count: 1
+    subClassID:
+        type: int
+        count: 1
+    prerequisiteProficiency:
+        type: int
+        count: 1
+    postrequisiteProficiency:
+        type: int
+        count: 1
+    flags:
+        type: int
+        count: 1
+    displayFlags:
+        type: int
+        count: 1
+    weaponParrySeq:
+        type: int
+        count: 1
+    weaponReadySeq:
+        type: int
+        count: 1
+    weaponAttackSeq:
+        type: int
+        count: 1
+    weaponSwingSize:
+        type: int
+        count: 1
+    displayName:
+        type: localized_string
+        count: 1
+    verboseName:
+        type: localized_string
+        count: 1

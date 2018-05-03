@@ -1,0 +1,31 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    mapID:
+        type: uint
+        count: 1
+    locationX:
+        type: float
+        count: 1
+    locationY:
+        type: float
+        count: 1
+    locationZ:
+        type: float
+        count: 1
+    radius:
+        type: float
+        count: 1
+    boxLength:
+        type: float
+        count: 1
+    boxWidth:
+        type: float
+        count: 1
+    boxHeight:
+        type: float
+        count: 1
+    boxYaw:
+        type: float
+        count: 1

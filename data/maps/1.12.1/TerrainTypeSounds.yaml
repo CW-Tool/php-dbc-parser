@@ -1,0 +1,4 @@
+fields:
+    id:
+        type: uint
+        count: 1

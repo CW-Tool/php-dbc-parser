@@ -1,0 +1,19 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    mapID:
+        type: uint
+        count: 1
+    locationX:
+        type: float
+        count: 1
+    locationY:
+        type: float
+        count: 1
+    locationZ:
+        type: float
+        count: 1
+    areaName:
+        type: localized_string
+        count: 1

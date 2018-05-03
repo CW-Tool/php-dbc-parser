@@ -1,0 +1,19 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    skillLineCategoryID:
+        type: int
+        count: 1
+    skillCostsDataID:
+        type: uint
+        count: 1
+    displayName:
+        type: localized_string
+        count: 1
+    description:
+        type: localized_string
+        count: 1
+    spellIconID:
+        type: uint
+        count: 1

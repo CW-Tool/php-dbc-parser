@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    soundID:
+        type: uint
+        count: 1
+    cinematicCameraID:
+        type: uint
+        count: 8

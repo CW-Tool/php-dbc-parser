@@ -1,0 +1,25 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    avgSegLen:
+        type: float
+        count: 1
+    width:
+        type: float
+        count: 1
+    noiseScale:
+        type: float
+        count: 1
+    texCoordScale:
+        type: float
+        count: 1
+    segDuration:
+        type: int
+        count: 1
+    segDelay:
+        type: int
+        count: 1
+    texture:
+        type: string
+        count: 1

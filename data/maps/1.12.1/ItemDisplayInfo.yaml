@@ -1,0 +1,34 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    modelName:
+        type: string
+        count: 2
+    modelTexture:
+        type: string
+        count: 2
+    inventoryIcon:
+        type: string
+        count: 1
+    groundModel:
+        type: string
+        count: 1
+    geosetGroup:
+        type: int
+        count: 3
+    spellVisualID:
+        type: uint
+        count: 1
+    groupSoundIndex:
+        type: int
+        count: 1
+    helmetGeosetVisID:
+        type: uint
+        count: 2
+    texture:
+        type: string
+        count: 8
+    itemVisualID:
+        type: int
+        count: 1

@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    noExp:
+        type: int
+        count: 1

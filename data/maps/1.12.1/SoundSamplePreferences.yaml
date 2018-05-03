@@ -1,0 +1,7 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    unknown:
+        type: int
+        count: 16

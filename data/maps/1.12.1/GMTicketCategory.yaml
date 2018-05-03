@@ -1,0 +1,7 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    category:
+        type: localized_string
+        count: 1

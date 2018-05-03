@@ -1,0 +1,19 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    raceID:
+        type: uint
+        count: 1
+    sexID:
+        type: uint
+        count: 1
+    variationID:
+        type: uint
+        count: 1
+    geosetID:
+        type: uint
+        count: 1
+    showScalp:
+        type: uint
+        count: 1

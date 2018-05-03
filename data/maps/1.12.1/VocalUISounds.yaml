@@ -1,0 +1,22 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    vocalUIEnum:
+        type: int
+        count: 1
+    raceID:
+        type: uint
+        count: 1
+    normalMaleSoundEntryID:
+        type: int
+        count: 1
+    normalFemaleSoundEntryID:
+        type: int
+        count: 1
+    pissedMaleSoundEntryID:
+        type: int
+        count: 1
+    pissedFemaleSoundEntryID:
+        type: int
+        count: 1

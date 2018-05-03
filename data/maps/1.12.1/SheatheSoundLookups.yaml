@@ -1,0 +1,22 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    itemClassID:
+        type: int
+        count: 1
+    itemSubclassID:
+        type: int
+        count: 1
+    itemMaterialID:
+        type: int
+        count: 1
+    checkMaterial:
+        type: int
+        count: 1
+    sheathSoundEntryID:
+        type: uint
+        count: 1
+    unsheathSoundEntryID:
+        type: uint
+        count: 1

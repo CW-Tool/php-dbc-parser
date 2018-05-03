@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    radius:
+        type: float
+        count: 1
+    radiusPerLevel:
+        type: float
+        count: 1
+    radiusMax:
+        type: float
+        count: 1

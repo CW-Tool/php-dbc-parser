@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    daySoundEntryID:
+        type: uint
+        count: 1
+    nightSoundEntryID:
+        type: uint
+        count: 1

@@ -1,0 +1,43 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    worldMapAreaID:
+        type: uint
+        count: 1
+    areaTableID:
+        type: uint
+        count: 4
+    locationX:
+        type: uint
+        count: 1
+    locationY:
+        type: uint
+        count: 1
+    textureName:
+        type: string
+        count: 1
+    textureWidth:
+        type: uint
+        count: 1
+    textureHeight:
+        type: uint
+        count: 1
+    offsetX:
+        type: uint
+        count: 1
+    offsetY:
+        type: uint
+        count: 1
+    hitRectTop:
+        type: uint
+        count: 1
+    hitRectLeft:
+        type: uint
+        count: 1
+    hitRectBottom:
+        type: uint
+        count: 1
+    hitRectRight:
+        type: uint
+        count: 1

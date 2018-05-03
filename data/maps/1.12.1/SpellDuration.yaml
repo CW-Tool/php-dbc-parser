@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    duration:
+        type: int
+        count: 1
+    durationPerLevel:
+        type: int
+        count: 1
+    maxDuration:
+        type: int
+        count: 1

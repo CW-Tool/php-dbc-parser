@@ -1,0 +1,25 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    textureVariation1:
+        type: string
+        count: 1
+    textureVariation2:
+        type: string
+        count: 1
+    textureVariation3:
+        type: string
+        count: 1
+    attachModel1:
+        type: string
+        count: 1
+    attachModel2:
+        type: string
+        count: 1
+    attachModel3:
+        type: string
+        count: 1
+    attachModel4:
+        type: string
+        count: 1

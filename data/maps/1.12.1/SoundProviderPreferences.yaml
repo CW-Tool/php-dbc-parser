@@ -1,0 +1,73 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    description:
+        type: string
+        count: 1
+    flags:
+        type: int
+        count: 1
+    EAXEnvironmentSelection:
+        type: int
+        count: 1
+    EAXDecayTime:
+        type: float
+        count: 1
+    EAX2EnvironmentSize:
+        type: float
+        count: 1
+    EAX2EnvironmentDiffusion:
+        type: float
+        count: 1
+    EAX2Room:
+        type: int
+        count: 1
+    EAX2RoomHF:
+        type: int
+        count: 1
+    EAX2DecayHFRatio:
+        type: float
+        count: 1
+    EAX2Reflections:
+        type: int
+        count: 1
+    EAX2ReflectionsDelay:
+        type: float
+        count: 1
+    EAX2Reverb:
+        type: int
+        count: 1
+    EAX2ReverbDelay:
+        type: float
+        count: 1
+    EAX2RoomRolloff:
+        type: float
+        count: 1
+    EAX2AirAbsorption:
+        type: float
+        count: 1
+    EAX3RoomLF:
+        type: int
+        count: 1
+    EAX3DecayLFRatio:
+        type: float
+        count: 1
+    EAX3EchoTime:
+        type: float
+        count: 1
+    EAX3EchoDepth:
+        type: float
+        count: 1
+    EAX3ModulationTime:
+        type: float
+        count: 1
+    EAX3ModulationDepth:
+        type: float
+        count: 1
+    EAX3HFReference:
+        type: float
+        count: 1
+    EAX3LFReference:
+        type: float
+        count: 1

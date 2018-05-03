@@ -1,0 +1,22 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        type: string
+        count: 1
+    weaponFlags:
+        type: int
+        count: 1
+    bodyFlags:
+        type: int
+        count: 1
+    flags:
+        type: int
+        count: 1
+    fallback:
+        type: uint
+        count: 1
+    previous:
+        type: uint
+        count: 1

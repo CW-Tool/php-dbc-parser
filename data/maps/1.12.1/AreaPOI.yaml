@@ -1,0 +1,40 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    importance:
+        type: int
+        count: 1
+    icon:
+        type: int
+        count: 1
+    factionID:
+        type: uint
+        count: 1
+    locationX:
+        type: float
+        count: 1
+    locationY:
+        type: float
+        count: 1
+    locationZ:
+        type: float
+        count: 1
+    mapID:
+        type: uint
+        count: 1
+    flags:
+        type: int
+        count: 1
+    areaTableID:
+        type: int
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    description:
+        type: localized_string
+        count: 1
+    worldStateID:
+        type: uint
+        count: 1

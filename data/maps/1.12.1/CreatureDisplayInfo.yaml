@@ -1,0 +1,37 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    modelID:
+        type: uint
+        count: 1
+    soundID:
+        type: uint
+        count: 1
+    extendedDisplayInfoID:
+        type: uint
+        count: 1
+    creatureModelScale:
+        type: float
+        count: 1
+    creatureModelAlpha:
+        type: uint
+        count: 1
+    textureVariation1:
+        type: string
+        count: 1
+    textureVariation2:
+        type: string
+        count: 1
+    textureVariation3:
+        type: string
+        count: 1
+    sizeClass:
+        type: int
+        count: 1
+    bloodID:
+        type: uint
+        count: 1
+    NPCSoundID:
+        type: uint
+        count: 1

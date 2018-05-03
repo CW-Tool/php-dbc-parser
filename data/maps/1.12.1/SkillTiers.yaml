@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    cost:
+        type: int
+        count: 16
+    value:
+        type: int
+        count: 16

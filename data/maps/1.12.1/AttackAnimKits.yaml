@@ -1,0 +1,16 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    animationData:
+        type: uint
+        count: 1
+    attackAnimType:
+        type: uint
+        count: 1
+    flags:
+        type: int
+        count: 1
+    isOffhand:
+        type: int
+        count: 1

@@ -1,0 +1,22 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    model:
+        type: string
+        count: 1
+    soundID:
+        type: uint
+        count: 1
+    originX:
+        type: float
+        count: 1
+    originY:
+        type: float
+        count: 1
+    originZ:
+        type: float
+        count: 1
+    originFacing:
+        type: float
+        count: 1

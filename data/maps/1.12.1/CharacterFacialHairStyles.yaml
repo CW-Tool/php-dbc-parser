@@ -1,0 +1,22 @@
+fields:
+    raceID:
+        type: uint
+        count: 1
+    sexID:
+        type: uint
+        count: 1
+    variation:
+        type: uint
+        count: 1
+    beardGeoset:
+        type: uint
+        count: 1
+    mustacheGeoset:
+        type: uint
+        count: 1
+    sideburnGeoset:
+        type: uint
+        count: 1
+    otherGeoset:
+        type: uint
+        count: 3

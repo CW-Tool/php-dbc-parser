@@ -1,0 +1,73 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    soundExertion:
+        type: uint
+        count: 1
+    soundExertionCritical:
+        type: uint
+        count: 1
+    soundInjury:
+        type: uint
+        count: 1
+    soundInjuryCritical:
+        type: uint
+        count: 1
+    soundInjuryCrushingBlow:
+        type: uint
+        count: 1
+    soundDeath:
+        type: uint
+        count: 1
+    soundStun:
+        type: uint
+        count: 1
+    soundStand:
+        type: uint
+        count: 1
+    soundFootstep:
+        type: uint
+        count: 1
+    soundAggro:
+        type: uint
+        count: 1
+    soundWingFlap:
+        type: uint
+        count: 1
+    soundWingGlide:
+        type: uint
+        count: 1
+    soundAlert:
+        type: uint
+        count: 1
+    soundFidget:
+        type: uint
+        count: 4
+    customAttack:
+        type: uint
+        count: 4
+    NPCSound:
+        type: uint
+        count: 1
+    loopSound:
+        type: uint
+        count: 1
+    creatureImpactType:
+        type: int
+        count: 1
+    soundJumpStart:
+        type: uint
+        count: 1
+    soundJumpEnd:
+        type: uint
+        count: 1
+    soundPetAttack:
+        type: uint
+        count: 1
+    soundPetOrder:
+        type: uint
+        count: 1
+    soundPetDismiss:
+        type: uint
+        count: 1

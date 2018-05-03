@@ -1,0 +1,16 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    happinessThreshold:
+        type: int
+        count: 3
+    happinessDamage:
+        type: float
+        count: 3
+    damageModifier:
+        type: float
+        count: 3

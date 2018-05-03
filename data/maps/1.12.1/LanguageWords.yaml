@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    languageID:
+        type: uint
+        count: 1
+    word:
+        type: string
+        count: 1

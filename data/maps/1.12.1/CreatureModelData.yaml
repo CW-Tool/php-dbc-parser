@@ -1,0 +1,49 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    flags:
+        type: uint
+        count: 1
+    modelName:
+        type: string
+        count: 1
+    sizeClass:
+        type: uint
+        count: 1
+    modelScale:
+        type: float
+        count: 1
+    bloodID:
+        type: int
+        count: 1
+    footprintTextureID:
+        type: int
+        count: 1
+    footprintTextureLength:
+        type: float
+        count: 1
+    footprintTextureWidth:
+        type: float
+        count: 1
+    footprintTextureScale:
+        type: float
+        count: 1
+    foleyMaterialID:
+        type: uint
+        count: 1
+    footstepShakeSize:
+        type: uint
+        count: 1
+    deathThudShakeSize:
+        type: uint
+        count: 1
+    collisionWidth:
+        type: float
+        count: 1
+    collisionHeight:
+        type: float
+        count: 1
+    mountHeight:
+        type: float
+        count: 1

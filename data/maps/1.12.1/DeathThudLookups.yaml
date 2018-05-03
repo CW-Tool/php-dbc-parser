@@ -1,0 +1,16 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    sizeClass:
+        type: uint
+        count: 1
+    terrainTypeSoundID:
+        type: uint
+        count: 1
+    soundEntryID:
+        type: uint
+        count: 1
+    soundEntryIDWater:
+        type: uint
+        count: 1

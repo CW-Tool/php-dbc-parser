@@ -1,0 +1,16 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        type: string
+        count: 1
+    introSoundEntryID:
+        type: uint
+        count: 1
+    priority:
+        type: uint
+        count: 1
+    minDelayMinutes:
+        type: uint
+        count: 1

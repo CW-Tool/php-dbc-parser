@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    sourceTaxiNodeID:
+        type: uint
+        count: 1
+    destinationTaxiNodeID:
+        type: uint
+        count: 1
+    cost:
+        type: int
+        count: 1

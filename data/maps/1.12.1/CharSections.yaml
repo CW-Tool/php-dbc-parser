@@ -1,0 +1,31 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    raceID:
+        type: uint
+        count: 1
+    sexID:
+        type: uint
+        count: 1
+    baseSection:
+        type: uint
+        count: 1
+    variationIndex:
+        type: uint
+        count: 1
+    colorIndex:
+        type: uint
+        count: 1
+    textureName1:
+        type: string
+        count: 1
+    textureName2:
+        type: string
+        count: 1
+    textureName3:
+        type: string
+        count: 1
+    flags:
+        type: uint
+        count: 1

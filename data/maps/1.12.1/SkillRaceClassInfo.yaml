@@ -1,0 +1,25 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    skillLineID:
+        type: uint
+        count: 1
+    chrRacesMask:
+        type: int
+        count: 1
+    chrClassesMask:
+        type: int
+        count: 1
+    flags:
+        type: int
+        count: 1
+    minLevel:
+        type: int
+        count: 1
+    skillTiersID:
+        type: uint
+        count: 1
+    skillCostsDataID:
+        type: int
+        count: 1

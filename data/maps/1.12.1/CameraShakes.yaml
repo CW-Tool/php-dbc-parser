@@ -1,0 +1,25 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    shakeType:
+        type: uint
+        count: 1
+    direction:
+        type: uint
+        count: 1
+    amplitude:
+        type: float
+        count: 1
+    frequency:
+        type: float
+        count: 1
+    duration:
+        type: float
+        count: 1
+    phase:
+        type: float
+        count: 1
+    coefficient:
+        type: float
+        count: 1

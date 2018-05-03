@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    base:
+        type: int
+        count: 1
+    perLevel:
+        type: int
+        count: 1
+    minimum:
+        type: int
+        count: 1

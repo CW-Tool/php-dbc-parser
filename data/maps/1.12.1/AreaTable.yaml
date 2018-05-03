@@ -1,0 +1,52 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    mapID:
+        type: uint
+        count: 1
+    parentAreaTableID:
+        type: uint
+        count: 1
+    areaBit:
+        type: int
+        count: 1
+    flags:
+        type: int
+        count: 1
+    soundPreferencesID:
+        type: uint
+        count: 1
+    soundPreferencesUnderwaterID:
+        type: uint
+        count: 1
+    soundAmbienceID:
+        type: uint
+        count: 1
+    zoneMusicID:
+        type: uint
+        count: 1
+    zoneIntroMusicTableID:
+        type: uint
+        count: 1
+    explorationLevel:
+        type: int
+        count: 1
+    areaName:
+        type: localized_string
+        count: 1
+    factionGroup:
+        type: uint
+        count: 1
+    liquidTypeID:
+        type: uint
+        count: 1
+    minElevation:
+        type: float
+        count: 1
+    ambientMultiplier:
+        type: float
+        count: 1
+    lightID:
+        type: uint
+        count: 1

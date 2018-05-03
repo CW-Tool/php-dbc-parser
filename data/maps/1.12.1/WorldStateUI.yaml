@@ -1,0 +1,40 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    mapID:
+        type: uint
+        count: 1
+    areaTableID:
+        type: uint
+        count: 1
+    icon:
+        type: string
+        count: 1
+    stateVariable:
+        type: localized_string
+        count: 1
+    tooltip:
+        type: localized_string
+        count: 1
+    state:
+        type: int
+        count: 1
+    worldState:
+        type: uint
+        count: 1
+    type:
+        type: int
+        count: 1
+    dynamicIcon:
+        type: string
+        count: 1
+    dynamicTooltip:
+        type: localized_string
+        count: 1
+    extendedUI:
+        type: string
+        count: 1
+    extendedUIStateVariable:
+        type: uint
+        count: 3

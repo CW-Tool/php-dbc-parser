@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    realmType:
+        type: uint
+        count: 1
+    playerKillingAllowed:
+        type: uint
+        count: 1
+    rolePlaying:
+        type: uint
+        count: 1

@@ -1,0 +1,22 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    experience:
+        type: int
+        count: 1
+    factor:
+        type: float
+        count: 1
+    outdoorHours:
+        type: float
+        count: 1
+    innHours:
+        type: float
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    threshold:
+        type: float
+        count: 1

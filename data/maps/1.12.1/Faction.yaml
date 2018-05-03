@@ -1,0 +1,28 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    reputationIndex:
+        type: int
+        count: 1
+    reputationRaceMask:
+        type: uint
+        count: 4
+    reputationClassMask:
+        type: uint
+        count: 4
+    reputationBase:
+        type: int
+        count: 4
+    reputationFlags:
+        type: uint
+        count: 4
+    parentFactionID:
+        type: uint
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    description:
+        type: localized_string
+        count: 1

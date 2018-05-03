@@ -1,0 +1,25 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    mapID:
+        type: uint
+        count: 1
+    locationX:
+        type: float
+        count: 1
+    locationY:
+        type: float
+        count: 1
+    locationZ:
+        type: float
+        count: 1
+    falloffStart:
+        type: float
+        count: 1
+    falloffEnd:
+        type: float
+        count: 1
+    lightParams:
+        type: uint
+        count: 5

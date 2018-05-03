@@ -1,0 +1,10 @@
+fields:
+    itemButtonName:
+        type: string
+        count: 1
+    slotIcon:
+        type: string
+        count: 1
+    slotNumber:
+        type: int
+        count: 1

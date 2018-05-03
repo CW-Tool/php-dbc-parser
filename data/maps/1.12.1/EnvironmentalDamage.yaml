@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    enumID:
+        type: uint
+        count: 1
+    spellVisualKitID:
+        type: uint
+        count: 1

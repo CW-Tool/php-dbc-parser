@@ -1,0 +1,16 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    taxiPathID:
+        type: uint
+        count: 1
+    locationX:
+        type: float
+        count: 8
+    locationY:
+        type: float
+        count: 8
+    legIndex:
+        type: int
+        count: 1

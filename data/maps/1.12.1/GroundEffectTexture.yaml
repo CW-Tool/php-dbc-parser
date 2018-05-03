@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    groundEffectDoodadID:
+        type: int
+        count: 4
+    density:
+        type: uint
+        count: 1
+    terrainTypeSoundID:
+        type: uint
+        count: 1

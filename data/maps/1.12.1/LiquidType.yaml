@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        type: string
+        count: 1
+    type:
+        type: int
+        count: 1
+    spellID:
+        type: uint
+        count: 1

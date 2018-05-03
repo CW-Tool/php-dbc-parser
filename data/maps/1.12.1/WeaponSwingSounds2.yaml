@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    swingType:
+        type: int
+        count: 1
+    isCritical:
+        type: int
+        count: 1
+    soundEntryID:
+        type: uint
+        count: 1

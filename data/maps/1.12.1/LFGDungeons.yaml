@@ -1,0 +1,19 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    minLevel:
+        type: uint
+        count: 1
+    maxLevel:
+        type: uint
+        count: 1
+    instanceType:
+        type: int
+        count: 1
+    factionID:
+        type: int
+        count: 1

@@ -1,0 +1,67 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    vendorID:
+        type: uint
+        count: 1
+    deviceID:
+        type: uint
+        count: 1
+    unknown1:
+        type: uint
+        count: 1
+    unknown2:
+        type: uint
+        count: 1
+    unknown3:
+        type: string
+        count: 1
+    unknown4:
+        type: uint
+        count: 1
+    unknown5:
+        type: string
+        count: 1
+    unknown6:
+        type: string
+        count: 1
+    unknown7:
+        type: string
+        count: 1
+    unknown8:
+        type: uint
+        count: 1
+    unknown9:
+        type: string
+        count: 1
+    unknown10:
+        type: string
+        count: 1
+    unknown11:
+        type: uint
+        count: 1
+    unknown12:
+        type: uint
+        count: 1
+    unknown13:
+        type: uint
+        count: 1
+    unknown14:
+        type: uint
+        count: 1
+    unknown15:
+        type: string
+        count: 1
+    unknown16:
+        type: string
+        count: 1
+    unknown17:
+        type: string
+        count: 1
+    unknown18:
+        type: string
+        count: 1
+    unknown19:
+        type: uint
+        count: 1

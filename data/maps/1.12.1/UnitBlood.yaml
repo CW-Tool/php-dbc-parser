@@ -1,0 +1,31 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    combatBloodSpurtFrontSmall:
+        type: int
+        count: 1
+    combatBloodSpurtFrontLarge:
+        type: int
+        count: 1
+    combatBloodSpurtBackSmall:
+        type: int
+        count: 1
+    combatBloodSpurtBackLarge:
+        type: int
+        count: 1
+    texture1:
+        type: string
+        count: 1
+    texture2:
+        type: string
+        count: 1
+    texture3:
+        type: string
+        count: 1
+    texture4:
+        type: string
+        count: 1
+    texture5:
+        type: string
+        count: 1

@@ -1,0 +1,7 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    itemVisualEffectsID:
+        type: uint
+        count: 5

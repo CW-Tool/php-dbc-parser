@@ -1,0 +1,10 @@
+fields:
+    race:
+        type: uint
+        count: 1
+    sexID:
+        type: uint
+        count: 1
+    textureHoldLayer:
+        type: uint
+        count: 4

@@ -1,0 +1,25 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    raceID:
+        type: uchar
+        count: 1
+    classID:
+        type: uchar
+        count: 1
+    sexID:
+        type: uchar
+        count: 1
+    outfitID:
+        type: uchar
+        count: 1
+    itemID:
+        type: int
+        count: 12
+    displayItemID:
+        type: int
+        count: 12
+    inventoryType:
+        type: int
+        count: 12

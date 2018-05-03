@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        type: string
+        count: 1
+    fileName:
+        type: string
+        count: 1

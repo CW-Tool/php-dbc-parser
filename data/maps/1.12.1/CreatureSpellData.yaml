@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    spellID:
+        type: uint
+        count: 4
+    availability:
+        type: uint
+        count: 4

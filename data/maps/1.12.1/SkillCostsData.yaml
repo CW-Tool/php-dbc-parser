@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    skillCostsID:
+        type: int
+        count: 1
+    cost:
+        type: int
+        count: 3

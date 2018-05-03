@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    internalID:
+        type: int
+        count: 1
+    doodadPath:
+        type: string
+        count: 1

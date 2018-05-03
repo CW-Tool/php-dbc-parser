@@ -1,0 +1,64 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    flags:
+        type: uint
+        count: 1
+    factionID:
+        type: uint
+        count: 1
+    explorationSoundID:
+        type: uint
+        count: 1
+    maleDisplayID:
+        type: uint
+        count: 1
+    femaleDisplayID:
+        type: uint
+        count: 1
+    clientPrefix:
+        type: string
+        count: 1
+    mountScale:
+        type: float
+        count: 1
+    baseLanguage:
+        type: uint
+        count: 1
+    creatureType:
+        type: uint
+        count: 1
+    loginEffectSpellID:
+        type: uint
+        count: 1
+    combatStunSpellID:
+        type: uint
+        count: 1
+    resSicknessSpellID:
+        type: uint
+        count: 1
+    splashSoundID:
+        type: uint
+        count: 1
+    startingTaxiNodes:
+        type: uint
+        count: 1
+    clientFileString:
+        type: string
+        count: 1
+    cinematicSequenceID:
+        type: uint
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    facialHairCustomizationMale:
+        type: string
+        count: 1
+    facialHairCustomizationFemale:
+        type: string
+        count: 1
+    hairCustomization:
+        type: string
+        count: 1

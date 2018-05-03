@@ -1,0 +1,10 @@
+fields:
+    tab:
+        type: uint
+        count: 1
+    region:
+        type: uint
+        count: 1
+    name:
+        type: localized_string
+        count: 1

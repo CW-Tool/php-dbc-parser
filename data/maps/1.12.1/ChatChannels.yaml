@@ -1,0 +1,16 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    flags:
+        type: uint
+        count: 1
+    factionGroupID:
+        type: uint
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    shortcut:
+        type: localized_string
+        count: 1

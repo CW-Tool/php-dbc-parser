@@ -1,0 +1,19 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    description:
+        type: string
+        count: 1
+    footstepSprayRun:
+        type: uint
+        count: 1
+    footstepSprayWalk:
+        type: uint
+        count: 1
+    soundEntryID:
+        type: uint
+        count: 1
+    flags:
+        type: int
+        count: 1

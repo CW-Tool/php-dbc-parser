@@ -1,0 +1,7 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    path:
+        type: string
+        count: 1

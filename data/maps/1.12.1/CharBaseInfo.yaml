@@ -1,0 +1,7 @@
+fields:
+    raceID:
+        type: uchar
+        count: 1
+    classID:
+        type: uchar
+        count: 1

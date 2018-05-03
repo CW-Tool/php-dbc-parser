@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        type: string
+        count: 1
+    spellItemEnchantmentID:
+        type: uint
+        count: 5
+    suffix:
+        type: localized_string
+        count: 1

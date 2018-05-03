@@ -1,0 +1,22 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    itemID:
+        type: int
+        count: 17
+    setSpellID:
+        type: uint
+        count: 8
+    setThreshold:
+        type: uint
+        count: 8
+    requiredSkillID:
+        type: uint
+        count: 1
+    requiredSkillRank:
+        type: uint
+        count: 1

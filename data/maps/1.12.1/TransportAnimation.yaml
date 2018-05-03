@@ -1,0 +1,22 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    transportID:
+        type: uint
+        count: 1
+    timeIndex:
+        type: int
+        count: 1
+    locationX:
+        type: float
+        count: 1
+    locationY:
+        type: float
+        count: 1
+    locationZ:
+        type: float
+        count: 1
+    sequenceAnimationDataID:
+        type: uint
+        count: 1

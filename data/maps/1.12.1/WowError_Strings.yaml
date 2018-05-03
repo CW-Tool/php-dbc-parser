@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    identifier:
+        type: string
+        count: 1
+    message:
+        type: localized_string
+        count: 1

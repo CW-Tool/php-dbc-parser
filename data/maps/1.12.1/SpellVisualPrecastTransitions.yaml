@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    loadAnimation:
+        type: string
+        count: 1
+    holdAnimation:
+        type: string
+        count: 1

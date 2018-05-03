@@ -1,0 +1,25 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    setName:
+        type: string
+        count: 1
+    silenceIntervalMinDay:
+        type: uint
+        count: 1
+    silenceIntervalMinNight:
+        type: uint
+        count: 1
+    silenceIntervalMaxDay:
+        type: uint
+        count: 1
+    silenceIntervalMaxNight:
+        type: uint
+        count: 1
+    daySoundEntryID:
+        type: uint
+        count: 1
+    nightSoundEntryID:
+        type: uint
+        count: 1

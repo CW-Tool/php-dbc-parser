@@ -1,0 +1,25 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    enchantmentType:
+        type: int
+        count: 3
+    effectPointsMin:
+        type: int
+        count: 3
+    effectPointsMax:
+        type: int
+        count: 3
+    effectArg:
+        type: int
+        count: 3
+    name:
+        type: localized_string
+        count: 1
+    itemVisual:
+        type: int
+        count: 1
+    flags:
+        type: int
+        count: 1

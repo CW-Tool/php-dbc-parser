@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    subclassMap:
+        type: uint
+        count: 1
+    flags:
+        type: int
+        count: 1
+    className:
+        type: localized_string
+        count: 1

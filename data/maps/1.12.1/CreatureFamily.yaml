@@ -1,0 +1,28 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    minScale:
+        type: float
+        count: 1
+    minScaleLevel:
+        type: uint
+        count: 1
+    maxScale:
+        type: float
+        count: 1
+    maxScaleLevel:
+        type: uint
+        count: 1
+    skillLine:
+        type: uint
+        count: 2
+    petFoodMask:
+        type: uint
+        count: 1
+    name:
+        type: localized_string
+        count: 1
+    iconFile:
+        type: string
+        count: 1

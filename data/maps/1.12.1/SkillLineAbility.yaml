@@ -1,0 +1,43 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    skillLineID:
+        type: uint
+        count: 1
+    spellID:
+        type: uint
+        count: 1
+    raceMask:
+        type: int
+        count: 1
+    classMask:
+        type: int
+        count: 1
+    excludeRace:
+        type: int
+        count: 1
+    excludeClass:
+        type: int
+        count: 1
+    minSkillLineRank:
+        type: int
+        count: 1
+    supercededBySpell:
+        type: uint
+        count: 1
+    aquireMethod:
+        type: int
+        count: 1
+    trivialSkillLineRankHigh:
+        type: int
+        count: 1
+    trivialSkillLineRankLow:
+        type: int
+        count: 1
+    characterPoints:
+        type: int
+        count: 2
+    numSkillUps:
+        type: int
+        count: 1

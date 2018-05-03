@@ -1,0 +1,25 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    mapID:
+        type: uint
+        count: 1
+    areaTableID:
+        type: uint
+        count: 1
+    areaName:
+        type: string
+        count: 1
+    locationLeft:
+        type: float
+        count: 1
+    locationRight:
+        type: float
+        count: 1
+    locationTop:
+        type: float
+        count: 1
+    locationBottom:
+        type: float
+        count: 1

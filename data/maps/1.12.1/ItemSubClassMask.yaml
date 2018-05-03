@@ -1,0 +1,10 @@
+fields:
+    classID:
+        type: uint
+        count: 1
+    mask:
+        type: int
+        count: 1
+    name:
+        type: localized_string
+        count: 1

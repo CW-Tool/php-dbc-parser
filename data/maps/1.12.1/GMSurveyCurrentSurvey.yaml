@@ -1,0 +1,7 @@
+fields:
+    languageID:
+        type: uint
+        count: 1
+    gmSurveySurveysID:
+        type: uint
+        count: 1

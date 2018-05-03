@@ -1,0 +1,7 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    text:
+        type: string
+        count: 1

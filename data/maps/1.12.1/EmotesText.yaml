@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    name:
+        type: string
+        count: 1
+    emoteID:
+        type: uint
+        count: 1
+    emoteTextDataID:
+        type: uint
+        count: 16

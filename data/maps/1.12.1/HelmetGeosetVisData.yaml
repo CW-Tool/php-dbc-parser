@@ -1,0 +1,13 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    hairFlags:
+        type: int
+        count: 1
+    facialFlags:
+        type: int
+        count: 3
+    earsFlags:
+        type: int
+        count: 1

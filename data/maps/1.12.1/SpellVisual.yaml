@@ -1,0 +1,49 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    precastVisualKitID:
+        type: uint
+        count: 1
+    castVisualKitID:
+        type: uint
+        count: 1
+    impactVisualKitID:
+        type: uint
+        count: 1
+    stateVisualKitID:
+        type: uint
+        count: 1
+    stateDoneVisualKitID:
+        type: uint
+        count: 1
+    channelVisualKitID:
+        type: uint
+        count: 1
+    hasMissile:
+        type: int
+        count: 1
+    missileModel:
+        type: int
+        count: 1
+    missilePathType:
+        type: int
+        count: 1
+    missileDestinationAttachment:
+        type: int
+        count: 1
+    missileSoundEntryID:
+        type: uint
+        count: 1
+    animEventSoundEntryID:
+        type: uint
+        count: 1
+    flags:
+        type: int
+        count: 1
+    casterImpactVisualKitID:
+        type: int
+        count: 1
+    targetImpactVisualKitID:
+        type: int
+        count: 1

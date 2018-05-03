@@ -1,0 +1,10 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    weaponSubClassCost:
+        type: uint
+        count: 21
+    armorSubClassCost:
+        type: uint
+        count: 8

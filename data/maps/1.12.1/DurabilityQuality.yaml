@@ -1,0 +1,7 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    data:
+        type: float
+        count: 1
