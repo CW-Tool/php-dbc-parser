@@ -144,10 +144,10 @@ abstract class AbstractField
      */
     public function getParsedFields(): array
     {
-        $count = $this->getCount();
+        $count = 1;
         $parsed_fields = [];
 
-        while ($count >= 1) {
+        while ($count <= $this->getCount()) {
             $field_name = ($this->getCount() > 1 ? $this->getName().$count : $this->getName());
             $parsed_field = [
                 'type' => $this->getType(),
@@ -157,7 +157,7 @@ abstract class AbstractField
             ];
 
             $parsed_fields[$field_name] = $parsed_field;
-            --$count;
+            ++$count;
         }
 
         return $parsed_fields;

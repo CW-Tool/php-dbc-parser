@@ -118,12 +118,12 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
      */
     public function getParsedFields(): array
     {
-        $count = $this->getCount();
+        $count = 1;
         $locale_count = $this->getLocaleCount();
         $string_offset = 0;
         $parsed_fields = [];
 
-        while ($count >= 1) {
+        while ($count <= $this->getCount()) {
             $field_name = ($this->getCount() > 1 ? $this->getName().$count : $this->getName());
             $pack_fields = [];
             while ($string_offset < $locale_count) {
@@ -145,7 +145,7 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
             ];
 
             $parsed_fields[$field_name] = $parsed_field;
-            --$count;
+            ++$count;
         }
 
         return $parsed_fields;

@@ -294,7 +294,7 @@ class DBC implements \IteratorAggregate
      *
      * @return Mapping
      */
-    public function getMap(): Mapping
+    public function getMap()
     {
         return $this->mapping;
     }
