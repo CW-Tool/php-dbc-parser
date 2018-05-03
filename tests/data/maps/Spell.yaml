@@ -22,16 +22,7 @@ fields:
         count: 1
     attributesEx:
         type: int
-        count: 1
-    attributesEx2:
-        type: int
-        count: 1
-    attributesEx3:
-        type: int
-        count: 1
-    attributesEx4:
-        type: int
-        count: 1
+        count: 4
     shapeshiftMask:
         type: int
         count: 1

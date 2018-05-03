@@ -24,9 +24,11 @@ if (is_file($autoload = __DIR__ . '/../vendor/autoload.php')) {
 use Symfony\Component\Console\Application;
 use Wowstack\Dbc\Command\InspectCommand;
 use Wowstack\Dbc\Command\ViewCommand;
+use Wowstack\Dbc\Command\MapCheckCommand;
 
 $application = new Application();
 $application->add(new InspectCommand());
 $application->add(new ViewCommand());
+$application->add(new MapCheckCommand());
 
 $application->run();
