@@ -51,6 +51,11 @@ class ExportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $DBC = new DBC($input->getArgument('file'), Mapping::fromYAML($input->getArgument('map')));
+
+        $output->writeln([
+            'Dumping '.$DBC->getName().' to '.$input->getArgument('xml').'',
+        ]);
+
         $XMLExport = new XMLExport();
         $XMLExport->export($DBC, $input->getArgument('xml'), $input->getOption('client-version'));
     }
