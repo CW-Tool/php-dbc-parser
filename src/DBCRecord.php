@@ -93,11 +93,20 @@ class DBCRecord
         $format = implode('/', $format);
         $data = unpack($format, $this->data);
 
+        // This ensure that string fields will be empty strings instead of 0.
         foreach ($strings as $string) {
             if ($data[$string] > 0) {
                 $data[$string] = $this->dbc_file->getString($data[$string]);
             } else {
                 $data[$string] = '';
+            }
+        }
+
+        // This ensures fields containing references to other tables will be nulled
+        // if they do not contain a valid reference.
+        foreach ($foreign_keys as $foreign_key) {
+            if ($data[$foreign_key] <= 0) {
+                $data[$foreign_key] = null;
             }
         }
 

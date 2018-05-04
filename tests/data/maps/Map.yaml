@@ -1,0 +1,52 @@
+fields:
+    id:
+        type: uint
+        count: 1
+    directory:
+        type: string
+        count: 1
+    instanceType:
+        type: int
+        count: 1
+    mapType:
+        type: int
+        count: 1
+    mapName:
+        type: localized_string
+        count: 1
+    minLevel:
+        type: int
+        count: 1
+    maxLevel:
+        type: int
+        count: 1
+    maxPlayers:
+        type: int
+        count: 1
+    unknown1:
+        type: int
+        count: 1
+    unknown2:
+        type: int
+        count: 1
+    unknown3:
+        type: int
+        count: 1
+    parentMapID:
+        type: int
+        count: 1
+    mapDescription:
+        type: localized_string
+        count: 2
+    loadingScreenID:
+        type: uint
+        count: 1
+    raidOffset:
+        type: int
+        count: 1
+    continentName:
+        type: string
+        count: 1
+    unknown4:
+        type: float
+        count: 1

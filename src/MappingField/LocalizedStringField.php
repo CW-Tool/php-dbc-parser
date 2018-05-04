@@ -134,6 +134,7 @@ class LocalizedStringField extends AbstractField implements MappingFieldInterfac
                 }
                 ++$string_offset;
             }
+            $string_offset = 0;
 
             $pack_fields[] = $this::PACK_FORMAT.'1'.$field_name.'_checksum';
 

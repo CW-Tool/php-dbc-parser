@@ -9,7 +9,7 @@ fields:
         type: int
         count: 1
     factionID:
-        type: uint
+        type: foreign_key
         count: 1
     locationX:
         type: float
@@ -27,7 +27,7 @@ fields:
         type: int
         count: 1
     areaTableID:
-        type: int
+        type: foreign_key
         count: 1
     name:
         type: localized_string
@@ -36,5 +36,5 @@ fields:
         type: localized_string
         count: 1
     worldStateID:
-        type: uint
+        type: foreign_key
         count: 1
