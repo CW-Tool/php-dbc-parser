@@ -146,6 +146,23 @@ class LocalizedStringFieldTest extends TestCase
                     ],
                 ],
             ],
+            'multiple columns, enUS locale' => [
+                'name', ['type' => 'localized_string', 'count' => 2],
+                [
+                    'name1' => [
+                        'type' => 'localized_string',
+                        'size' => 36,
+                        'format' => 'V1name1/V1name1_unused1/V1name1_unused2/V1name1_unused3/V1name1_unused4/V1name1_unused5/V1name1_unused6/V1name1_unused7/V1name1_checksum',
+                        'offset' => 0,
+                    ],
+                    'name2' => [
+                        'type' => 'localized_string',
+                        'size' => 36,
+                        'format' => 'V1name2/V1name2_unused1/V1name2_unused2/V1name2_unused3/V1name2_unused4/V1name2_unused5/V1name2_unused6/V1name2_unused7/V1name2_checksum',
+                        'offset' => 0,
+                    ],
+                ],
+            ],
         ];
     }
 }
