@@ -13,6 +13,9 @@ use Symfony\Component\Console\Helper\Table;
 use Wowstack\Dbc\DBC;
 use Wowstack\Dbc\Mapping;
 
+/**
+ * @codeCoverageIgnore
+ */
 class ViewCommand extends Command
 {
     /**

@@ -13,6 +13,9 @@ use Wowstack\Dbc\DBC;
 use Wowstack\Dbc\Mapping;
 use Wowstack\Dbc\Export\XMLExport;
 
+/**
+ * @codeCoverageIgnore
+ */
 class ExportCommand extends Command
 {
     /**

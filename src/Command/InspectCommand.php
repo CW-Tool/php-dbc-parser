@@ -11,6 +11,9 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Wowstack\Dbc\DBC;
 
+/**
+ * @codeCoverageIgnore
+ */
 class InspectCommand extends Command
 {
     /**

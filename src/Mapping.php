@@ -88,6 +88,9 @@ class Mapping
             case 'uint':
                 $field = new Mappings\UnsignedIntegerField($name, $parameters);
                 break;
+            case 'foreign_key':
+                $field = new Mappings\ForeignKeyField($name, $parameters);
+                break;
             default:
                 throw new MappingException('Unknown field type specified');
         }

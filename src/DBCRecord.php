@@ -77,12 +77,16 @@ class DBCRecord
         $data = [];
         $format = [];
         $strings = [];
+        $foreign_keys = [];
         $fields = $map->getParsedFields();
 
         foreach ($fields as $field_name => $field_data) {
             $format[] = $field_data['format'];
             if ('string' === $field_data['type'] || 'localized_string' === $field_data['type']) {
                 $strings[] = $field_name;
+            }
+            if ('foreign_key' === $field_data['type']) {
+                $foreign_keys[] = $field_name;
             }
         }
 

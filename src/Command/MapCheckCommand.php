@@ -11,6 +11,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 use Wowstack\Dbc\Mapping;
 
+/**
+ * @codeCoverageIgnore
+ */
 class MapCheckCommand extends Command
 {
     /**

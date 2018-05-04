@@ -12,7 +12,7 @@ class XMLExport implements ExportInterface
     /**
      * {@inheritdoc}
      */
-    public function export(DBC $dbc, string $target_path, string $version = '1.12.1')
+    public function export(DBC $dbc, string $target_path = 'php://output', string $version = '1.12.1')
     {
         if (null === $dbc->getMap()) {
             throw new DBCException('DBC export requires a map.');
