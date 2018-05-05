@@ -39,7 +39,7 @@ fields:
         type: localized_string
         count: 2
     loadingScreenID:
-        type: uint
+        type: foreign_key
         count: 1
     raidOffset:
         type: int

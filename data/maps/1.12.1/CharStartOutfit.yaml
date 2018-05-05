@@ -15,10 +15,10 @@ fields:
         type: uchar
         count: 1
     itemID:
-        type: int
+        type: foreign_key
         count: 12
     displayItemID:
-        type: int
+        type: foreign_key
         count: 12
     inventoryType:
         type: int

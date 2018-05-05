@@ -3,10 +3,10 @@ fields:
         type: uint
         count: 1
     skillLineCategoryID:
-        type: int
+        type: foreign_key
         count: 1
     skillCostsDataID:
-        type: uint
+        type: foreign_key
         count: 1
     displayName:
         type: localized_string
@@ -15,5 +15,5 @@ fields:
         type: localized_string
         count: 1
     spellIconID:
-        type: uint
+        type: foreign_key
         count: 1

@@ -9,8 +9,8 @@ fields:
         type: uint
         count: 1
     soundID:
-        type: uint
+        type: foreign_key
         count: 1
     soundIDSplash:
-        type: uint
+        type: foreign_key
         count: 1

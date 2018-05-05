@@ -11,24 +11,21 @@ fields:
     inventoryIcon:
         type: string
         count: 1
-    groundModel:
-        type: string
-        count: 1
     geosetGroup:
         type: int
-        count: 3
+        count: 4
     spellVisualID:
-        type: uint
+        type: foreign_key
         count: 1
     groupSoundIndex:
         type: int
         count: 1
     helmetGeosetVisID:
-        type: uint
+        type: foreign_key
         count: 2
     texture:
         type: string
         count: 8
     itemVisualID:
-        type: int
+        type: foreign_key
         count: 1

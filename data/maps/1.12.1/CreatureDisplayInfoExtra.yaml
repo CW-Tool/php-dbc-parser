@@ -24,7 +24,7 @@ fields:
         type: uint
         count: 1
     NPCItemDisplay:
-        type: uint
+        type: foreign_key
         count: 9
     flags:
         type: uint

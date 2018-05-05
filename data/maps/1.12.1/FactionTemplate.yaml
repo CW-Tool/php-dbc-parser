@@ -3,7 +3,7 @@ fields:
         type: uint
         count: 1
     factionID:
-        type: uint
+        type: foreign_key
         count: 1
     flags:
         type: uint
@@ -18,8 +18,8 @@ fields:
         type: uint
         count: 1
     enemies:
-        type: uint
+        type: foreign_key
         count: 4
     friend:
-        type: uint
+        type: foreign_key
         count: 4

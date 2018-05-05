@@ -9,5 +9,5 @@ fields:
         type: int
         count: 1
     soundEntryID:
-        type: uint
+        type: foreign_key
         count: 1

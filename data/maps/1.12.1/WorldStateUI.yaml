@@ -6,7 +6,7 @@ fields:
         type: uint
         count: 1
     areaTableID:
-        type: uint
+        type: foreign_key
         count: 1
     icon:
         type: string

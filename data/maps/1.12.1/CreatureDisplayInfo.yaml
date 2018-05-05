@@ -6,10 +6,10 @@ fields:
         type: uint
         count: 1
     soundID:
-        type: uint
+        type: foreign_key
         count: 1
     extendedDisplayInfoID:
-        type: uint
+        type: foreign_key
         count: 1
     creatureModelScale:
         type: float
@@ -30,8 +30,8 @@ fields:
         type: int
         count: 1
     bloodID:
-        type: uint
+        type: foreign_key
         count: 1
     NPCSoundID:
-        type: uint
+        type: foreign_key
         count: 1

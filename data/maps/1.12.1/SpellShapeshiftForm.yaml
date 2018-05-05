@@ -12,8 +12,8 @@ fields:
         type: int
         count: 1
     creatureTypeID:
-        type: int
+        type: foreign_key
         count: 1
     spellIconID:
-        type: int
+        type: foreign_key
         count: 1

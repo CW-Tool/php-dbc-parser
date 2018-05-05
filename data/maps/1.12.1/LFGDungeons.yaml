@@ -15,5 +15,5 @@ fields:
         type: int
         count: 1
     factionID:
-        type: int
+        type: foreign_key
         count: 1

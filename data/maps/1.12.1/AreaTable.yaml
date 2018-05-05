@@ -6,7 +6,7 @@ fields:
         type: uint
         count: 1
     parentAreaTableID:
-        type: uint
+        type: foreign_key
         count: 1
     areaBit:
         type: int
@@ -15,19 +15,19 @@ fields:
         type: int
         count: 1
     soundPreferencesID:
-        type: uint
+        type: foreign_key
         count: 1
     soundPreferencesUnderwaterID:
-        type: uint
+        type: foreign_key
         count: 1
     soundAmbienceID:
-        type: uint
+        type: foreign_key
         count: 1
     zoneMusicID:
-        type: uint
+        type: foreign_key
         count: 1
     zoneIntroMusicTableID:
-        type: uint
+        type: foreign_key
         count: 1
     explorationLevel:
         type: int
@@ -39,7 +39,7 @@ fields:
         type: uint
         count: 1
     liquidTypeID:
-        type: uint
+        type: foreign_key
         count: 1
     minElevation:
         type: float
@@ -48,5 +48,5 @@ fields:
         type: float
         count: 1
     lightID:
-        type: uint
+        type: foreign_key
         count: 1

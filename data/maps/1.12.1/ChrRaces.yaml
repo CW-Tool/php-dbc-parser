@@ -9,7 +9,7 @@ fields:
         type: uint
         count: 1
     explorationSoundID:
-        type: uint
+        type: foreign_key
         count: 1
     maleDisplayID:
         type: uint
@@ -48,7 +48,7 @@ fields:
         type: string
         count: 1
     cinematicSequenceID:
-        type: uint
+        type: foreign_key
         count: 1
     name:
         type: localized_string

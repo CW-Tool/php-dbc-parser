@@ -18,7 +18,7 @@ fields:
         type: uint
         count: 4
     parentFactionID:
-        type: uint
+        type: foreign_key
         count: 1
     name:
         type: localized_string

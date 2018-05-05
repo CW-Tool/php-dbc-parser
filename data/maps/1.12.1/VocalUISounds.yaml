@@ -9,14 +9,14 @@ fields:
         type: uint
         count: 1
     normalMaleSoundEntryID:
-        type: int
+        type: foreign_key
         count: 1
     normalFemaleSoundEntryID:
-        type: int
+        type: foreign_key
         count: 1
     pissedMaleSoundEntryID:
-        type: int
+        type: foreign_key
         count: 1
     pissedFemaleSoundEntryID:
-        type: int
+        type: foreign_key
         count: 1

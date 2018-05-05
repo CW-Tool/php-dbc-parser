@@ -6,7 +6,7 @@ fields:
         type: uint
         count: 1
     factionGroupID:
-        type: uint
+        type: foreign_key
         count: 1
     name:
         type: localized_string

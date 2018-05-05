@@ -9,5 +9,5 @@ fields:
         type: uint
         count: 1
     emoteTextDataID:
-        type: uint
+        type: foreign_key
         count: 16

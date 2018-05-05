@@ -3,7 +3,7 @@ fields:
         type: uint
         count: 1
     soundEntryID:
-        type: uint
+        type: foreign_key
         count: 1
     internalName:
         type: string

@@ -3,10 +3,10 @@ fields:
         type: uint
         count: 1
     skillLineID:
-        type: uint
+        type: foreign_key
         count: 1
     spellID:
-        type: uint
+        type: foreign_key
         count: 1
     raceMask:
         type: int
@@ -24,7 +24,7 @@ fields:
         type: int
         count: 1
     supercededBySpell:
-        type: uint
+        type: foreign_key
         count: 1
     aquireMethod:
         type: int

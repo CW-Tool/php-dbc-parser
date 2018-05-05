@@ -15,8 +15,8 @@ fields:
         type: int
         count: 1
     fallback:
-        type: uint
+        type: foreign_key
         count: 1
     previous:
-        type: uint
+        type: foreign_key
         count: 1

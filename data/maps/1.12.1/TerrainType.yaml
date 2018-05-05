@@ -6,13 +6,13 @@ fields:
         type: string
         count: 1
     footstepSprayRun:
-        type: uint
+        type: foreign_key
         count: 1
     footstepSprayWalk:
-        type: uint
+        type: foreign_key
         count: 1
     soundEntryID:
-        type: uint
+        type: foreign_key
         count: 1
     flags:
         type: int

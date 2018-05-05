@@ -18,5 +18,5 @@ fields:
         type: uint
         count: 1
     eventSoundEntryID:
-        type: uint
+        type: foreign_key
         count: 1

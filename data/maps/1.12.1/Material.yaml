@@ -6,5 +6,5 @@ fields:
         type: int
         count: 1
     foleySoundEntryID:
-        type: uint
+        type: foreign_key
         count: 1

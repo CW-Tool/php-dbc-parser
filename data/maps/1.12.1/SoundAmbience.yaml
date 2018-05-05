@@ -3,8 +3,8 @@ fields:
         type: uint
         count: 1
     daySoundEntryID:
-        type: uint
+        type: foreign_key
         count: 1
     nightSoundEntryID:
-        type: uint
+        type: foreign_key
         count: 1

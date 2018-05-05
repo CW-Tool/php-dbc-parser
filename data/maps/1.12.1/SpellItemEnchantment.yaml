@@ -18,7 +18,7 @@ fields:
         type: localized_string
         count: 1
     itemVisual:
-        type: int
+        type: foreign_key
         count: 1
     flags:
         type: int

@@ -18,5 +18,5 @@ fields:
         type: localized_string
         count: 1
     mountCreatureDisplayInfo:
-        type: uint
+        type: foreign_key
         count: 2

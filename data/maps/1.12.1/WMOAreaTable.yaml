@@ -12,25 +12,25 @@ fields:
         type: int
         count: 1
     soundProviderPreferencesID:
-        type: int
+        type: foreign_key
         count: 1
     soundProviderPreferencesIDUnderwater:
-        type: int
+        type: foreign_key
         count: 1
     soundAmbienceID:
-        type: int
+        type: foreign_key
         count: 1
     zoneMusicID:
-        type: int
+        type: foreign_key
         count: 1
     zoneIntroMusicTableID:
-        type: int
+        type: foreign_key
         count: 1
     flags:
         type: uint
         count: 1
     areaTableID:
-        type: uint
+        type: foreign_key
         count: 1
     areaName:
         type: localized_string

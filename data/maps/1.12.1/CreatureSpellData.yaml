@@ -3,7 +3,7 @@ fields:
         type: uint
         count: 1
     spellID:
-        type: uint
+        type: foreign_key
         count: 4
     availability:
         type: uint

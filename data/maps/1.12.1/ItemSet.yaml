@@ -6,16 +6,16 @@ fields:
         type: localized_string
         count: 1
     itemID:
-        type: int
+        type: foreign_key
         count: 17
     setSpellID:
-        type: uint
+        type: foreign_key
         count: 8
     setThreshold:
         type: uint
         count: 8
     requiredSkillID:
-        type: uint
+        type: foreign_key
         count: 1
     requiredSkillRank:
         type: uint

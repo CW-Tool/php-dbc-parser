@@ -15,8 +15,8 @@ fields:
         type: int
         count: 1
     sheathSoundEntryID:
-        type: uint
+        type: foreign_key
         count: 1
     unsheathSoundEntryID:
-        type: uint
+        type: foreign_key
         count: 1

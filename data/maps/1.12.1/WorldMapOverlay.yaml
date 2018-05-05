@@ -3,10 +3,10 @@ fields:
         type: uint
         count: 1
     worldMapAreaID:
-        type: uint
+        type: foreign_key
         count: 1
     areaTableID:
-        type: uint
+        type: foreign_key
         count: 4
     locationX:
         type: uint

@@ -3,7 +3,7 @@ fields:
         type: uint
         count: 1
     lockTypeID:
-        type: int
+        type: foreign_key
         count: 8
     index:
         type: int

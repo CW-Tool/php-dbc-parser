@@ -3,5 +3,5 @@ fields:
         type: uint
         count: 1
     questionID:
-        type: uint
+        type: foreign_key
         count: 10

@@ -3,7 +3,7 @@ fields:
         type: uint
         count: 1
     taxiPathID:
-        type: uint
+        type: foreign_key
         count: 1
     nodeIndex:
         type: int

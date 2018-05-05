@@ -3,5 +3,5 @@ fields:
         type: uint
         count: 1
     soundEntryID:
-        type: uint
+        type: foreign_key
         count: 4

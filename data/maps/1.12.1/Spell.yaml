@@ -5,8 +5,8 @@ fields:
     school:
         type: int
         count: 1
-    category:
-        type: int
+    categoryID:
+        type: foreign_key
         count: 1
     castUI:
         type: int
@@ -15,7 +15,7 @@ fields:
         type: int
         count: 1
     mechanic:
-        type: int
+        type: foreign_key
         count: 1
     attributes:
         type: int
@@ -33,10 +33,10 @@ fields:
         type: int
         count: 1
     targetCreatureType:
-        type: int
+        type: foreign_key
         count: 1
     requiresSpellFocus:
-        type: int
+        type: foreign_key
         count: 1
     casterAuraState:
         type: int
@@ -45,7 +45,7 @@ fields:
         type: int
         count: 1
     castingTimeIndex:
-        type: int
+        type: foreign_key
         count: 1
     recoveryTime:
         type: int
@@ -81,7 +81,7 @@ fields:
         type: int
         count: 1
     durationIndex:
-        type: int
+        type: foreign_key
         count: 1
     powerType:
         type: int
@@ -99,7 +99,7 @@ fields:
         type: int
         count: 1
     rangeIndex:
-        type: int
+        type: foreign_key
         count: 1
     speed:
         type: float
@@ -146,8 +146,8 @@ fields:
     effectBasePoints:
         type: int
         count: 3
-    effectMechanic:
-        type: int
+    effectMechanicID:
+        type: foreign_key
         count: 3
     implicitTargetA:
         type: int
@@ -156,7 +156,7 @@ fields:
         type: int
         count: 3
     effectRadiusIndex:
-        type: int
+        type: effectRadiusIndex
         count: 3
     effectAura:
         type: int
@@ -183,13 +183,13 @@ fields:
         type: float
         count: 3
     spellVisual:
-        type: int
+        type: foreign_key
         count: 2
     spellIcon:
-        type: int
+        type: foreign_key
         count: 1
     activeIcon:
-        type: int
+        type: foreign_key
         count: 1
     spellPriority:
         type: int

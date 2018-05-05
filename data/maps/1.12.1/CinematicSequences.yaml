@@ -6,5 +6,5 @@ fields:
         type: uint
         count: 1
     cinematicCameraID:
-        type: uint
+        type: foreign_key
         count: 8

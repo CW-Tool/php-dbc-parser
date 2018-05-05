@@ -3,71 +3,71 @@ fields:
         type: uint
         count: 1
     soundExertion:
-        type: uint
+        type: foreign_key
         count: 1
     soundExertionCritical:
-        type: uint
+        type: foreign_key
         count: 1
     soundInjury:
-        type: uint
+        type: foreign_key
         count: 1
     soundInjuryCritical:
-        type: uint
+        type: foreign_key
         count: 1
     soundInjuryCrushingBlow:
-        type: uint
+        type: foreign_key
         count: 1
     soundDeath:
-        type: uint
+        type: foreign_key
         count: 1
     soundStun:
-        type: uint
+        type: foreign_key
         count: 1
     soundStand:
-        type: uint
+        type: foreign_key
         count: 1
     soundFootstep:
-        type: uint
+        type: foreign_key
         count: 1
     soundAggro:
-        type: uint
+        type: foreign_key
         count: 1
     soundWingFlap:
-        type: uint
+        type: foreign_key
         count: 1
     soundWingGlide:
-        type: uint
+        type: foreign_key
         count: 1
     soundAlert:
-        type: uint
+        type: foreign_key
         count: 1
     soundFidget:
-        type: uint
+        type: foreign_key
         count: 4
     customAttack:
-        type: uint
+        type: foreign_key
         count: 4
     NPCSound:
-        type: uint
+        type: foreign_key
         count: 1
     loopSound:
-        type: uint
+        type: foreign_key
         count: 1
     creatureImpactType:
         type: int
         count: 1
     soundJumpStart:
-        type: uint
+        type: foreign_key
         count: 1
     soundJumpEnd:
-        type: uint
+        type: foreign_key
         count: 1
     soundPetAttack:
-        type: uint
+        type: foreign_key
         count: 1
     soundPetOrder:
-        type: uint
+        type: foreign_key
         count: 1
     soundPetDismiss:
-        type: uint
+        type: foreign_key
         count: 1

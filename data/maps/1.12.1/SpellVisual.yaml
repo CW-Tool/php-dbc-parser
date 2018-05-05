@@ -3,22 +3,22 @@ fields:
         type: uint
         count: 1
     precastVisualKitID:
-        type: uint
+        type: foreign_key
         count: 1
     castVisualKitID:
-        type: uint
+        type: foreign_key
         count: 1
     impactVisualKitID:
-        type: uint
+        type: foreign_key
         count: 1
     stateVisualKitID:
-        type: uint
+        type: foreign_key
         count: 1
     stateDoneVisualKitID:
-        type: uint
+        type: foreign_key
         count: 1
     channelVisualKitID:
-        type: uint
+        type: foreign_key
         count: 1
     hasMissile:
         type: int
@@ -33,17 +33,17 @@ fields:
         type: int
         count: 1
     missileSoundEntryID:
-        type: uint
+        type: foreign_key
         count: 1
     animEventSoundEntryID:
-        type: uint
+        type: foreign_key
         count: 1
     flags:
         type: int
         count: 1
     casterImpactVisualKitID:
-        type: int
+        type: foreign_key
         count: 1
     targetImpactVisualKitID:
-        type: int
+        type: foreign_key
         count: 1

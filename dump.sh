@@ -57,7 +57,7 @@
 ./bin/dbc-tool dbc:export data/dbcs/1.12.1/HelmetGeosetVisData.dbc data/maps/1.12.1/HelmetGeosetVisData.yaml data/export/1.12.1/HelmetGeosetVisData.xml
 ./bin/dbc-tool dbc:export data/dbcs/1.12.1/ItemBagFamily.dbc data/maps/1.12.1/ItemBagFamily.yaml data/export/1.12.1/ItemBagFamily.xml
 ./bin/dbc-tool dbc:export data/dbcs/1.12.1/ItemClass.dbc data/maps/1.12.1/ItemClass.yaml data/export/1.12.1/ItemClass.xml
-# ./bin/dbc-tool dbc:export data/dbcs/1.12.1/ItemDisplayInfo.dbc data/maps/1.12.1/ItemDisplayInfo.yaml data/export/1.12.1/ItemDisplayInfo.xml
+./bin/dbc-tool dbc:export data/dbcs/1.12.1/ItemDisplayInfo.dbc data/maps/1.12.1/ItemDisplayInfo.yaml data/export/1.12.1/ItemDisplayInfo.xml
 ./bin/dbc-tool dbc:export data/dbcs/1.12.1/ItemGroupSounds.dbc data/maps/1.12.1/ItemGroupSounds.yaml data/export/1.12.1/ItemGroupSounds.xml
 ./bin/dbc-tool dbc:export data/dbcs/1.12.1/ItemPetFood.dbc data/maps/1.12.1/ItemPetFood.yaml data/export/1.12.1/ItemPetFood.xml
 ./bin/dbc-tool dbc:export data/dbcs/1.12.1/ItemRandomProperties.dbc data/maps/1.12.1/ItemRandomProperties.yaml data/export/1.12.1/ItemRandomProperties.xml

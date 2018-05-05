@@ -3,10 +3,10 @@ fields:
         type: uint
         count: 1
     sourceTaxiNodeID:
-        type: uint
+        type: foreign_key
         count: 1
     destinationTaxiNodeID:
-        type: uint
+        type: foreign_key
         count: 1
     cost:
         type: int

@@ -9,8 +9,8 @@ fields:
         type: int
         count: 1
     impactSoundEntryID:
-        type: uint
+        type: foreign_key
         count: 10
     critImpactSoundEntryID:
-        type: uint
+        type: foreign_key
         count: 10

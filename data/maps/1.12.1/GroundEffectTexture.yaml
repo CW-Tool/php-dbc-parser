@@ -3,11 +3,11 @@ fields:
         type: uint
         count: 1
     groundEffectDoodadID:
-        type: int
+        type: foreign_key
         count: 4
     density:
         type: uint
         count: 1
     terrainTypeSoundID:
-        type: uint
+        type: foreign_key
         count: 1
