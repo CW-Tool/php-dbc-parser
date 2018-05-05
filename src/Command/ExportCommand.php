@@ -58,5 +58,11 @@ class ExportCommand extends Command
 
         $XMLExport = new XMLExport();
         $XMLExport->export($DBC, $input->getArgument('xml'), $input->getOption('client-version'));
+
+        foreach ($DBC->getErrors() as $error) {
+            $output->writeln([
+                '#'.$error['record'].' ('.$error['type'].'/'.$error['field'].'): '.$error['hint'],
+            ]);
+        }
     }
 }

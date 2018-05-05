@@ -91,6 +91,13 @@ class DBC implements \IteratorAggregate
     protected $stringBlock = null;
 
     /**
+     * List of errors occuring while reading data from the DBC file.
+     *
+     * @var array
+     */
+    protected $errors = [];
+
+    /**
      * Creates a DBC reader.
      *
      * @param string  $path
@@ -345,5 +352,31 @@ class DBC implements \IteratorAggregate
         }
 
         throw new DBCException('DBC Record not found.');
+    }
+
+    /**
+     * Appends an error to the list.
+     *
+     * @param string $type
+     * @param int    $position
+     * @param string $field
+     * @param string $hint
+     */
+    public function addError(string $type, int $position, string $field, string $hint = '')
+    {
+        $this->errors[] = [
+            'type' => $type,
+            'field' => $field,
+            'record' => $position,
+            'hint' => $hint,
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getErrors(): array
+    {
+        return $this->errors;
     }
 }

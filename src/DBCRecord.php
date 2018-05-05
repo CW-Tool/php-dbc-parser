@@ -95,8 +95,14 @@ class DBCRecord
 
         // This ensure that string fields will be empty strings instead of 0.
         foreach ($strings as $string) {
+            $string_pointer = $data[$string];
             if ($data[$string] > 0) {
-                $data[$string] = $this->dbc_file->getString($data[$string]);
+                try {
+                    $data[$string] = $this->dbc_file->getString($data[$string]);
+                } catch (DBCException $dbc_exception) {
+                    $data[$string] = '';
+                    $this->dbc_file->addError('string', $this->position, $string, 'String pointer not found at offset '.$string_pointer);
+                }
             } else {
                 $data[$string] = '';
             }

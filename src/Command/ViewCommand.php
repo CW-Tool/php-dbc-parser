@@ -93,5 +93,11 @@ class ViewCommand extends Command
 
         $table->render();
         $output->writeln('');
+
+        foreach ($DBC->getErrors() as $error) {
+            $output->writeln([
+                '#'.$error['record'].' ('.$error['type'].'/'.$error['field'].'): '.$error['hint'],
+            ]);
+        }
     }
 }
