@@ -156,7 +156,7 @@ fields:
         type: int
         count: 3
     effectRadiusIndex:
-        type: effectRadiusIndex
+        type: foreign_key
         count: 3
     effectAura:
         type: int
