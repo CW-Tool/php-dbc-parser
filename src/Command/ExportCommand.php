@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Wowstack\Dbc\DBC;
 use Wowstack\Dbc\Mapping;
 use Wowstack\Dbc\Export\XMLExport;
@@ -51,9 +52,17 @@ class ExportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $DBC = new DBC($input->getArgument('file'), Mapping::fromYAML($input->getArgument('map')));
+        $format = 'XML';
 
-        $output->writeln([
-            'Dumping '.$DBC->getName().' to '.$input->getArgument('xml').'',
+        $io = new SymfonyStyle($input, $output);
+        $io->text([
+            sprintf(
+                'Dumping %s file contents in %s format to %s.',
+                $DBC->getName(),
+                $format,
+                $input->getArgument('xml')
+            ),
+            '',
         ]);
 
         $XMLExport = new XMLExport();

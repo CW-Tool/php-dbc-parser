@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Wowstack\Dbc\Mapping;
 
 /**
@@ -37,24 +38,24 @@ class MapCheckCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /**
-         * @var Table
-         */
-        $table = new Table($output);
         $Map = Mapping::fromYAML($input->getArgument('file'));
 
-        $output->writeln([
-            'Map Check',
-            '=========',
+        $io = new SymfonyStyle($input, $output);
+        $table = new Table($output);
+        $io->title('DBC Inspect');
+        $io->section('Stats');
+        $io->text([
+            sprintf(
+                'The mapping contains %u fields at %u bytes in total.',
+                $Map->getFieldCount(),
+                $Map->getFieldSize()
+            ),
             '',
         ]);
 
-        $output->writeln([
-            '# of columns per row: '.$Map->getFieldCount(),
-            '# of bytes per row: '.$Map->getFieldSize(),
-        ]);
+        $io->newLine();
 
-        $output->writeln('');
+        $io->section('Fields');
         $table->setHeaders($Map->getFieldNames());
         $parsed_fields = $Map->getParsedFields();
         foreach ($parsed_fields as $field_name => $field_data) {

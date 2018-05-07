@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Wowstack\Dbc\DBC;
 
 /**
@@ -48,43 +49,42 @@ class InspectCommand extends Command
     {
         $DBC = new DBC($input->getArgument('file'));
 
-        $output->writeln([
-            'DBC Inspect',
-            '===========',
+        $io = new SymfonyStyle($input, $output);
+        $io->title('DBC Inspect');
+        $io->section('Stats');
+        $io->text([
+            sprintf(
+                'The %s file contains %u rows at %u bytes per column, split into %u fields.',
+                $DBC->getName(),
+                $DBC->getRecordCount(),
+                $DBC->getRecordSize(),
+                $DBC->getFieldCount()
+            ),
             '',
-            $DBC->getPath(),
-            '',
-        ]);
-
-        $output->writeln([
-            '# of rows:            '.$DBC->getRecordCount(),
-            '# of Bytes per row:   '.$DBC->getRecordSize(),
-            '# of columns per row: '.$DBC->getFieldCount(),
         ]);
 
         if ($DBC->hasStrings()) {
             $string_block = $DBC->getStringBlock();
-            $output->writeln([
-                '# of strings:         '.count($string_block),
+            $io->section('Strings');
+            $io->text([
+                sprintf(
+                    'The %s file contains %u strings.',
+                    $DBC->getName(),
+                    count($string_block)
+                ),
                 '',
             ]);
 
             $string_samples = $input->getOption('string-samples');
 
-            $output->writeln([
-                'String samples',
-                '--------------',
-                '',
-            ]);
-
             foreach ($string_block as $index => $string) {
-                $output->writeln([$index.': '.$string]);
+                $io->text([$index.': '.$string]);
                 --$string_samples;
                 if (0 === $string_samples) {
                     break;
                 }
             }
         }
-        $output->writeln('');
+        $io->newLine();
     }
 }

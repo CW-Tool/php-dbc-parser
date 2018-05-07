@@ -10,6 +10,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Wowstack\Dbc\DBC;
 use Wowstack\Dbc\Mapping;
 
@@ -49,35 +50,38 @@ class ViewCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /**
-         * @var Table
-         */
-        $table = new Table($output);
         $DBC = new DBC($input->getArgument('file'), Mapping::fromYAML($input->getArgument('map')));
+        $io = new SymfonyStyle($input, $output);
+        $table = new Table($output);
 
-        $output->writeln([
-            'DBC Viewer',
-            '===========',
+        $io->title('DBC Viewer');
+        $io->section('Stats');
+        $io->text([
+            sprintf(
+                'The %s file contains %u rows at %u bytes per column, split into %u fields.',
+                $DBC->getName(),
+                $DBC->getRecordCount(),
+                $DBC->getRecordSize(),
+                $DBC->getFieldCount()
+            ),
             '',
-            $DBC->getPath(),
-        ]);
-
-        $output->writeln([
-            '# of rows:            '.$DBC->getRecordCount(),
-            '# of Bytes per row:   '.$DBC->getRecordSize(),
-            '# of columns per row: '.$DBC->getFieldCount(),
         ]);
 
         if ($DBC->hasStrings()) {
             $string_block = $DBC->getStringBlock();
-            $output->writeln([
-                '# of strings:         '.count($string_block),
+            $io->section('Strings');
+            $io->text([
+                sprintf(
+                    'The %s file contains %u strings.',
+                    $DBC->getName(),
+                    count($string_block)
+                ),
+                '',
             ]);
         }
+        $io->newLine();
 
         $rows = $input->getOption('rows');
-
-        $output->writeln('');
         $table->setHeaders($DBC->getMap()->getFieldNames());
 
         foreach ($DBC as $index => $record) {
@@ -92,12 +96,18 @@ class ViewCommand extends Command
         }
 
         $table->render();
-        $output->writeln('');
+        $io->newLine();
 
-        foreach ($DBC->getErrors() as $error) {
-            $output->writeln([
-                '#'.$error['record'].' ('.$error['type'].'/'.$error['field'].'): '.$error['hint'],
-            ]);
+        $errors = $DBC->getErrors();
+        if (count($errors) > 0)
+        {
+            $io->section('Errors');
+            foreach ($DBC->getErrors() as $error) {
+                $io->text([
+                    '#'.$error['record'].' ('.$error['type'].'/'.$error['field'].'): '.$error['hint'],
+                ]);
+            }
+            $io->newLine();
         }
     }
 }
