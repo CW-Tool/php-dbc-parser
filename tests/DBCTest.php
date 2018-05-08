@@ -111,7 +111,7 @@ class DBCTest extends TestCase
     {
         return [
             'AreaPOI mapping - patch 1.12.1' => [dirname(__FILE__).'/data/AreaPOI.dbc', 'AreaPOI'],
-            'BankBagSlotPrices mapping - patch 1.12.1' => [dirname(__FILE__).'/data/BankBagSlotPrices.dbc', 'BankBagSlotPrices'],
+            'BankBagSlotPrices mapping - patch 1.12.1' => [dirname(__FILE__).'/data/BankBagSlotPrices.dbc', 'BankBagSlotPrice'],
             'Spell mapping - patch 1.12.1' => [dirname(__FILE__).'/data/Spell.dbc', 'Spell'],
         ];
     }
