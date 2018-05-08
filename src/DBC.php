@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Wowstack\Dbc;
 
+use Doctrine\Common\Inflector\Inflector;
+
 class DBC implements \IteratorAggregate
 {
     /**
@@ -209,7 +211,7 @@ class DBC implements \IteratorAggregate
      */
     public function getName(): string
     {
-        return pathinfo($this->getPath())['filename'];
+        return Inflector::singularize(pathinfo($this->getPath())['filename']);
     }
 
     /**

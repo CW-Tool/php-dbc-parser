@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Wowstack\Dbc\Export;
 
+use Doctrine\Common\Inflector\Inflector;
 use Wowstack\Dbc\DBC;
 use Wowstack\Dbc\DBCException;
 
@@ -23,24 +24,18 @@ class XMLExport implements ExportInterface
 
         $edbc = $dom->appendChild($dom->createElement('dbc'));
         $edbc_name = $dom->createAttribute('name');
-        $edbc_name->value = $dbc->getName();
+        $edbc_name->value = Inflector::pluralize($dbc->getName());
         $edbc->appendChild($edbc_name);
 
         $edbc_version = $dom->createAttribute('version');
         $edbc_version->value = $version;
         $edbc->appendChild($edbc_version);
 
-        $efields = $edbc->appendChild($dom->createElement('fields'));
-        $erecords = $edbc->appendChild($dom->createElement('records'));
-
-        $fields = $dbc->getMap()->getParsedFields();
-        foreach ($fields as $field_name => $field_data) {
-            $efields->appendChild($dom->createElement($field_name, $field_data['type']));
-        }
+        $erecords = $edbc->appendChild($dom->createElement(Inflector::pluralize($dbc->getName())));
 
         foreach ($dbc as $index => $record) {
             $pairs = $record->read();
-            $erecord = $erecords->appendChild($dom->createElement('record'));
+            $erecord = $erecords->appendChild($dom->createElement(Inflector::singularize($dbc->getName())));
             foreach ($pairs as $field => $value) {
                 $attr = $dom->createAttribute($field);
                 if (is_string($value)) {
