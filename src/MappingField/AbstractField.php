@@ -4,8 +4,21 @@ declare(strict_types=1);
 
 namespace Wowstack\Dbc\MappingField;
 
+/**
+ * Provides generic features for all field types.
+ */
 abstract class AbstractField
 {
+    /**
+     * Name of type.
+     */
+    const TYPE = 'undefined';
+
+    /**
+     * @var string field name
+     */
+    protected $name = 'undefined';
+
     /**
      * Size of field in bytes.
      */
@@ -145,21 +158,21 @@ abstract class AbstractField
     public function getParsedFields(): array
     {
         $count = 1;
-        $parsed_fields = [];
+        $parsedFields = [];
 
         while ($count <= $this->getCount()) {
-            $field_name = ($this->getCount() > 1 ? $this->getName().$count : $this->getName());
-            $parsed_field = [
+            $fieldName = ($this->getCount() > 1 ? $this->getName().$count : $this->getName());
+            $parsedField = [
                 'type' => $this->getType(),
                 'size' => $this->getSize(),
-                'format' => $this::PACK_FORMAT.'1'.$field_name,
+                'format' => $this::PACK_FORMAT.'1'.$fieldName,
                 'offset' => $this->getOffset(),
             ];
 
-            $parsed_fields[$field_name] = $parsed_field;
+            $parsedFields[$fieldName] = $parsedField;
             ++$count;
         }
 
-        return $parsed_fields;
+        return $parsedFields;
     }
 }

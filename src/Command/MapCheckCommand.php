@@ -58,6 +58,7 @@ class MapCheckCommand extends Command
         $io->section('Fields');
         $table->setHeaders($Map->getFieldNames());
         $parsed_fields = $Map->getParsedFields();
+        $field_types = [];
         foreach ($parsed_fields as $field_name => $field_data) {
             $field_types[] = $field_data['type'];
         }

@@ -8,12 +8,19 @@ use PHPUnit\Framework\TestCase;
 use Wowstack\Dbc\Mapping;
 use Wowstack\Dbc\MappingField\MappingException;
 
+/**
+ * Verifies mappings can be used in all valid variations.
+ */
 class MappingTest extends TestCase
 {
     /**
      * Tests that mapping loads with various definitions.
      *
      * @dataProvider sampleProvider
+     *
+     * @param string $sample_yaml
+     * @param int    $field_count
+     * @param int    $field_size
      */
     public function testItConstructs(string $sample_yaml, int $field_count, int $field_size)
     {
@@ -27,6 +34,8 @@ class MappingTest extends TestCase
      * Tests that mapping fails to load with invalid types.
      *
      * @dataProvider invalidSampleProvider
+     *
+     * @param string $sample_yaml
      */
     public function testItFailsWithUnknownTypes(string $sample_yaml)
     {
@@ -38,6 +47,8 @@ class MappingTest extends TestCase
      * Tests that mapping fails to load with invalid types.
      *
      * @dataProvider missingTypeProvider
+     *
+     * @param string $sample_yaml
      */
     public function testItFailsWithMissingTypes(string $sample_yaml)
     {
@@ -49,6 +60,10 @@ class MappingTest extends TestCase
      * Tests that mapping loads with various definitions.
      *
      * @dataProvider typeTestProvider
+     *
+     * @param string $sample_yaml
+     * @param string $field_name
+     * @param string $field_type
      */
     public function testItProvidesTypeInformation(string $sample_yaml, string $field_name, string $field_type)
     {
@@ -60,6 +75,9 @@ class MappingTest extends TestCase
      * Tests that the mapping producs a valid parsed field list for reading data.
      *
      * @dataProvider parsedFieldProvider
+     *
+     * @param string $sample_yaml
+     * @param array  $parsed_fields
      */
     public function testItCreatesValidParsedFields(string $sample_yaml, array $parsed_fields)
     {
@@ -71,6 +89,9 @@ class MappingTest extends TestCase
      * Tests that the mapping producs a valid parsed field list for reading data.
      *
      * @dataProvider fieldNamesProvider
+     *
+     * @param string $sample_yaml
+     * @param array  $field_names
      */
     public function testItProvidesFieldNames(string $sample_yaml, array $field_names)
     {

@@ -8,12 +8,15 @@ use Doctrine\Common\Inflector\Inflector;
 use Wowstack\Dbc\DBC;
 use Wowstack\Dbc\DBCException;
 
+/**
+ * Implements conversion of DBC files and their records into XML files.
+ */
 class XMLExport implements ExportInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function export(DBC $dbc, string $target_path = 'php://output', string $version = '1.12.1')
+    public function export(DBC $dbc, string $targetPath = 'php://output', string $version = '1.12.1')
     {
         if (null === $dbc->getMap()) {
             throw new DBCException('DBC export requires a map.');
@@ -22,16 +25,17 @@ class XMLExport implements ExportInterface
         $dom = new \DOMDocument('1.0', 'utf-8');
         $dom->formatOutput = true;
 
-        $edbc = $dom->appendChild($dom->createElement('dbc'));
-        $edbc_name = $dom->createAttribute('name');
-        $edbc_name->value = Inflector::pluralize($dbc->getName());
-        $edbc->appendChild($edbc_name);
+        $dbcRoot = $dom->appendChild($dom->createElement('dbc'));
 
-        $edbc_version = $dom->createAttribute('version');
-        $edbc_version->value = $version;
-        $edbc->appendChild($edbc_version);
+        $dbcRootName = $dom->createAttribute('name');
+        $dbcRootName->value = Inflector::pluralize($dbc->getName());
+        $dbcRoot->appendChild($dbcRootName);
 
-        $erecords = $edbc->appendChild($dom->createElement(Inflector::pluralize($dbc->getName())));
+        $dbcRootVersion = $dom->createAttribute('version');
+        $dbcRootVersion->value = $version;
+        $dbcRoot->appendChild($dbcRootVersion);
+
+        $erecords = $dbcRoot->appendChild($dom->createElement(Inflector::pluralize($dbc->getName())));
 
         foreach ($dbc as $index => $record) {
             $pairs = $record->read();
@@ -48,6 +52,6 @@ class XMLExport implements ExportInterface
         }
 
         $data = $dom->saveXML();
-        file_put_contents($target_path, $data);
+        file_put_contents($targetPath, $data);
     }
 }

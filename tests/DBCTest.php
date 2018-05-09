@@ -9,21 +9,33 @@ use Wowstack\Dbc\DBC;
 use Wowstack\Dbc\DBCException;
 use Wowstack\Dbc\Mapping;
 
+/**
+ * Verifies a DBC file can be loaded, parsed.
+ */
 class DBCTest extends TestCase
 {
     /**
      * Checks that DBC files can be loaded with a mapping.
      *
      * @dataProvider constructProvider
+     *
+     * @param string $yaml
+     * @param string $dbc
+     * @param int    $record_count
+     * @param int    $record_size
+     * @param int    $field_count
+     * @param int    $string_block_size
+     * @param bool   $has_strings
+     * @param int    $string_count
      */
     public function testItConstructs(string $yaml, string $dbc,
         int $record_count, int $record_size, int $field_count, int $string_block_size,
-        bool $has_strings, int $string_count)
-    {
+        bool $has_strings, int $string_count
+    ) {
         $DBC = new DBC($dbc, Mapping::fromYAML($yaml));
         $this->assertInstanceOf(DBC::class, $DBC);
 
-        $this->assertEquals($dbc, $DBC->getPath());
+        $this->assertEquals($dbc, $DBC->getFilePath());
         $this->assertEquals($record_count, $DBC->getRecordCount());
         $this->assertEquals($record_size, $DBC->getRecordSize());
         $this->assertEquals($field_count, $DBC->getFieldCount());
@@ -37,6 +49,9 @@ class DBCTest extends TestCase
      * Checks that DBC throws exceptions for invalid records.
      *
      * @dataProvider exceptionProvider
+     *
+     * @param string $yaml
+     * @param string $dbc
      */
     public function testItThrowsExceptionsForUnknownRecords(string $yaml, string $dbc)
     {
@@ -48,6 +63,9 @@ class DBCTest extends TestCase
 
     /**
      * @dataProvider nameProvider
+     *
+     * @param string $dbc
+     * @param string $name
      */
     public function testItHasAValidName(string $dbc, string $name)
     {
@@ -57,6 +75,8 @@ class DBCTest extends TestCase
 
     /**
      * @dataProvider fileNotFoundProvider
+     *
+     * @param string $dbc
      */
     public function testItFailsWithMissingFile(string $dbc)
     {
@@ -66,6 +86,8 @@ class DBCTest extends TestCase
 
     /**
      * @dataProvider tooSmallProvider
+     *
+     * @param string $dbc
      */
     public function testItFailsWithIncompleteHeader(string $dbc)
     {
@@ -75,6 +97,8 @@ class DBCTest extends TestCase
 
     /**
      * @dataProvider invalidHeaderProvider
+     *
+     * @param string $dbc
      */
     public function testItFailsWithInvalidHeader(string $dbc)
     {
@@ -144,7 +168,7 @@ class DBCTest extends TestCase
     {
         return [
             'binary star system' => [dirname(__FILE__).'/data/size-matters.dbc'],
-            'binary star system' => [dirname(__FILE__).'/data/wrong-signature.dbc'],
+            'looked into wrong corners' => [dirname(__FILE__).'/data/wrong-signature.dbc'],
         ];
     }
 }

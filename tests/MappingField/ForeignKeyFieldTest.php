@@ -8,10 +8,17 @@ use PHPUnit\Framework\TestCase;
 use Wowstack\Dbc\MappingField\ForeignKeyField;
 use Wowstack\Dbc\MappingField\MappingException;
 
+/**
+ * Verifies foreign key fields can be used in all variations.
+ */
 class ForeignKeyFieldTest extends TestCase
 {
     /**
      * @dataProvider constructProvider
+     *
+     * @param string $name
+     * @param array  $parameters
+     * @param int    $size
      */
     public function testItConstructs(string $name, array $parameters, int $size)
     {
@@ -26,6 +33,9 @@ class ForeignKeyFieldTest extends TestCase
 
     /**
      * @dataProvider incompleteProvider
+     *
+     * @param string $name
+     * @param array  $parameters
      */
     public function testItFailsWithoutParams(string $name, array $parameters)
     {
@@ -35,6 +45,10 @@ class ForeignKeyFieldTest extends TestCase
 
     /**
      * @dataProvider parsedFieldProvider
+     *
+     * @param string $name
+     * @param array  $parameters
+     * @param array  $parsed_fields
      */
     public function testItCreatesParsedFields(string $name, array $parameters, array $parsed_fields)
     {

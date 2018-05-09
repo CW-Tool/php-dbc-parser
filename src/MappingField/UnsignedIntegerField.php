@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Wowstack\Dbc\MappingField;
 
+/**
+ * Implements a field containing unsigned integer values.
+ */
 class UnsignedIntegerField extends AbstractField implements MappingFieldInterface
 {
     /**
@@ -43,6 +46,8 @@ class UnsignedIntegerField extends AbstractField implements MappingFieldInterfac
      *
      * @param string $name
      * @param array  $parameters
+     *
+     * @throws MappingException
      */
     public function __construct(string $name, array $parameters = [])
     {

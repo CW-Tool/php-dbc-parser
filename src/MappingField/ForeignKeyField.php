@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Wowstack\Dbc\MappingField;
 
+/**
+ * Implements a field containing a reference to another DBC file.
+ */
 class ForeignKeyField extends AbstractField implements MappingFieldInterface
 {
     /**
@@ -43,6 +46,8 @@ class ForeignKeyField extends AbstractField implements MappingFieldInterface
      *
      * @param string $name
      * @param array  $parameters
+     *
+     * @throws MappingException
      */
     public function __construct(string $name, array $parameters = [])
     {

@@ -13,7 +13,7 @@ interface ExportInterface
 {
     /**
      * @param DBC    $dbc
-     * @param string $target_path
+     * @param string $targetPath
      */
-    public function export(DBC $dbc, string $target_path);
+    public function export(DBC $dbc, string $targetPath);
 }

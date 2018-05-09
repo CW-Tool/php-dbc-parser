@@ -9,45 +9,50 @@ use Wowstack\Dbc\MappingField as Mappings;
 use Wowstack\Dbc\MappingField\MappingFieldInterface;
 use Wowstack\Dbc\MappingField\MappingException;
 
+/**
+ * Implements the column to field type maps for reading DBC files.
+ */
 class Mapping
 {
     /**
      * @var MappingFieldInterface[]
      */
-    protected $_fields = [];
+    protected $fields = [];
 
     /**
      * @var int
      */
-    protected $_fieldCount = 0;
+    protected $fieldCount = 0;
 
     /**
      * @var int
      */
-    protected $_fieldSize = 0;
+    protected $fieldSize = 0;
 
     /**
      * @var bool
      */
-    protected $_hasStrings = false;
+    protected $hasStrings = false;
 
     /**
      * Create an instance.
      *
-     * @param [] $mapping
+     * @param array $mapping
+     *
+     * @throws MappingException
      */
     public function __construct(array $mapping = [])
     {
         $fields = isset($mapping['fields']) ? $mapping['fields'] : [];
 
-        foreach ($fields as $field_name => $field_parameters) {
-            $this->add($field_name, $field_parameters);
-            $this->_fieldCount += $this->_fields[$field_name]->getTotalCount();
-            $this->_fieldSize += $this->_fields[$field_name]->getTotalSize();
+        foreach ($fields as $fieldName => $fieldData) {
+            $this->add($fieldName, $fieldData);
+            $this->fieldCount += $this->fields[$fieldName]->getTotalCount();
+            $this->fieldSize += $this->fields[$fieldName]->getTotalSize();
 
-            if ('string' === $this->_fields[$field_name]->getType() ||
-            'localized_string' === $this->_fields[$field_name]->getType()) {
-                $this->_hasStrings = true;
+            if ('string' === $this->fields[$fieldName]->getType() ||
+            'localized_string' === $this->fields[$fieldName]->getType()) {
+                $this->hasStrings = true;
             }
         }
     }
@@ -95,7 +100,7 @@ class Mapping
                 throw new MappingException('Unknown field type specified');
         }
 
-        $this->_fields[$name] = $field;
+        $this->fields[$name] = $field;
     }
 
     /**
@@ -105,7 +110,7 @@ class Mapping
      */
     public function getFieldCount(): int
     {
-        return $this->_fieldCount;
+        return $this->fieldCount;
     }
 
     /**
@@ -115,7 +120,7 @@ class Mapping
      */
     public function getFieldSize(): int
     {
-        return $this->_fieldSize;
+        return $this->fieldSize;
     }
 
     /**
@@ -127,7 +132,7 @@ class Mapping
      */
     public function getFieldType(string $name): string
     {
-        return $this->_fields[$name]->getType();
+        return $this->fields[$name]->getType();
     }
 
     /**
@@ -136,6 +141,8 @@ class Mapping
      * @param string $yaml path to YAML file
      *
      * @return Mapping
+     *
+     * @throws MappingException
      */
     public static function fromYAML(string $yaml): Mapping
     {
@@ -149,7 +156,7 @@ class Mapping
      */
     public function hasStrings(): bool
     {
-        return $this->_hasStrings;
+        return $this->hasStrings;
     }
 
     /**
@@ -159,34 +166,36 @@ class Mapping
      */
     public function getFieldNames(): array
     {
-        $field_names = [];
+        $fieldNames = [];
 
-        foreach ($this->_fields as $field) {
-            $field_list = $field->getParsedFields();
-            foreach ($field_list as $field_name => $field_data) {
-                $field_names[] = $field_name;
+        foreach ($this->fields as $field) {
+            $fieldList = $field->getParsedFields();
+            foreach ($fieldList as $fieldName => $fieldData) {
+                $fieldNames[] = $fieldName;
             }
         }
 
-        return $field_names;
+        return $fieldNames;
     }
 
     /**
      * Returns the resulting parsed field data.
      *
      * @var array
+     *
+     * @return array
      */
     public function getParsedFields(): array
     {
-        $parsed_fields = [];
+        $parsedFields = [];
 
-        foreach ($this->_fields as $field) {
-            $field_list = $field->getParsedFields();
-            foreach ($field_list as $field_name => $field_data) {
-                $parsed_fields[$field_name] = $field_data;
+        foreach ($this->fields as $field) {
+            $fieldList = $field->getParsedFields();
+            foreach ($fieldList as $fieldName => $fieldData) {
+                $parsedFields[$fieldName] = $fieldData;
             }
         }
 
-        return $parsed_fields;
+        return $parsedFields;
     }
 }

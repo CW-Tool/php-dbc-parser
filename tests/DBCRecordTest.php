@@ -10,12 +10,19 @@ use Wowstack\Dbc\DBCRecord;
 use Wowstack\Dbc\DBCException;
 use Wowstack\Dbc\Mapping;
 
+/**
+ * Verifies a DBC record provides valid data.
+ */
 class DBCRecordTest extends TestCase
 {
     /**
      * Checks that DBC provide a valid record.
      *
      * @dataProvider constructProvider
+     *
+     * @param string $yaml
+     * @param string $dbc
+     * @param int    $record
      */
     public function testItConstructs(string $yaml, string $dbc, int $record)
     {
@@ -29,6 +36,9 @@ class DBCRecordTest extends TestCase
      * Checks that retrieving a record requires a map.
      *
      * @dataProvider failWithoutMapProvider
+     *
+     * @param string $dbc
+     * @param int    $record
      */
     public function testItFailsWithoutMap(string $dbc, int $record)
     {

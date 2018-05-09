@@ -54,8 +54,8 @@ class ExportCommand extends Command
         $DBC = new DBC($input->getArgument('file'), Mapping::fromYAML($input->getArgument('map')));
         $format = 'XML';
 
-        $io = new SymfonyStyle($input, $output);
-        $io->text([
+        $styledOutput = new SymfonyStyle($input, $output);
+        $styledOutput->text([
             sprintf(
                 'Dumping %s file contents in %s format to %s.',
                 $DBC->getName(),

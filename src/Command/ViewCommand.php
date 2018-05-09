@@ -99,8 +99,7 @@ class ViewCommand extends Command
         $io->newLine();
 
         $errors = $DBC->getErrors();
-        if (count($errors) > 0)
-        {
+        if (count($errors) > 0) {
             $io->section('Errors');
             foreach ($DBC->getErrors() as $error) {
                 $io->text([

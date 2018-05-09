@@ -6,6 +6,9 @@ namespace Wowstack\Dbc;
 
 use Doctrine\Common\Inflector\Inflector;
 
+/**
+ * Implements a DBC database file.
+ */
 class DBC implements \IteratorAggregate
 {
     /**
@@ -28,43 +31,43 @@ class DBC implements \IteratorAggregate
      *
      * @var int
      */
-    protected $record_count = 0;
+    protected $recordCount = 0;
 
     /**
      * Number of columns contained in the file.
      *
      * @var int
      */
-    protected $field_count = 0;
+    protected $fieldCount = 0;
 
     /**
      * Size of each row in bytes.
      *
      * @var int
      */
-    protected $record_size = 0;
+    protected $recordSize = 0;
 
     /**
      * Size of the string block contained in the file.
      *
      * @var int
      */
-    protected $string_block_size = 0;
+    protected $stringBlockSize = 0;
 
     /**
      * @var int
      */
-    protected $file_size = 0;
+    protected $fileSize = 0;
 
     /**
      * @var resource
      */
-    protected $file_handle = null;
+    protected $fileHandle = null;
 
     /**
      * @var string
      */
-    protected $path = '';
+    protected $filePath = '';
 
     /**
      * @var Mapping
@@ -109,35 +112,35 @@ class DBC implements \IteratorAggregate
      */
     public function __construct(string $path, Mapping $map = null)
     {
-        $this->path = $path;
+        $this->filePath = $path;
 
         if (!is_file($path) && !is_readable($path)) {
             throw new DBCException('DBC file not found.');
         }
 
-        $this->file_handle = @fopen($this->path, 'r');
-        if (false === $this->file_handle) {
+        $this->fileHandle = fopen($this->filePath, 'r');
+        if (false === $this->fileHandle) {
             throw new DBCException('DBC file is not readable.');
         }
 
-        $this->file_size = filesize($this->path);
+        $this->fileSize = filesize($this->filePath);
 
-        if ($this->file_size < self::HEADER_SIZE) {
+        if ($this->fileSize < self::HEADER_SIZE) {
             throw new DBCException('DBC file is too small.');
         }
 
-        $signature = @fread($this->file_handle, strlen(self::SIGNATURE));
+        $signature = fread($this->fileHandle, strlen(self::SIGNATURE));
 
         if (self::SIGNATURE !== $signature) {
             throw new DBCException('DBC file has invalid signature.');
         }
 
-        list(, $this->record_count, $this->field_count, $this->record_size, $this->string_block_size) = unpack(self::HEADER_PACK_FORMAT, @fread($this->file_handle, self::HEADER_SIZE - strlen(self::SIGNATURE)));
+        list(, $this->recordCount, $this->fieldCount, $this->recordSize, $this->stringBlockSize) = unpack(self::HEADER_PACK_FORMAT, fread($this->fileHandle, self::HEADER_SIZE - strlen(self::SIGNATURE)));
 
         $this->dataOffset = self::HEADER_SIZE;
-        $this->stringBlockOffset = self::HEADER_SIZE + ($this->record_count * $this->record_size);
+        $this->stringBlockOffset = self::HEADER_SIZE + ($this->recordCount * $this->recordSize);
 
-        if ($this->file_size < ($this->stringBlockOffset + $this->string_block_size)) {
+        if ($this->fileSize < ($this->stringBlockOffset + $this->stringBlockSize)) {
             throw new DBCException('DBC file is too small.');
         }
 
@@ -161,11 +164,15 @@ class DBC implements \IteratorAggregate
         if (null !== $this->mapping) {
             $delta = $this->mapping->getFieldCount() - $this->getFieldCount();
             if (0 !== $delta) {
-                throw new DBCException('Mapping holds '.$this->mapping->getFieldCount().' fields but DBC holds '.$this->getFieldCount().' fields.');
+                throw new DBCException(
+                    sprintf('Mapping holds %u fields but DBC holds %u fields.', $this->mapping->getFieldCount(), $this->getFieldCount())
+                );
             }
 
-            if ($this->mapping->hasStrings() != $this->hasStrings()) {
-                throw new DBCException('No strings attached! Mapping says '.$this->mapping->hasStrings().', DBC says '.$this->hasStrings());
+            if ($this->mapping->hasStrings() !== $this->hasStrings()) {
+                throw new DBCException(
+                    sprintf('No strings attached! Mapping says %s, DBC says %s.', $this->mapping->hasStrings(), $this->hasStrings())
+                );
             }
         }
 
@@ -177,27 +184,27 @@ class DBC implements \IteratorAggregate
      */
     public function readStringBlock()
     {
-        if ($this->string_block_size > 1) {
-            fseek($this->file_handle, $this->stringBlockOffset);
-            $bytes_to_read = $this->string_block_size;
-            $current_offset = $this->stringBlockOffset;
+        if ($this->stringBlockSize > 1) {
+            fseek($this->fileHandle, $this->stringBlockOffset);
+            $bytesToRead = $this->stringBlockSize;
+            $currentOffset = $this->stringBlockOffset;
 
-            $current_string = null;
-            $bytes_read = 0;
-            while ($bytes_to_read > 0) {
-                $current_byte = fread($this->file_handle, 1);
-                ++$bytes_read;
-                if (chr(0) !== $current_byte) {
-                    $current_string = $current_string.$current_byte;
+            $currentString = null;
+            $bytesRead = 0;
+            while ($bytesToRead > 0) {
+                $currentByte = fread($this->fileHandle, 1);
+                ++$bytesRead;
+                if (chr(0) !== $currentByte) {
+                    $currentString = $currentString.$currentByte;
                 } else {
-                    if (!empty($current_string)) {
-                        $this->stringBlock[$bytes_read - strlen($current_string)] = $current_string;
+                    if (!empty($currentString)) {
+                        $this->stringBlock[$bytesRead - strlen($currentString)] = $currentString;
                     }
-                    $current_string = null;
+                    $currentString = null;
                 }
 
-                --$bytes_to_read;
-                ++$current_offset;
+                --$bytesToRead;
+                ++$currentOffset;
             }
         } else {
             $this->stringBlock = [];
@@ -211,7 +218,7 @@ class DBC implements \IteratorAggregate
      */
     public function getName(): string
     {
-        return Inflector::singularize(pathinfo($this->getPath())['filename']);
+        return Inflector::singularize(pathinfo($this->getFilePath())['filename']);
     }
 
     /**
@@ -219,9 +226,9 @@ class DBC implements \IteratorAggregate
      *
      * @return string
      */
-    public function getPath(): string
+    public function getFilePath(): string
     {
-        return realpath($this->path);
+        return realpath($this->filePath);
     }
 
     /**
@@ -231,7 +238,7 @@ class DBC implements \IteratorAggregate
      */
     public function getRecordCount(): int
     {
-        return $this->record_count;
+        return $this->recordCount;
     }
 
     /**
@@ -241,7 +248,7 @@ class DBC implements \IteratorAggregate
      */
     public function getRecordSize(): int
     {
-        return $this->record_size;
+        return $this->recordSize;
     }
 
     /**
@@ -251,7 +258,7 @@ class DBC implements \IteratorAggregate
      */
     public function getFieldCount(): int
     {
-        return $this->field_count;
+        return $this->fieldCount;
     }
 
     /**
@@ -259,7 +266,7 @@ class DBC implements \IteratorAggregate
      */
     public function getStringBlockSize(): int
     {
-        return $this->string_block_size;
+        return $this->stringBlockSize;
     }
 
     /**
@@ -285,6 +292,8 @@ class DBC implements \IteratorAggregate
     /**
      * Returns the string from the given offset.
      *
+     * @param int $offset offset in bytes
+     *
      * @return string
      *
      * @throws DBCException
@@ -295,7 +304,7 @@ class DBC implements \IteratorAggregate
             return $this->stringBlock[$offset + 1];
         }
 
-        throw new DBCException('DBC String Entry not found at index '.($offset + 1));
+        throw new DBCException(sprintf('DBC String Entry not found at index %u', ($offset + 1)));
     }
 
     /**
@@ -315,7 +324,7 @@ class DBC implements \IteratorAggregate
      */
     public function getFileHandle()
     {
-        return $this->file_handle;
+        return $this->fileHandle;
     }
 
     /**
@@ -332,10 +341,12 @@ class DBC implements \IteratorAggregate
      * Returns information if a given record index exists.
      *
      * @param int $position
+     *
+     * @return bool
      */
     public function hasRecord(int $position): bool
     {
-        return $position >= 0 && $position < $this->record_count;
+        return $position >= 0 && $position < $this->recordCount;
     }
 
     /**

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wowstack\Dbc\Tests\MappingField;
+namespace Wowstack\Dbc\Tests\Export;
 
 use PHPUnit\Framework\TestCase;
 use Wowstack\Dbc\DBC;
@@ -10,10 +10,16 @@ use Wowstack\Dbc\Mapping;
 use Wowstack\Dbc\Export\XMLExport;
 use Wowstack\Dbc\DBCException;
 
+/**
+ * Verifies DBC files can be exported to XML files.
+ */
 class XMLExportTest extends TestCase
 {
     /**
      * @dataProvider constructProvider
+     *
+     * @param string $yaml
+     * @param string $dbc
      */
     public function testItConstructs(string $yaml, string $dbc)
     {
@@ -25,6 +31,9 @@ class XMLExportTest extends TestCase
 
     /**
      * @dataProvider noMappingProvider
+     *
+     * @param string $dbc
+     * @param string $export_path
      */
     public function testItFailsWithoutMapping(string $dbc, string $export_path)
     {

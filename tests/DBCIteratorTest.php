@@ -10,12 +10,18 @@ use Wowstack\Dbc\DBCIterator;
 use Wowstack\Dbc\DBCRecord;
 use Wowstack\Dbc\Mapping;
 
+/**
+ * Verifies iteration over DBC records works.
+ */
 class DBCIteratorTest extends TestCase
 {
     /**
      * Checks that DBC provide a valid iterator.
      *
      * @dataProvider constructProvider
+     *
+     * @param string $yaml
+     * @param string $dbc
      */
     public function testItConstructs(string $yaml, string $dbc)
     {
@@ -26,6 +32,9 @@ class DBCIteratorTest extends TestCase
 
     /**
      * @dataProvider iterateProvider
+     *
+     * @param string $yaml
+     * @param string $dbc
      */
     public function testItIterates(string $yaml, string $dbc)
     {

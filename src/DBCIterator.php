@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace Wowstack\Dbc;
 
+/**
+ * Implements iteration over the records of a DBC file.
+ */
 class DBCIterator implements \Iterator
 {
     /**
      * @var DBC
      */
-    protected $dbc_file = null;
+    protected $dbcFile = null;
 
     /**
      * @var int
@@ -19,11 +22,11 @@ class DBCIterator implements \Iterator
     /**
      * Creates a new DBC iterator.
      *
-     * @var DBC
+     * @var DBC $dbcFile
      */
-    public function __construct(DBC $dbc_file)
+    public function __construct(DBC $dbcFile)
     {
-        $this->dbc_file = $dbc_file;
+        $this->dbcFile = $dbcFile;
     }
 
     /**
@@ -38,14 +41,18 @@ class DBCIterator implements \Iterator
      * Returns the current record.
      *
      * @return DBCRecord
+     *
+     * @throws DBCException
      */
     public function current()
     {
-        return $this->dbc_file->getRecord($this->position);
+        return $this->dbcFile->getRecord($this->position);
     }
 
     /**
      * Returns the current record index.
+     *
+     * @return int
      */
     public function key(): int
     {
@@ -60,13 +67,16 @@ class DBCIterator implements \Iterator
         ++$this->position;
     }
 
+    /**
+     * Moves the record index back by one.
+     */
     public function prev()
     {
         --$this->position;
     }
 
     /**
-     * Seeks to given position.
+     * Moves record position to given position.
      *
      * @param int $position
      */
@@ -82,6 +92,6 @@ class DBCIterator implements \Iterator
      */
     public function valid(): bool
     {
-        return $this->dbc_file->hasRecord($this->position);
+        return $this->dbcFile->hasRecord($this->position);
     }
 }
