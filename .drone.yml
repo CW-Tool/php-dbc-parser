@@ -1,18 +1,18 @@
 pipeline:
     build:
-        image: kogitoapp/php:7.2-cli
+        image: kogitoapp/php:7.2.6-cli
         commands:
             - composer install
 
     test:
-        image: kogitoapp/php:7.2-cli
+        image: kogitoapp/php:7.2.6-cli
         commands:
             - vendor/bin/phpunit --testdox
         when:
             status: [ success ]
 
     commands-inspect:
-        image: kogitoapp/php:7.2-cli
+        image: kogitoapp/php:7.2.6-cli
         commands:
             - ./bin/dbc-tool dbc:inspect tests/data/AreaPOI.dbc
             - ./bin/dbc-tool dbc:inspect tests/data/BankBagSlotPrices.dbc
@@ -21,7 +21,7 @@ pipeline:
             status: [ success ]
 
     commands-view:
-        image: kogitoapp/php:7.2-cli
+        image: kogitoapp/php:7.2.6-cli
         commands:
             - ./bin/dbc-tool dbc:view tests/data/AreaPOI.dbc tests/data/maps/AreaPOI.yaml --rows 10
             - ./bin/dbc-tool dbc:view tests/data/BankBagSlotPrices.dbc tests/data/maps/BankBagSlotPrices.yaml --rows 10
