@@ -1,4 +1,14 @@
 pipeline:
+    restore-cache:
+        image: drillster/drone-volume-cache:latest
+        restore: true
+        mount:
+            - ./vendor
+        volumes:
+            - /tmp/cache:/cache
+        when:
+            branch: master
+
     build:
         image: kogitoapp/php:7.2.6-cli
         commands:
@@ -28,3 +38,13 @@ pipeline:
             - ./bin/dbc-tool dbc:view tests/data/Spell.dbc tests/data/maps/Spell.yaml --rows 10
         when:
             status: [ success ]
+
+    rebuild-cache:
+        image: drillster/drone-volume-cache:latest
+        rebuild: true
+        mount:
+            - ./vendor
+        volumes:
+            - /tmp/cache:/cache
+        when:
+            branch: master
