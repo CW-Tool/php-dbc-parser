@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# -*- Mode: sh; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 
 ./bin/dbc-tool dbc:export data/dbcs/1.12.1/AnimationData.dbc data/maps/1.1.2-1.12.1/AnimationData.yaml data/export/1.12.1/AnimationData.xml
 ./bin/dbc-tool dbc:export data/dbcs/1.12.1/AreaPOI.dbc data/maps/1.12.1/AreaPOI.yaml data/export/1.12.1/AreaPOI.xml
