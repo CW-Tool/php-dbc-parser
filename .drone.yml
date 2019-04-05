@@ -1,50 +1,50 @@
 pipeline:
-    restore-cache:
-        image: drillster/drone-volume-cache:latest
-        restore: true
-        mount:
-            - ./vendor
-        volumes:
-            - /tmp/cache:/cache
-        when:
-            branch: master
+  restore-cache:
+    image: drillster/drone-volume-cache:latest
+    restore: true
+    mount:
+      - ./vendor
+    volumes:
+      - /tmp/cache:/cache
+    when:
+      branch: master
 
-    build:
-        image: kogitoapp/php:7.2.6-cli
-        commands:
-            - composer install
+  build:
+    image: kogitoapp/php:7.2-cli
+    commands:
+      - composer install
 
-    test:
-        image: kogitoapp/php:7.2.6-cli
-        commands:
-            - vendor/bin/phpunit --testdox
-        when:
-            status: [ success ]
+  test:
+    image: kogitoapp/php:7.2-cli
+    commands:
+      - vendor/bin/phpunit --testdox
+    when:
+      status: [ success ]
 
-    commands-inspect:
-        image: kogitoapp/php:7.2.6-cli
-        commands:
-            - ./bin/dbc-tool dbc:inspect tests/data/AreaPOI.dbc
-            - ./bin/dbc-tool dbc:inspect tests/data/BankBagSlotPrices.dbc
-            - ./bin/dbc-tool dbc:inspect tests/data/Spell.dbc
-        when:
-            status: [ success ]
+  commands-inspect:
+    image: kogitoapp/php:7.2-cli
+    commands:
+      - ./bin/dbc-tool dbc:inspect tests/data/AreaPOI.dbc
+      - ./bin/dbc-tool dbc:inspect tests/data/BankBagSlotPrices.dbc
+      - ./bin/dbc-tool dbc:inspect tests/data/Spell.dbc
+    when:
+      status: [ success ]
 
-    commands-view:
-        image: kogitoapp/php:7.2.6-cli
-        commands:
-            - ./bin/dbc-tool dbc:view tests/data/AreaPOI.dbc tests/data/maps/AreaPOI.yaml --rows 10
-            - ./bin/dbc-tool dbc:view tests/data/BankBagSlotPrices.dbc tests/data/maps/BankBagSlotPrices.yaml --rows 10
-            - ./bin/dbc-tool dbc:view tests/data/Spell.dbc tests/data/maps/Spell.yaml --rows 10
-        when:
-            status: [ success ]
+  commands-view:
+    image: kogitoapp/php:7.2-cli
+    commands:
+      - ./bin/dbc-tool dbc:view tests/data/AreaPOI.dbc tests/data/maps/AreaPOI.yaml --rows 10
+      - ./bin/dbc-tool dbc:view tests/data/BankBagSlotPrices.dbc tests/data/maps/BankBagSlotPrices.yaml --rows 10
+      - ./bin/dbc-tool dbc:view tests/data/Spell.dbc tests/data/maps/Spell.yaml --rows 10
+    when:
+      status: [ success ]
 
-    rebuild-cache:
-        image: drillster/drone-volume-cache:latest
-        rebuild: true
-        mount:
-            - ./vendor
-        volumes:
-            - /tmp/cache:/cache
-        when:
-            branch: master
+  rebuild-cache:
+    image: drillster/drone-volume-cache:latest
+    rebuild: true
+    mount:
+      - ./vendor
+    volumes:
+      - /tmp/cache:/cache
+    when:
+      branch: master
