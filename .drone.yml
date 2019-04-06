@@ -1,50 +1,80 @@
-pipeline:
-  restore-cache:
-    image: drillster/drone-volume-cache:latest
+---
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: restore-cache
+  pull: default
+  image: drillster/drone-volume-cache:latest
+  settings:
+    mount:
+    - ./vendor
     restore: true
+  volumes:
+  - name: 2f746d702f6361636865
+    path: /cache
+  when:
+    branch:
+    - master
+
+- name: build
+  pull: default
+  image: kogitoapp/php:7.2-cli
+  commands:
+  - composer install
+
+- name: test
+  pull: default
+  image: kogitoapp/php:7.2-cli
+  commands:
+  - vendor/bin/phpunit --testdox
+  when:
+    status:
+    - success
+
+- name: commands-inspect
+  pull: default
+  image: kogitoapp/php:7.2-cli
+  commands:
+  - ./bin/dbc-tool dbc:inspect tests/data/AreaPOI.dbc
+  - ./bin/dbc-tool dbc:inspect tests/data/BankBagSlotPrices.dbc
+  - ./bin/dbc-tool dbc:inspect tests/data/Spell.dbc
+  when:
+    status:
+    - success
+
+- name: commands-view
+  pull: default
+  image: kogitoapp/php:7.2-cli
+  commands:
+  - ./bin/dbc-tool dbc:view tests/data/AreaPOI.dbc tests/data/maps/AreaPOI.yaml --rows 10
+  - ./bin/dbc-tool dbc:view tests/data/BankBagSlotPrices.dbc tests/data/maps/BankBagSlotPrices.yaml --rows 10
+  - ./bin/dbc-tool dbc:view tests/data/Spell.dbc tests/data/maps/Spell.yaml --rows 10
+  when:
+    status:
+    - success
+
+- name: rebuild-cache
+  pull: default
+  image: drillster/drone-volume-cache:latest
+  settings:
     mount:
-      - ./vendor
-    volumes:
-      - /tmp/cache:/cache
-    when:
-      branch: master
-
-  build:
-    image: kogitoapp/php:7.2-cli
-    commands:
-      - composer install
-
-  test:
-    image: kogitoapp/php:7.2-cli
-    commands:
-      - vendor/bin/phpunit --testdox
-    when:
-      status: [ success ]
-
-  commands-inspect:
-    image: kogitoapp/php:7.2-cli
-    commands:
-      - ./bin/dbc-tool dbc:inspect tests/data/AreaPOI.dbc
-      - ./bin/dbc-tool dbc:inspect tests/data/BankBagSlotPrices.dbc
-      - ./bin/dbc-tool dbc:inspect tests/data/Spell.dbc
-    when:
-      status: [ success ]
-
-  commands-view:
-    image: kogitoapp/php:7.2-cli
-    commands:
-      - ./bin/dbc-tool dbc:view tests/data/AreaPOI.dbc tests/data/maps/AreaPOI.yaml --rows 10
-      - ./bin/dbc-tool dbc:view tests/data/BankBagSlotPrices.dbc tests/data/maps/BankBagSlotPrices.yaml --rows 10
-      - ./bin/dbc-tool dbc:view tests/data/Spell.dbc tests/data/maps/Spell.yaml --rows 10
-    when:
-      status: [ success ]
-
-  rebuild-cache:
-    image: drillster/drone-volume-cache:latest
+    - ./vendor
     rebuild: true
-    mount:
-      - ./vendor
-    volumes:
-      - /tmp/cache:/cache
-    when:
-      branch: master
+  volumes:
+  - name: 2f746d702f6361636865
+    path: /cache
+  when:
+    branch:
+    - master
+
+volumes:
+- name: 2f746d702f6361636865
+  host:
+    path: /tmp/cache
+
+...
