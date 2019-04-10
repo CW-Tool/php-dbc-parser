@@ -7,29 +7,19 @@ platform:
   arch: amd64
 
 steps:
-- name: restore-cache
-  pull: default
-  image: drillster/drone-volume-cache:latest
-  settings:
-    mount:
-    - ./vendor
-    restore: true
-  volumes:
-  - name: 2f746d702f6361636865
-    path: /cache
-  when:
-    branch:
-    - master
-
 - name: build
-  pull: default
   image: kogitoapp/php:7.2-cli
+  volumes:
+  - name: vendor-cache
+    path: /drone/src/vendor
   commands:
   - composer install
 
 - name: test
-  pull: default
   image: kogitoapp/php:7.2-cli
+  volumes:
+  - name: vendor-cache
+    path: /drone/src/vendor
   commands:
   - vendor/bin/phpunit --testdox
   when:
@@ -37,8 +27,10 @@ steps:
     - success
 
 - name: commands-inspect
-  pull: default
   image: kogitoapp/php:7.2-cli
+  volumes:
+  - name: vendor-cache
+    path: /drone/src/vendor
   commands:
   - ./bin/dbc-tool dbc:inspect tests/data/AreaPOI.dbc
   - ./bin/dbc-tool dbc:inspect tests/data/BankBagSlotPrices.dbc
@@ -48,8 +40,10 @@ steps:
     - success
 
 - name: commands-view
-  pull: default
   image: kogitoapp/php:7.2-cli
+  volumes:
+  - name: vendor-cache
+    path: /drone/src/vendor
   commands:
   - ./bin/dbc-tool dbc:view tests/data/AreaPOI.dbc tests/data/maps/AreaPOI.yaml --rows 10
   - ./bin/dbc-tool dbc:view tests/data/BankBagSlotPrices.dbc tests/data/maps/BankBagSlotPrices.yaml --rows 10
@@ -58,23 +52,7 @@ steps:
     status:
     - success
 
-- name: rebuild-cache
-  pull: default
-  image: drillster/drone-volume-cache:latest
-  settings:
-    mount:
-    - ./vendor
-    rebuild: true
-  volumes:
-  - name: 2f746d702f6361636865
-    path: /cache
-  when:
-    branch:
-    - master
-
 volumes:
-- name: 2f746d702f6361636865
-  host:
-    path: /tmp/cache
-
+- name: vendor-cache
+  temp: {}
 ...
