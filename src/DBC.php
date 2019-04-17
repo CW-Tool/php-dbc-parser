@@ -60,7 +60,7 @@ class DBC implements \IteratorAggregate
     protected $fileSize = 0;
 
     /**
-     * @var resource
+     * @var resource|bool
      */
     protected $fileHandle = null;
 

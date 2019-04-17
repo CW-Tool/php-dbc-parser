@@ -79,8 +79,7 @@ class DBCRecord
             throw new DBCException('DBCRecord can not be read without a mapping');
         }
 
-        $data = null;
-        $format = null;
+        $format = [];
         $strings = [];
         $foreignKeys = [];
         $fields = $map->getParsedFields();
