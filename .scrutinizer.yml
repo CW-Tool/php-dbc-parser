@@ -13,13 +13,10 @@ build:
             tests:
                 override:
                     - php-scrutinizer-run
-                    - phpcs-run
+                    - 'phpcs-run --standard=vendor/egosun/symfony-4-code-sniffer/Symfony3Custom/ruleset.xml src'
     dependencies:
         override:
             - composer install --ignore-platform-reqs --no-interaction
-    tests:
-        override:
-            - 'phpcs-run --standard=vendor/egosun/symfony-4-code-sniffer/Symfony3Custom/ruleset.xml src'
 tools:
     external_code_coverage:
         timeout: 600
