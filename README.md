@@ -26,7 +26,7 @@ Whenever changing any classes, run the test suie before committing:
 
 **Never** push changes which have not been run through the test suite successfully!
 
-[bs-image]: https://build01.kogitoapp.com/api/badges/wowstack/dbc-parser/status.svg
-[bs-url]: https://build01.kogitoapp.com/wowstack/dbc-parser
+[bs-image]: https://travis-ci.org/wowstack/php-dbc-parser.svg?branch=master
+[bs-url]: https://travis-ci.org/wowstack/php-dbc-parser
 
 [dbc]: https://wowdev.wiki/DBC
