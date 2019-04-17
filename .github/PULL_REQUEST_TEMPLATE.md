@@ -1,8 +1,7 @@
 <!--
 ** Make sure all your commits include a signature generated with `git commit -s` **
 
-If this is a bug fix, make sure your description includes "fixes #xxxx", or
-"closes #xxxx"
+If this is a bug fix, make sure your description includes "Fixed #xxxx".
 
 Please provide the following information:
 -->
