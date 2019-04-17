@@ -13,6 +13,8 @@ create, modify and update DBC files from World of Warcraft up to version 3.3.5.
 - configurable mappings via YAML files
 - tools for inspecting, dumping
 
+Want to talk with us? We're on [Discord][discord].
+
 ## Usage
 
 The PHP DBC Parser supports both getting an initial idea of a DBC files structure
@@ -109,3 +111,4 @@ Whenever changing any classes, run the test suie before committing:
 [bs-url]: https://travis-ci.org/wowstack/php-dbc-parser
 
 [dbc]: https://wowdev.wiki/DBC
+[discord]: https://discord.gg/TttsRMp
