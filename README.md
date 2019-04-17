@@ -13,7 +13,12 @@ create, modify and update DBC files from World of Warcraft up to version 3.3.5.
 - configurable mappings via YAML files
 - tools for inspecting, dumping
 
-Want to talk with us? We're on [Discord][discord].
+## Support
+
+Meanwhile we are on [Discord][discord], so come chat with us.
+
+Like our work and want to show appreciation? Give the repository a star, visit
+our [Patreon][patreon] and become an supporter. :heart_eyes:
 
 ## Usage
 
@@ -112,3 +117,4 @@ Whenever changing any classes, run the test suie before committing:
 
 [dbc]: https://wowdev.wiki/DBC
 [discord]: https://discord.gg/TttsRMp
+[patreon]: https://www.patreon.com/wowstack
