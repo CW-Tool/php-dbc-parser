@@ -15,12 +15,6 @@ cache:
 before_install:
   - mv ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini{,.disabled} || echo "xdebug not available"
 
-before_script:
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - composer global require egosun/symfony-4-code-sniffer;
-    phpcs --config-set installed_paths $HOME/.composer/vendor/egosun/symfony-4-code-sniffer;
-    phpcs --config-set standard Symfony;
-
 install:
   - rm composer.lock
   - travis_retry composer update --prefer-dist

@@ -17,7 +17,9 @@ build:
     dependencies:
         override:
             - composer install --ignore-platform-reqs --no-interaction
-
+    tests:
+        override:
+            - 'phpcs-run --standard=vendor/egosun/symfony-4-code-sniffer/Symfony3Custom/ruleset.xml'
 tools:
     external_code_coverage:
         timeout: 600
