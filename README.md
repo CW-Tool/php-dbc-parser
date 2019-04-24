@@ -117,4 +117,4 @@ Whenever changing any classes, run the test suie before committing:
 
 [dbc]: https://wowdev.wiki/DBC
 [discord]: https://discord.gg/TttsRMp
-[patreon]: https://www.patreon.com/wowstack
+[patreon]: https://www.patreon.com/bePatron?u=10897042
