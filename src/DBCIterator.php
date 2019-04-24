@@ -22,7 +22,7 @@ class DBCIterator implements \Iterator
     /**
      * Creates a new DBC iterator.
      *
-     * @var DBC $dbcFile
+     * @var DBC $dbcFile A valid DBC file to be used
      */
     public function __construct(DBC $dbcFile)
     {
