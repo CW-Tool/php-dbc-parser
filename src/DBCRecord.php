@@ -59,6 +59,10 @@ class DBCRecord
         $this->recordOffset = DBC::HEADER_SIZE + $this->position * $this->recordSize;
         $this->fileHandle = $this->dbcFile->getFileHandle();
 
+        if (false === $this->fileHandle) {
+            throw new DBCException('DBC file is not readable.');
+        }
+
         fseek($this->fileHandle, $this->recordOffset);
         if ($this->recordSize > 0) {
             $this->data = fread($this->fileHandle, $this->recordSize);

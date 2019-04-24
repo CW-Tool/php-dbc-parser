@@ -184,6 +184,10 @@ class DBC implements \IteratorAggregate
      */
     public function readStringBlock()
     {
+        if (false === $this->fileHandle) {
+            throw new DBCException('DBC file is not readable.');
+        }
+
         if ($this->stringBlockSize > 1) {
             fseek($this->fileHandle, $this->stringBlockOffset);
             $bytesToRead = $this->stringBlockSize;
@@ -320,7 +324,7 @@ class DBC implements \IteratorAggregate
     /**
      * Returns the handle to the associated file.
      *
-     * @return resource
+     * @return resource|bool
      */
     public function getFileHandle()
     {
