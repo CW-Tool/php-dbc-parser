@@ -30,7 +30,7 @@ class DBCRecord
     protected $recordSize = 0;
 
     /**
-     * @var resource
+     * @var resource|bool
      */
     protected $fileHandle = null;
 

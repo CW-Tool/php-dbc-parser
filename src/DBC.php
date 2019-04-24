@@ -199,7 +199,7 @@ class DBC implements \IteratorAggregate
                 $currentByte = fread($this->fileHandle, 1);
                 ++$bytesRead;
                 if (chr(0) !== $currentByte) {
-                    $currentString = $currentString.$currentByte;
+                    $currentString = $currentString . $currentByte;
                 } else {
                     if (!empty($currentString)) {
                         $this->stringBlock[$bytesRead - strlen($currentString)] = $currentString;
