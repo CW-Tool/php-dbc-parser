@@ -15,10 +15,12 @@ create, modify and update DBC files from World of Warcraft up to version 3.3.5.
 
 ## Support
 
-Meanwhile we are on [Discord][discord], so come chat with us.
+Meanwhile we are on [Discord][discord-url], so come chat with us.
 
 Like our work and want to show appreciation? Give the repository a star, visit
-our [Patreon][patreon] and become an supporter. :heart_eyes:
+our [Patreon][patreon-url] and become an supporter. :heart_eyes:
+
+[![Become a patreon][patreon-image]][patreon-url]
 
 ## Usage
 
@@ -115,6 +117,11 @@ Whenever changing any classes, run the test suie before committing:
 [bs-image]: https://travis-ci.org/wowstack/php-dbc-parser.svg?branch=master
 [bs-url]: https://travis-ci.org/wowstack/php-dbc-parser
 
+[wowstack]: https://wowstack.io/
+[wow-1]: http://blizzard.com/games/wow/
+
+[patreon-image]: https://c5.patreon.com/external/logo/become_a_patron_button.png
+[patreon-url]: https://www.patreon.com/bePatron?u=10897042
+[discord-url]: https://discord.gg/TttsRMp
+
 [dbc]: https://wowdev.wiki/DBC
-[discord]: https://discord.gg/TttsRMp
-[patreon]: https://www.patreon.com/bePatron?u=10897042
